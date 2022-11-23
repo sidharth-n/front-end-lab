@@ -14,15 +14,15 @@ I was fortunate to realise very early in my career that learning tools like HTML
 # References & Demo
 
 <br />
-The demo link contains the link to the last version. You can always see previous versions by adjusting the version number in the domain. <br/> Will give the best output in Chrome ( Most of the UI is Optimised for desktop only ) 
+The demo link contains the link to the last version.<br/>You can always see previous versions by adjusting the version number in the domain. <br/> Will give the best output in Chrome ( Most of the UI is Optimised for desktop only ) 
 <br/><br/>
 
 | Date      | Design Reference       | Demo           |
 | --------- | ---------------------- | -------------- |
-| 02 Jul 20 | [Apple Music][1-d]     | [Demo][1-i-v2] |
+| 02 Jul 20 | [to-do][1-d]           | [Demo][1-i-v2] |
 | 03 Jul 20 | [Covid Dashboard][2-d] | [Demo][2-i-v2] |
 
 [1-d]: https://dribbble.com/shots/12389560-Apple-Music-Light-Theme
-[1-i-v2]: http://applemusicclone-v2.surge.sh/
+[1-i-v2]: http://to-do-v6.surge.sh/
 [2-d]: https://dribbble.com/shots/12335745-COVID-Information-Dashboard/attachments/3951285?mode=media
 [2-i-v2]: http://covid-v2-1.surge.sh
