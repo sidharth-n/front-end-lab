@@ -50,7 +50,6 @@ body {
   color: rgb(0, 137, 250);
   font-size: 40px;
   padding-left: 10px;
-  text-align: center;
 }
 
 ol {
@@ -59,7 +58,7 @@ ol {
   font-size: 20px;
   overflow: auto;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   padding: 5px;
 }
 
@@ -76,13 +75,14 @@ li {
   justify-content: space-between;
   align-items: center;
   padding: 5px;
+  margin-top: 5px;
   list-style-position: inside;
   border-radius: 10px;
   box-shadow: 0px 0px 5px 0.5px rgb(218, 213, 213);
 }
 span {
-  padding: 5px;
-  font-size: 18px;
+  padding: 8px;
+  font-size: 15px;
   color: rgb(59, 57, 57);
   text-transform: capitalize;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
