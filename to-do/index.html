@@ -8,13 +8,156 @@
   </head>
   <body>
     <div class="card">
-      <h1 class="h1">To-Do</h1>
-      <ol></ol>
-      <div class="input-box">
-        <input type="text" name="item" id="item" placeholder="Add task" />
-        <button class="ipBtn">+</button>
+      <div class="nav">
+        <img
+          class="profile-image"
+          src="assets/profile.jpeg"
+          alt="profile-photo"
+          width="30px"
+          height="30px"
+        />
+        <div class="icons">
+          <img
+            src="assets/search.webp"
+            alt="search"
+            width="17px"
+            height="17px"
+          />
+          <img
+            src="assets/bell.png"
+            alt="notification"
+            width="17px"
+            height="17px"
+          />
+          <img src="assets/more.png" alt="more" width="17px" height="17px" />
+        </div>
       </div>
+      <div class="title">My Tasks</div>
+      <div class="menu">
+        <span>To-do</span><span>Due Soon</span><span>In Review</span
+        ><span>Completed</span>
+      </div>
+      <div class="line"></div>
+      <div class="content">
+        <div class="task-card violet">
+          <div class="task-card-1">
+            <span id="task-head">Week 1 College Tasks</span>
+            <img
+              class="task-card-more"
+              src="assets/more.png"
+              alt="more"
+              width="17px"
+              height="17px"
+            />
+          </div>
+          <span id="task-date">Friday,5 November 2021</span>
+          <div class="progress-bar">
+            <div class="progress">
+              <div class="progress-level"></div>
+            </div>
+            <span class="percentage">25%</span>
+          </div>
+        </div>
+
+        <div class="task-card orange">
+          <div class="task-card-1">
+            <span id="task-head">Corporate Web Design</span>
+            <img
+              class="task-card-more"
+              src="assets/more.png"
+              alt="more"
+              width="17px"
+              height="17px"
+            />
+          </div>
+          <span id="task-date">Monday,8 November 2021</span>
+          <div class="team-images">
+            <img
+              class="team-image"
+              src="assets/team-image2.jpeg"
+              alt="profile-photo"
+              width="18px"
+              height="18px"
+            />
+            <img
+              class="team-image p2"
+              src="assets/profile.jpeg"
+              alt="profile-photo"
+              width="16px"
+              height="16px"
+            />
+            <img
+              class="team-image p3"
+              src="assets/team-image-3.jpg"
+              alt="profile-photo"
+              width="18px"
+              height="18px"
+            />
+          </div>
+          <div class="progress-bar">
+            <div class="progress">
+              <div class="progress-level"></div>
+            </div>
+            <span class="percentage">75%</span>
+          </div>
+        </div>
+        <div class="task-card pink">
+          <div class="task-card-1">
+            <span id="task-head">Finance Dashboard Design</span>
+            <img
+              class="task-card-more"
+              src="assets/more.png"
+              alt="more"
+              width="17px"
+              height="17px"
+            />
+          </div>
+          <span id="task-date">Monday,8 November 2021</span>
+          <div class="team-images">
+            <img
+              class="team-image"
+              src="assets/team-image-3.jpg"
+              alt="profile-photo"
+              width="18px"
+              height="18px"
+            />
+
+            <img
+              class="team-image p2"
+              src="assets/team-image2.jpeg"
+              alt="profile-photo"
+              width="18px"
+              height="18px"
+            />
+          </div>
+          <div class="progress-bar">
+            <div class="progress">
+              <div class="progress-level"></div>
+            </div>
+            <span class="percentage">50%</span>
+          </div>
+        </div>
+      </div>
+      <button class="add clickable">+</button>
     </div>
-    <script src="todo.js"></script>
+
+    <img
+      class="overlay"
+      src="overlay.png"
+      alt="overlay image"
+      width="100%"
+      height="100%"
+    />
+    <input
+      type="range"
+      min="0"
+      max="1"
+      step="0.01"
+      id="slider"
+      name="slider"
+      value="0"
+    />
+    <button class="debug-btn" value="work">Test Mode</button>
+    <script src="debug.js"></script>
   </body>
 </html>
