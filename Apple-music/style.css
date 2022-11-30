@@ -11,26 +11,31 @@ body {
   font-weight: bold;
   overflow-y: hidden;
 }
-.overlay {
-  height: 900px;
-  width: 1400px;
+.debug-nav {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  height: 40px;
+  width: 600px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   position: absolute;
-  top: 0;
-  opacity: 0;
-}
-
-#slider {
+  top: 2px;
+  border: 1px solid white;
+  left: 600px;
+  background-color: rgba(88, 86, 86, 0.7);
+  border-radius: 20px;
   display: none;
-  color: black;
-  background-color: aliceblue;
-  position: absolute;
-  top: 3px;
-  right: 30px;
 }
 
-.disabled {
-  width: 0;
-  height: 0;
+.debug-nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.debug-nav a:hover {
+  font-size: 16px;
 }
 
 .btn:hover {
@@ -102,6 +107,7 @@ body {
   flex-direction: column;
   margin-top: 60px;
   gap: 4px;
+  font-weight: lighter;
 }
 .nav-3-1 {
   padding-top: 3px;
@@ -109,13 +115,13 @@ body {
 
 i {
   padding-top: 5px !important;
-  font-size: 1.2em !important;
+  font-size: 1em !important;
   margin-right: 20px;
   opacity: 0.7;
 }
 
 .nav-4 :first-child {
-  font-size: 15px;
+  font-size: 14px;
   padding: 7px;
   padding-top: 3px;
   opacity: 0.8;
@@ -127,6 +133,7 @@ i {
   flex-direction: column;
   margin-top: 65px;
   gap: 18px;
+  font-weight: lighter;
 }
 
 .nav-4 li {
@@ -189,7 +196,7 @@ i {
   flex: 1;
   height: 777px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1.02fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-row-gap: 35px;
   grid-column-gap: -3px;
   overflow: auto;
@@ -199,6 +206,7 @@ i {
 }
 
 .music-card {
+  font-size: 19px;
   height: 525px;
   width: 417px;
   background-color: white;
@@ -255,6 +263,7 @@ i {
 }
 
 .play-box {
+  padding: 0px 40px;
   display: flex;
   height: 130px;
   width: 95%;
@@ -265,7 +274,7 @@ i {
   border-radius: 20px;
   background-color: rgba(233, 229, 229, 0.7);
   backdrop-filter: blur(12px);
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   box-shadow: 0px 4px 20px 3px rgb(65, 64, 64);
 }
@@ -274,7 +283,7 @@ i {
   display: flex;
 }
 .float-data {
-  font-size: 16px;
+  font-size: 18px;
   display: flex;
   flex-direction: column;
   margin-left: 20px;
@@ -286,6 +295,8 @@ i {
   border-radius: 10px;
   border: none;
   box-shadow: 0px 5px 15px 5px rgb(146, 145, 145);
+  width: 75px;
+  height: 75px;
 }
 
 #ratio {
@@ -339,7 +350,7 @@ i {
 
 .volume-progress-bar {
   background-color: rgba(150, 147, 147, 0.5);
-  width: 110px;
+  width: 160px;
   display: flex;
   border: none;
   border-radius: 20px;
@@ -352,4 +363,7 @@ i {
   background-color: rgb(102, 101, 101, 0.6);
   border: none;
   border-radius: 20px;
+}
+.fa-volume-down {
+  font-size: 19px !important;
 }
