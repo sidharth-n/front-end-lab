@@ -351,10 +351,9 @@ i {
 .volume-progress-bar {
   background-color: rgba(150, 147, 147, 0.5);
   width: 160px;
-  display: flex;
   border: none;
   border-radius: 20px;
-  margin-left: 2px;
+  margin-top: 3px;
 }
 
 .volume-progress {
