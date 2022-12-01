@@ -10,6 +10,7 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
   overflow-y: hidden;
+  color: rgb(20, 20, 20);
 }
 .debug-nav {
   color: white;
@@ -35,7 +36,7 @@ body {
 }
 
 .debug-nav a:hover {
-  font-size: 16px;
+  color: #82cbf5;
 }
 
 .btn:hover {
@@ -74,7 +75,7 @@ body {
 .nav-btn-3 {
   width: 20px;
   height: 20px;
-  border: 3px solid black;
+  border: 3px solid rgb(19, 18, 18);
   border-radius: 50%;
 }
 
@@ -106,7 +107,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 60px;
-  gap: 4px;
+  gap: 10px;
   font-weight: lighter;
 }
 .nav-3-1 {
@@ -132,7 +133,7 @@ i {
   display: flex;
   flex-direction: column;
   margin-top: 65px;
-  gap: 18px;
+  gap: 20px;
   font-weight: lighter;
 }
 
@@ -174,7 +175,7 @@ i {
 }
 
 ::placeholder {
-  color: black;
+  color: rgb(20, 20, 20);
   font-size: 25px;
   font-weight: bold;
 }
@@ -215,7 +216,6 @@ i {
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
   border: none;
   border-radius: 20px;
@@ -235,27 +235,37 @@ i {
 
 .m1,
 .m5 {
-  background-image: url(./assets/music-1.png),
-    linear-gradient(90deg, #fcc1bf 60%, rgb(255, 119, 137) 80%);
+  background-image: linear-gradient(90deg, #fcc1bf 60%, rgb(255, 119, 137) 80%);
 }
-.m2,
-.m6 {
-  background-image: url(./assets/music-2.png),
-    linear-gradient(
-      100deg,
-      rgb(45, 114, 82) 20%,
-      #b0d4b6 60%,
-      rgb(46, 133, 92) 90%
-    );
+.music-container img {
+  width: 417px;
+  height: 400px !important;
+  margin-bottom: 34px;
+}
+
+.m6,
+.m7 {
+  background-image: linear-gradient(
+    100deg,
+    rgb(0, 44, 80) 20%,
+    #ffffff 60%,
+    rgb(0, 44, 80) 90%
+  );
+}
+.m2 {
+  background-image: linear-gradient(
+    100deg,
+    rgb(45, 114, 82) 20%,
+    #b0d4b6 60%,
+    rgb(46, 133, 92) 90%
+  );
 }
 .m3,
 .m4 {
-  background-image: url(./assets/music-3.png),
-    linear-gradient(90deg, #82cbf5 40%, rgb(212, 152, 41) 80%);
+  background-image: linear-gradient(90deg, #82cbf5 40%, rgb(212, 152, 41) 80%);
 }
 .m4 {
-  background-image: url(./assets/music-3.png),
-    linear-gradient(90deg, #82cbf5 40%, rgb(212, 152, 41) 80%);
+  background-image: linear-gradient(90deg, #82cbf5 40%, rgb(212, 152, 41) 80%);
 }
 .artist {
   font-weight: lighter;
