@@ -24,5 +24,6 @@ The demo link contains the link to the last version.<br/>You can always see prev
 [1-d]: https://dribbble.com/shots/16825690-Task-Management-App
 [1-i-v2]: http://to-do-v6.surge.sh/
 [2-d]: https://dribbble.com/shots/12389560-Apple-Music-Light-Theme/attachments/4004245?mode=media
-[2-v2]: https://apple-music-v2.surge.sh
+[2-v2]: https://apple-music-v5.surge.sh/
 [3-d]: https://dribbble.com/shots/12335745-COVID-Information-Dashboard/attachments/3951285?mode=media
+[3-v1]: https://covid-dashboard-v2.surge.sh/
