@@ -1,0 +1,426 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  --darkblue: #323c79;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.debug-nav {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  height: 40px;
+  width: 600px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 2px;
+  border: 1px solid white;
+  left: 600px;
+  background-color: rgba(88, 86, 86, 0.7);
+  border-radius: 20px;
+  display: none;
+}
+
+.debug-nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.debug-nav a:hover {
+  color: #82cbf5;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.side-nav {
+  color: rgb(37, 37, 37);
+  font-size: 15px;
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  padding: 40px 80px;
+  border-right: 1px solid rgb(233, 231, 231);
+}
+
+#paypal-logo {
+  height: 80px;
+  width: 160px;
+}
+.side-nav-1 {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.side-nav-1-btn {
+  padding: 17px;
+  width: 100%;
+  margin-top: 2px;
+  border-radius: 20px;
+  display: flex;
+  column-gap: 40px;
+  row-gap: 20px;
+}
+
+.side-nav-1-btn:hover {
+  cursor: pointer;
+  background-color: rgb(158, 226, 253);
+}
+
+.details {
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  position: relative;
+  bottom: 5px;
+  left: 80px;
+}
+
+.side-nav-2 {
+  background-color: rgb(255, 248, 220);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  gap: 30px;
+  padding: 30px 0px 60px 0px;
+}
+
+.side-nav-2-title {
+  font-size: 25px;
+}
+
+.side-nav-2-input {
+  border: none;
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgb(134, 134, 134);
+}
+
+.circle {
+  color: white;
+  font-size: 17px;
+  padding: 10px 15px;
+  border-radius: 50%;
+  background-color: rgb(47, 3, 150);
+  box-shadow: 1px 1px 5px 0px black;
+}
+
+.circle-container {
+  padding: 2px;
+}
+.circle-container :nth-child(1) {
+  background-color: brown;
+  position: relative;
+  left: 20px;
+  z-index: 1;
+}
+.circle-container :nth-child(2) {
+  background-color: rgb(19, 24, 85);
+  position: relative;
+  left: 6px;
+  z-index: 2;
+}
+.circle-container :nth-child(3) {
+  color: rgb(54, 54, 54);
+  background-color: lightblue;
+  position: relative;
+  left: -5px;
+  z-index: 3;
+}
+.circle-container :nth-child(4) {
+  background-color: lightgreen;
+  position: relative;
+  left: -12px;
+  z-index: 1;
+}
+
+.name_email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.name_email :first-child {
+  font-size: 16px;
+}
+.name_email :nth-child(2) {
+  font-weight: lighter;
+  color: #43b5f7;
+}
+
+.next-step-btn {
+  text-align: center;
+  width: 80%;
+  font-size: 15px;
+  color: white;
+  background-color: #323c79;
+  padding: 20px 50px;
+  border-radius: 20px;
+  position: relative;
+  top: -75px;
+  left: 30px;
+}
+
+.next-step-btn:hover {
+  cursor: pointer;
+  box-shadow: 0px 8px 15px 1px rgb(117, 116, 116);
+}
+
+.logout-container {
+  position: relative;
+  top: -75px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0px 40px;
+  align-items: center;
+}
+
+#logout-icon {
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
+}
+
+.logout-container > span:hover {
+  cursor: pointer;
+  color: grey;
+}
+
+.container-right {
+  width: 500px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 80px;
+  gap: 50px;
+  background-color: #fbfaf6;
+  border-left: 1px solid rgb(233, 231, 231);
+}
+
+.right-top {
+  display: flex;
+  font-size: 20px;
+  column-gap: 80px;
+  align-items: center;
+}
+
+.right-top:hover {
+  cursor: pointer;
+}
+
+.balance {
+  text-align: center;
+  width: 70%;
+  color: white;
+  background-color: #323c79;
+  padding: 20px 0px;
+  border-radius: 20px;
+}
+
+.right-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.right-2 :nth-child(1) {
+  font-size: 35px;
+}
+
+.highlight {
+  color: var(--darkblue);
+}
+
+.right-2 :nth-child(2) {
+  font-size: 18px;
+  color: grey;
+  font-weight: normal;
+}
+
+.right-3 {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-right: 30px;
+}
+
+.bank-accounts {
+  display: flex;
+  gap: 45px;
+  padding: 0px 10px;
+  border-bottom: 0.5px solid rgb(194, 193, 193);
+}
+.bank-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.selector {
+  height: 28px;
+  width: 35px;
+  border-radius: 50%;
+  background-color: rgb(236, 233, 233);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selected {
+  height: 60%;
+  width: 60%;
+  border-radius: inherit;
+  background-color: rgb(22, 155, 214);
+  display: none;
+}
+
+.selector:hover > .selected {
+  display: block;
+  cursor: pointer;
+}
+.bank-name {
+  font-size: 16px;
+}
+
+.account-number {
+  font-size: 14px;
+  color: rgb(77, 77, 77);
+  display: flex;
+  align-items: center;
+}
+
+.account-no-dots {
+  font-size: 30px;
+  color: rgb(48, 48, 48);
+  padding-bottom: 15px;
+}
+
+.right-4 {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.right-4 :first-child {
+  font-size: 14px;
+  color: rgb(22, 155, 214);
+}
+.next-step-btn2 {
+  text-align: center;
+  width: 80%;
+  font-size: 16px;
+  color: white;
+  background-color: rgb(22, 155, 214);
+  padding: 20px 50px;
+  border-radius: 20px;
+  box-shadow: 0px 5px 20px 3px rgb(152, 217, 245);
+  z-index: 2;
+}
+
+.next-step-btn2:hover {
+  box-shadow: 0px 10px 20px 3px rgb(152, 217, 245);
+  cursor: pointer;
+}
+.right-bottom-img {
+  position: relative;
+  bottom: 90px;
+  z-index: 1;
+  right: 0;
+}
+
+.container-center {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 70px 70px;
+}
+
+.payment-methods {
+  font-size: 35px;
+}
+.cards-container {
+  display: flex;
+  border: 1px solid grey;
+  gap: 40px;
+}
+
+.card-1-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-1 {
+  width: 350px;
+  height: 200px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(36, 59, 127);
+  border-radius: 20px;
+}
+
+.card-2 {
+  width: 350px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffe8e2;
+  border-radius: 20px;
+}
+
+.card-3 {
+  height: 370px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0px 5px 20px 10px wheat;
+}
+
+.container-center-4 {
+  border: 1px solid yellow;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.transfer-funds-2 {
+  font-size: 13px;
+  text-align: center;
+  padding: 20px 40px;
+  border: 1px solid rgb(139, 139, 139);
+  border-radius: 20px;
+}
+
+.line {
+  border: 0.001px solid rgb(139, 139, 139);
+}
+
+.container-center-5 {
+  font-size: 14px;
+  font-weight: lighter;
+}
