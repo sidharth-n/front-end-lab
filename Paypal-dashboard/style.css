@@ -348,19 +348,30 @@ body {
 
 .container-center {
   height: 100vh;
-  overflow: none;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
   padding: 70px 90px;
+}
+.greetings {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.hands {
+  font-size: 18px;
+  padding-bottom: 5px;
 }
 
 .payment-methods {
   font-size: 35px;
+  margin-top: 35px;
 }
 .cards-container {
   display: flex;
   gap: 40px;
+  margin-bottom: 30px;
 }
 
 .card-1-2 {
@@ -473,7 +484,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  box-shadow: 0px 1px 10px 5px rgb(230, 230, 230);
+  box-shadow: 0px 1px 5px 2px rgb(230, 230, 230);
 }
 
 .card-1:hover,
@@ -551,4 +562,8 @@ body {
   font-weight: normal;
   padding: 5px;
   border-radius: 5px;
+}
+
+#graph {
+  height: 100px;
 }
