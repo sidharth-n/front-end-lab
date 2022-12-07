@@ -15,12 +15,13 @@ I was fortunate to realise very early in my career that learning tools like HTML
 The demo link contains the link to the last version.<br/>You can always see previous versions by adjusting the version number in the domain. <br/> Will give the best output in Chrome ( Most of the UI is Optimised for desktop only ) 
 <br/><br/>
 
-| Date      | Design Reference        | Demo           |
-| --------- | ----------------------- | -------------- |
-| 23 Nov 22 | [to-do][1-d]            | [Demo][1-i-v2] |
-| 27 Nov 22 | [Apple-Music][2-d]      | [Demo][2-v2]   |
-| 29 Nov 22 | [Covid-Dashboard][3-d]  | [Demo][3-v1]   |
-| 06 Dec 22 | [Paypal-Dashboard][4-d] | [Demo][4-v1]   |
+| Date      | Design Reference                  | Demo           |
+| --------- | --------------------------------- | -------------- |
+| 23 Nov 22 | [to-do][1-d]                      | [Demo][1-i-v2] |
+| 27 Nov 22 | [Apple-Music][2-d]                | [Demo][2-v2]   |
+| 29 Nov 22 | [Covid-Dashboard][3-d]            | [Demo][3-v1]   |
+| 06 Dec 22 | [Paypal-Dashboard][4-d]           | [Demo][4-v1]   |
+| 07 Dec 22 | [Inbox-Management-Dashboard][5-d] | [Demo][5-v1]   |
 
 [1-d]: https://dribbble.com/shots/16825690-Task-Management-App
 [1-i-v2]: http://to-do-v6.surge.sh/
@@ -30,3 +31,5 @@ The demo link contains the link to the last version.<br/>You can always see prev
 [3-v1]: https://covid-dashboard-v2.surge.sh/
 [4-d]: https://dribbble.com/shots/11465830/attachments/3082676?mode=media
 [4-v1]: https://paypal-dashboard-v1.surge.sh/
+[5-d]: https://dribbble.com/shots/9706707/attachments/1736115?mode=media
+[5-v1]: https://inbox-manager-v1.surge.sh/
