@@ -32,7 +32,7 @@ body {
 }
 
 .debug-nav a {
-  color: white;
+  /* color: white; */
   text-decoration: none;
 }
 
@@ -409,10 +409,12 @@ body {
 }
 .card-1-1-1 :nth-child(2) {
   font-size: 35px;
+  color: white;
 }
 .card-1-1-1 :nth-child(3) {
   margin-top: 10px;
   font-size: 12px;
+  color: white;
 }
 .card-1-1-1 {
   display: flex;
