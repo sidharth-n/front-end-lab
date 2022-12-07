@@ -1,3 +1,43 @@
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #dadadb;
+}
+
+.debug-nav {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  height: 40px;
+  width: 600px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 2px;
+  border: 1px solid rgb(5, 5, 5);
+  left: 600px;
+  background-color: rgba(253, 220, 220, 0.7);
+  border-radius: 20px;
+  display: none;
+}
+
+.debug-nav a {
+  /* color: white; */
+  text-decoration: none;
+}
+
+.debug-nav a:hover {
+  color: #82cbf5;
+}
+
 * {
   margin: 0;
   border: 0;
@@ -82,7 +122,7 @@
 .message-nav {
   width: 450px;
   padding: 35px 0px 0px 0px;
-  /* overflow: auto; */
+  overflow: auto;
 }
 
 .message-top {
@@ -292,10 +332,14 @@ input:focus {
   gap: 5px;
   align-items: center;
   font-weight: bold;
+  margin-left: 40px;
 }
 
 .profile-name {
   margin-left: 15px;
+}
+.fa-chevron-down {
+  cursor: pointer;
 }
 
 .mc-2 {
@@ -304,8 +348,121 @@ input:focus {
 }
 
 .mc-left {
-  border: 1px solid #000;
   width: 60%;
+}
+
+.mc-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mcl-top {
+  display: flex;
+  align-items: center;
+}
+.mcl-title {
+  font-size: 30px;
+}
+.mark-box {
+  padding: 10px 20px;
+  background-color: white;
+  border-radius: 5px;
+  border: 0.5px solid var(--border-color);
+  margin-left: auto;
+}
+
+.mark-box:hover {
+  cursor: pointer;
+  border: 0.5px solid grey;
+}
+
+.more {
+  margin-left: 20px;
+  font-weight: bolder;
+  writing-mode: vertical-lr;
+  font-size: 20px;
+  letter-spacing: 3px;
+  padding: 5px 5px 5px 12px;
+  border-radius: 50%;
+}
+.more:hover {
+  cursor: pointer;
+  background-color: rgb(223, 222, 222);
+}
+
+.mcl-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+#sender-pic {
+  height: 40px;
+  width: 40px;
+  border: 0.5px solid var(--border-color);
+  border-radius: 50%;
+}
+
+.sender-name {
+  font-weight: bold;
+}
+
+.mcl-content {
+  font-size: 17px;
+  line-height: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-right: 50px;
+}
+
+.mcl-pdf-box {
+  margin-top: 10px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+#pdf-preview {
+  height: 40px;
+  width: 30px;
+  border: 0.5px solid var(--border-color);
+}
+
+.pdf-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.pdf-name {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.pdf-size {
+  font-size: 13px;
+  color: grey;
+}
+
+.pdf-btns {
+  display: flex;
+  margin-left: auto;
+  gap: 10px;
+}
+.pdf-btn {
+  padding: 8px;
+  border: 0.5px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.pdf-btn:hover {
+  cursor: pointer;
+  border: 1px solid gray;
 }
 .mc-right {
   height: 650px;
@@ -319,6 +476,9 @@ input:focus {
   gap: 15px;
 }
 
+.mcr-title {
+  color: gray;
+}
 #building-image {
   border-radius: 10px;
   height: 30%;
@@ -371,6 +531,11 @@ input:focus {
   width: 100%;
 }
 
+.mcr-btn:hover {
+  cursor: pointer;
+  background-color: rgb(179, 175, 175);
+}
+
 .mc-bottom {
   width: 60%;
   display: flex;
@@ -380,7 +545,7 @@ input:focus {
   background-color: white;
   border-radius: 10px;
   font-size: 20px;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .send {
@@ -390,4 +555,13 @@ input:focus {
   background-color: rgb(168, 129, 218);
   border-radius: 10px;
   margin-left: auto;
+}
+
+.send:hover {
+  cursor: pointer;
+  background-color: rgb(135, 101, 179);
+}
+
+.fa-paperclip:hover {
+  cursor: pointer;
 }
