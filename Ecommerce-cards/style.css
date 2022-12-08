@@ -9,15 +9,14 @@
   align-items: center;
   position: absolute;
   top: 2px;
-  border: 1px solid white;
+  border: 1px solid rgb(129, 129, 129);
   left: 600px;
-  background-color: rgba(88, 86, 86, 0.7);
+  background-color: rgba(255, 175, 175, 0.7);
   border-radius: 20px;
   display: none;
 }
 
 .debug-nav a {
-  color: white;
   text-decoration: none;
 }
 
@@ -131,6 +130,23 @@ body {
   border-radius: 10px;
   background-color: var(--border-c);
 }
+.progress-bar:hover {
+  cursor: pointer;
+}
+
+.progress {
+  height: 100%;
+  background-color: rgb(22, 5, 170);
+  border-radius: 20px;
+
+  width: 0%;
+  transition: width 2s ease-out;
+
+  box-shadow: 2px 2px 50px #94b4fd;
+}
+.progress-bar:hover .progress {
+  width: 100%;
+}
 
 .m1 .progress-bar {
   width: 60%;
@@ -178,7 +194,7 @@ body {
   height: 300px;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 0px 20px;
   font-weight: bold;
 }
 
@@ -202,8 +218,14 @@ body {
   display: flex;
   align-items: center;
   gap: 20px;
-  padding-right: 40px;
+  padding: 2px 0px;
+  padding-right: 30px;
   padding-left: 20px;
+  border-radius: 20px;
+}
+.op:hover {
+  cursor: pointer;
+  background-color: var(--border-c);
 }
 
 .card-3 {
@@ -219,14 +241,14 @@ body {
 .card-3 {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
 }
 
 .c3-top {
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 20px;
   gap: 20px;
 }
 .seller-name {
@@ -246,13 +268,13 @@ body {
 }
 
 #seller-pic {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
 }
 
 .seller-tag {
-  font-size: 15px;
+  font-size: 14px;
   color: white;
   padding: 10px 20px;
   border-radius: 20px;
@@ -288,24 +310,38 @@ body {
 }
 
 .cart-item-pic {
-  height: 65px;
-  width: 65px;
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
 }
 
 .cart-options {
   font-weight: bold;
   font-size: 14px;
+  gap: 0px;
+}
+
+.fa-trash {
+  color: white;
+  font-size: 18px;
 }
 
 .cart-options .op {
   border-top: 1px solid var(--border-c);
   padding: 0px 20px;
   padding-right: 40px;
+  border-radius: 0px;
+}
+
+.cart-options .op:hover {
+  background-color: white;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px 1px rgb(228, 227, 227);
 }
 
 .cart-options .price {
   margin-left: auto;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .card-5-6-7 {
@@ -322,13 +358,22 @@ body {
 .card-5 {
   width: 275px;
   height: 400px;
+  padding: 0px 15px;
+}
+
+.brands {
+  padding: 0px 20px;
+  gap: 0px;
+}
+.brands .op {
+  padding: 5px;
 }
 
 .brand-pic {
   height: 60px;
   width: 60px;
   border-radius: 20px;
-  margin-right: 20px;
+  margin-right: 15px;
 }
 
 .card-6 {
@@ -351,17 +396,26 @@ body {
 
 .size-box {
   padding: 5px 5px;
-  border: 2px solid grey;
+  border: 1.5px solid rgb(172, 171, 171);
   border-radius: 10px;
   text-align: center;
+}
+.size-box:hover {
+  cursor: pointer;
+  background-color: rgb(34, 34, 34);
+  color: white;
 }
 
 .more {
   padding: 10px 5px;
-  border: 2px solid grey;
+  border: 1.5px solid rgb(172, 171, 171);
   border-radius: 10px;
   text-align: center;
   margin-top: 20px;
+}
+.more:hover {
+  cursor: pointer;
+  border: 2px solid rgb(48, 48, 48);
 }
 
 .card-7 {
@@ -388,6 +442,9 @@ body {
   color: grey;
   font-size: 20px;
   margin-left: auto;
+}
+.fa-search:hover {
+  cursor: pointer;
 }
 
 .card-7 {
@@ -448,12 +505,25 @@ body {
   background-color: rgb(88, 202, 240);
 }
 
+.c1:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 5px rgb(167, 225, 245);
+}
+
 .c2 {
   background-color: rgb(240, 212, 88);
+}
+.c2:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 5px rgb(250, 234, 165);
 }
 
 .c3 {
   background-color: rgb(216, 138, 74);
+}
+.c3:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 5px rgb(243, 190, 147);
 }
 
 .play-icon {
@@ -461,6 +531,11 @@ body {
   padding: 20px 24px;
   border-radius: 50%;
 }
+.play-icon:hover {
+  cursor: pointer;
+  background-color: rgb(139, 5, 5);
+}
+
 .fa-play {
   color: white;
 }
