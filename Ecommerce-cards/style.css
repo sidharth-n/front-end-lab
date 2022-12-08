@@ -1,0 +1,32 @@
+.debug-nav {
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  height: 40px;
+  width: 600px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 2px;
+  border: 1px solid white;
+  left: 600px;
+  background-color: rgba(88, 86, 86, 0.7);
+  border-radius: 20px;
+  display: none;
+}
+
+.debug-nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.debug-nav a:hover {
+  color: #82cbf5;
+}
+
+* {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
