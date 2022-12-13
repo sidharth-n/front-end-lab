@@ -24,10 +24,10 @@
       <div class="top-nav">
         <img src="./assets/logo.png" alt="" class="logo" />
         <div class="top-nav-1">
-          <span>Accounts</span>
-          <span>Paybill</span>
-          <span>Transfer</span>
-          <span>Reward</span>
+          <span class=" t1 selectable">Accounts</span>
+          <span class=" t1 selectable">Paybill</span>
+          <span class="t1 selectable">Transfer</span>
+          <span class="t1 selectable">Reward</span>
         </div>
         <div class="top-nav-2">
           <div class="credits c1">
@@ -56,25 +56,25 @@
           </div>
         </div>
         <div class="top-nav-right">
-          <div class="msg-container">
-            <i class="fas fa-comment-alt"></i>
+          <div class="msg-container selectable">
+            <i class="fas fa-comment-alt selectable"></i>
           </div>
           <img
             src="./assets/profile.jpg"
             alt="profile-pic"
-            class="profile-img"
+            class="profile-img selectable"
           />
-          <i class="fas fa-th"></i>
+          <i class="fas fa-th selectable"></i>
         </div>
       </div>
       <div class="main-con">
         <div class="l-nav">
-          <div class="l-top">
-            <div class="left-arrow">
+          <div class="l-top"> 
+            <div class="left-arrow selectable">
               <i class="fas fa-chevron-left"></i>
             </div>
             <span>My Cards</span>
-            <div class="btn-con">
+            <div class="btn-con selectable">
               <i class="fas fa-plus"></i>
             </div>
           </div>
@@ -83,7 +83,7 @@
               <span class="b-head">Your current balance</span>
               <div class="b-con">
                 <span class="b-amt">$4,457.00</span>
-                <div class="right-arrow">
+                <div class="right-arrow selectable">
                   <i class="fas fa-arrow-right"></i>
                 </div>
               </div>
@@ -92,7 +92,7 @@
               <span class="b-head">Your credit limit</span>
               <div class="b-con">
                 <span class="b-amt">$6,500.00</span>
-                <div class="right-arrow">
+                <div class="right-arrow selectable">
                   <i class="fas fa-arrow-right"></i>
                 </div>
               </div>
@@ -189,19 +189,21 @@
             </div>
             <div class="smb-2 grey">
               Receipient gets
-              <span class="amt">1710.06 <span>EURO</span></span>
+              <span class="amt">1710.06 <span.body {
+  overflow: hidden;
+}>EURO</span.body></span>
             </div>
           </div>
         </div>
         <div class="all-transaction-section">
           <div class="at-head sm-head">
-            All Transaction
-            <div class="icon-box"><i class="fas fa-arrow-left"></i></div>
-            <div class="icon-box"><i class="fas fa-arrow-right"></i></div>
-            <div class="icon-box"><i class="fas fa-cog"></i></div>
+            <span>All Transaction &nbsp;</span>
+            <div class="icon-box selectable"><i class="fas fa-arrow-left "></i></div>
+            <div class="icon-box selectable"><i class="fas fa-arrow-right r2"></i></div>
+            <div class="icon-box selectable"><i class="fas fa-cog"></i></div>
           </div>
           <div class="at-spends">
-            <div class="spend sp1">
+            <div class="spend sp1 selectable">
               <div class="sp-logo">
                 <img
                   src="./assets/homeinsurance.png"
@@ -233,7 +235,12 @@
               <span class="price">-$9.99</span>
             </div>
           </div>
-          <img src="./assets/creditscore.jpg" alt="" class="credit-score" />
+          <div class="at-bottom">
+            <img src="./assets/creditscore.jpg" alt="" class="credit-score" />
+            <span class="cr-tag"
+              >YOUR CREDIT SCORE <span>PRETTY GOOD</span></span
+            >
+          </div>
         </div>
       </div>
     </div>

@@ -1,3 +1,16 @@
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #dadadb;
+}
+
 .debug-nav {
   font-size: 15px;
   font-weight: bold;
@@ -32,16 +45,17 @@
 }
 
 .main {
-  height: 100vh;
   width: 100%;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
 .top-nav {
   width: 100%;
-  height: 80px;
-  padding: 50px;
+  height: 60px;
+  padding: 40px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,10 +74,23 @@
 }
 
 .top-nav-1 {
+  border-bottom: 3px solid transparent;
   font-size: 20px;
   font-weight: bold;
   display: flex;
   gap: 40px;
+}
+.t1 {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.t1:hover {
+  border-bottom: 3px solid rgb(0, 131, 238);
+}
+
+.selectable:hover {
+  cursor: pointer;
 }
 
 .logo {
@@ -151,9 +178,11 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  border-right: 1px solid rgb(173, 172, 172);
+  border-right: 1px solid rgb(230, 230, 230);
   width: 600px;
   padding: 50px 100px;
+  height: 95vh;
+  overflow: auto;
 }
 
 .l-top {
@@ -163,6 +192,7 @@
   gap: 40px;
   font-size: 25px;
   font-weight: bold;
+  user-select: none;
 }
 
 .left-arrow {
@@ -212,14 +242,17 @@
   flex-direction: column;
   gap: 30px;
   padding-bottom: 30px;
-  border-bottom: 1px solid rgb(173, 172, 172);
+  border-bottom: 1px solid rgb(230, 230, 230);
 }
 
 .visa-card {
   width: 300px;
   z-index: -1;
+  border-radius: 20px;
 }
-.card {
+.visa-card:hover {
+  cursor: pointer;
+  box-shadow: 0px -5px 5px 5px rgb(224, 223, 223);
 }
 
 .card-details {
@@ -244,9 +277,11 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  border-right: 1px solid rgb(173, 172, 172);
+  border-right: 1px solid rgb(230, 230, 230);
   width: 600px;
   padding: 50px 75px;
+  height: 95vh;
+  overflow: auto;
 }
 
 .flag {
@@ -259,6 +294,7 @@
 .sm-head {
   font-size: 25px;
   font-weight: bold;
+  user-select: none;
 }
 
 .sm-box {
@@ -354,4 +390,109 @@
 
 .s3 {
   margin-top: 20px;
+}
+
+.all-transaction-section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 50px 75px;
+  width: 800px;
+  height: 100vh;
+  overflow: auto;
+}
+
+.at-head {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  user-select: none;
+}
+
+.r2,
+.fa-arrow-left,
+.fa-cog {
+  font-size: 13px;
+  color: rgb(26, 25, 25);
+}
+
+.icon-box {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(241, 240, 240);
+  display: flex;
+}
+.at-head :last-child {
+  margin-left: auto;
+}
+
+.at-spends {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.spend {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 15px;
+  border-radius: 20px;
+}
+
+.spend:hover {
+  cursor: pointer;
+  background-color: rgb(241, 240, 240);
+}
+.sp-logo {
+  padding: 15px 15px 10px 15px;
+  background-color: rgb(241, 240, 240);
+  border-radius: 20px;
+}
+
+.sp-logo-i {
+  height: 40px;
+  width: 40px;
+}
+
+.sp-name {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+.date {
+  font-weight: normal;
+}
+.price {
+  margin-left: auto;
+  font-weight: bold;
+}
+
+.at-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.credit-score {
+  height: 300px;
+  width: 400px;
+}
+
+.cr-tag {
+  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: grey;
+  line-height: 26px;
+  margin-top: -15px;
+}
+
+.cr-tag :first-child {
+  font-weight: bold;
+}
+.main-con {
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
 }
