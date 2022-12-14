@@ -24,6 +24,7 @@ The demo link contains the link to the last version.<br/>You can always see prev
 | 07 Dec 22 | [Inbox-Management-Dashboard][5-d] | [Demo][5-v1]   |
 | 08 Dec 22 | [Ecommerce-UI-Cards][6-d]         | [Demo][6-v1]   |
 | 12 Dec 22 | [Banking-App][7-d]                | [Demo][7-v1]   |
+| 14 Dec 22 | [Chat-App][8-d]                   | [Demo][8-v1]   |
 
 [1-d]: https://dribbble.com/shots/16825690-Task-Management-App
 [1-i-v2]: http://to-do-v6.surge.sh/
@@ -35,3 +36,9 @@ The demo link contains the link to the last version.<br/>You can always see prev
 [4-v1]: https://paypal-dashboard-v1.surge.sh/
 [5-d]: https://dribbble.com/shots/9706707/attachments/1736115?mode=media
 [5-v1]: https://inbox-manager-v1.surge.sh/
+[6-d]: https://dribbble.com/shots/12427377-eCommerce-app-UI-Components
+[6-v1]: http://ecom-cards-v2.surge.sh
+[7-d]: https://dribbble.com/shots/13071637-Online-Banking-Web-app
+[7-v1]: http://banking-app-ui-v3.surge.sh
+[8-d]: https://dribbble.com/shots/4797890--Chat-Property-dashboard
+[8-v1]: https://chat-ui-v2.surge.sh/
