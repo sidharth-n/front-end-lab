@@ -1,9 +1,9 @@
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -175,7 +175,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 0px 15px;
+  padding: 0px 15px 10px 15px;
   height: 70vh;
   overflow: auto;
 }
@@ -186,15 +186,15 @@
   gap: 15px;
   width: 100%;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 20px;
   font-size: 14px;
-  box-shadow: 0px 3px 3px 2px rgb(238, 238, 238);
+  box-shadow: 0px 3px 3px 10px #f7f7fd;
 }
 
 .chat-box:hover {
   cursor: pointer;
-  box-shadow: 0px 3px 5px 4px rgb(223, 221, 221);
+  box-shadow: 0px 3px 5px 4px rgb(236, 235, 235);
 }
 
 .cb-2 {
@@ -397,12 +397,12 @@
   border-radius: 50%;
   color: white;
   display: flex;
-  box-shadow: 0px 5px 5px 5px #e1efff;
+  box-shadow: 0px 2px 3px 3px #f2f6fc;
 }
 
 .send:hover {
   cursor: pointer;
-  box-shadow: 0px 5px 5px 5px #abcbf0;
+  box-shadow: 0px 10px 10px 5px #cde2fa;
 }
 .fa-paper-plane {
   color: white;
