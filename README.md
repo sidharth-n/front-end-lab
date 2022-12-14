@@ -23,6 +23,7 @@ The demo link contains the link to the last version.<br/>You can always see prev
 | 06 Dec 22 | [Paypal-Dashboard][4-d]           | [Demo][4-v1]   |
 | 07 Dec 22 | [Inbox-Management-Dashboard][5-d] | [Demo][5-v1]   |
 | 08 Dec 22 | [Ecommerce-UI-Cards][6-d]         | [Demo][6-v1]   |
+| 12 Dec 22 | [Banking-App][7-d]                | [Demo][7-v1]   |
 
 [1-d]: https://dribbble.com/shots/16825690-Task-Management-App
 [1-i-v2]: http://to-do-v6.surge.sh/
