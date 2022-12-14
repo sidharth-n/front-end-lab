@@ -68,7 +68,10 @@
   font-weight: bold;
 }
 .fa-chevron-down {
-  font-size: 14px;
+  font-size: 13px;
+}
+.fa-chevron-down:hover {
+  cursor: pointer;
 }
 
 .profile {
@@ -98,6 +101,7 @@
   font-weight: bold;
   color: grey;
   border-left: 5px solid #d7daf2;
+  user-select: none;
 }
 .m-item {
   color: grey;
@@ -123,11 +127,14 @@
   width: 20px;
   opacity: 0.6;
 }
+.noti-icon:hover {
+  cursor: pointer;
+}
 
 .main-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   width: 100%;
 }
 
@@ -139,6 +146,12 @@
   padding: 0px 80px;
   margin-top: 30px;
 }
+.fa-caret-down {
+  color: grey;
+}
+.fa-caret-down:hover {
+  cursor: pointer;
+}
 
 .mc-2-3 {
   display: flex;
@@ -148,7 +161,7 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding: 10px 0px 10px 100px;
+  padding: 10px 0px 10px 90px;
   width: 700px;
 }
 .head {
@@ -162,7 +175,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-right: 15px;
+  padding: 0px 15px;
   height: 70vh;
   overflow: auto;
 }
@@ -302,8 +315,8 @@
 }
 
 .r-msg {
-  padding: 12px 20px;
-  background-color: rgb(226, 225, 225);
+  padding: 10px 20px 12px 20px;
+  background-color: rgb(231, 229, 229);
   border-radius: 20px;
 }
 
@@ -325,6 +338,7 @@
 .cmc-btns {
   display: flex;
   gap: 10px;
+  user-select: none;
 }
 
 .btn {
@@ -336,6 +350,10 @@
   font-size: 14px;
   font-weight: bold;
 }
+.btn:hover {
+  cursor: pointer;
+  box-shadow: 0px 5px 10px 5px #eeeeee;
+}
 
 .send-box {
   display: flex;
@@ -345,6 +363,9 @@
   align-items: center;
   box-shadow: 0px 5px 10px 2px #eeeeee;
 }
+.send-box:hover {
+  box-shadow: 0px 5px 10px 2px #dfdede;
+}
 
 .fa-smile {
   font-size: 35px;
@@ -352,9 +373,10 @@
 }
 
 .type-a-msg {
+  width: 50%;
   padding: 5px;
   outline: none;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .type-a-msg::placeholder {
@@ -378,9 +400,16 @@
   box-shadow: 0px 5px 5px 5px #e1efff;
 }
 
+.send:hover {
+  cursor: pointer;
+  box-shadow: 0px 5px 5px 5px #abcbf0;
+}
 .fa-paper-plane {
   color: white;
 }
 .fa-paperclip {
   color: rgb(172, 170, 170);
+}
+.fa-paperclip:hover {
+  cursor: pointer;
 }
