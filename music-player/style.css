@@ -1,5 +1,6 @@
 ::-webkit-scrollbar {
   width: 3px;
+  display: none;
 }
 
 ::-webkit-scrollbar-track {
@@ -47,19 +48,17 @@
   font-family: "Open Sans", sans-serif;
 }
 
-.body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+body {
+  background-color: rgb(206 220 242);
 }
 
 .main {
-  height: 100vh;
-  width: 100%;
   display: flex;
   gap: 40px;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  padding: 80px 0px;
 }
 
 .mc-2 {
@@ -68,6 +67,8 @@
   border-radius: 50px;
   padding: 40px;
   background-color: var(--bg);
+  border: 2px solid rgb(236, 245, 253);
+  box-shadow: 5px 5px 25px 6px rgb(191 206 228);
 }
 
 .music-img {
@@ -89,6 +90,8 @@
   flex-direction: column;
   align-items: center;
   gap: 40px;
+  border: 2px solid rgb(236, 245, 253);
+  box-shadow: 5px 5px 25px 6px rgb(191 206 228);
 }
 
 .top-nav {
@@ -114,12 +117,14 @@
   align-items: center;
   border: 1px solid var(--border);
   border-radius: 50%;
-  box-shadow: -4px -4px 10px 3px #f7ffff, 4px 4px 10px 3px rgb(184, 183, 183);
+  box-shadow: 5px 5px 10px #bac8de, -5px -5px 5px rgb(244, 251, 253);
+  transition: box-shadow 0.3s ease-out;
 }
 
 .btn:hover {
   cursor: pointer;
-  box-shadow: inset -0px -0px 10px 2px rgb(184, 183, 183);
+  box-shadow: 5px 5px 10px #bac8de, -5px -5px 10px #effaff,
+    inset 3px 2px 10px rgba(0, 0, 0, 0.219);
 }
 
 .music-title {
@@ -156,6 +161,7 @@
 .sc-2 {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .progress-bar {
@@ -164,6 +170,7 @@
   border-radius: 20px;
   border: 0.5px solid var(--border);
   box-shadow: inset 0px 2px 1px 1px #bed0e7;
+  position: relative;
 }
 .progress {
   width: 45%;
@@ -177,7 +184,7 @@
   border-radius: 50%;
   border: 1px solid var(--border);
   position: absolute;
-  left: 735px;
+  left: 120px;
   background-color: #ebf7ff;
   box-shadow: 1px 2px 10px 2px #c2cad4;
 }
@@ -248,7 +255,8 @@
   flex-direction: column;
   align-items: center;
   gap: 50px;
-  padding: 40px 20px;
+  padding: 40px 20px 0px 20px;
+  position: relative;
 }
 
 .h2 {
@@ -281,8 +289,9 @@
   display: flex;
   width: 100%;
   flex-direction: column;
-  height: 400px;
+  height: 500px;
   overflow: auto;
+  z-index: 1;
 }
 
 .playlist {
@@ -310,4 +319,26 @@
 }
 .btn2 {
   padding: 8px;
+}
+
+.overlay {
+  display: block;
+  content: "";
+
+  height: 440px;
+  width: 100%;
+  background-image: linear-gradient(
+    #e8f0fc,
+    10%,
+    rgba(255, 255, 255, 0),
+    90%,
+    #f3f6fc
+  );
+  position: absolute;
+  bottom: -1px;
+  /*  border: 1px solid #000; */
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  z-index: 2;
+  pointer-events: none;
 }
