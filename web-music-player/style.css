@@ -57,8 +57,10 @@
   flex-direction: column;
   gap: 30px;
   padding: 40px 45px;
-  width: 350px;
-  border-right: 1px solid rgb(206, 206, 206);
+  width: 370px;
+  border-right: 0.5px solid rgb(235, 234, 234);
+  overflow: hidden;
+  height: 100vh;
 }
 
 .side-top {
@@ -192,6 +194,9 @@
   margin-left: auto;
   transition: margin 0.1s ease-out;
 }
+.side-nav-bottom:hover {
+  cursor: pointer;
+}
 
 .side-nav-bottom:hover .swipe-up {
   cursor: pointer;
@@ -204,17 +209,18 @@
   gap: 30px;
   padding: 40px;
   width: 100%;
-  background-color: #edf2fa;
+  background-color: #f9fafe;
 }
 
 .top-bar {
   display: flex;
   align-items: center;
   width: 100%;
-  padding-right: 25px;
 }
 .search-icon {
   stroke: grey;
+  width: 20px !important;
+  height: 20px !important;
 }
 
 .search-box {
@@ -229,7 +235,7 @@
 .search {
   outline: none;
   background: transparent;
-  font-size: 17px;
+  font-size: 14px;
 }
 
 .search-icon {
@@ -242,7 +248,6 @@
   align-items: center;
   margin-left: auto;
   gap: 30px;
-  padding-right: 10px;
 }
 
 .upgrade {
@@ -264,8 +269,8 @@
 }
 
 .music-img {
-  width: 250px;
-  height: 280px;
+  width: 175px;
+  height: 220px;
   border-radius: 20px;
   box-shadow: 0px 10px 20px 3px #d3d2d2;
 }
@@ -276,12 +281,11 @@
 }
 
 .img1 {
-  width: 300px;
+  width: 250px;
 }
 
 .billboard-bar {
   display: flex;
-  padding-right: 30px;
   align-items: center;
 }
 
@@ -314,11 +318,12 @@
 }
 
 .music-title {
+  font-size: 15px;
   font-weight: bold;
 }
 
 .music-sub {
-  font-weight: 14px;
+  font-size: 13px;
   color: grey;
   margin-top: -23px;
 }
@@ -353,25 +358,28 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 10px 0px;
+  padding-bottom: 10px;
   padding-right: 20px;
+  padding-left: 10px;
   overflow: auto;
-  height: 420px;
-  width: 900px;
+  height: 380px;
+  width: 800px;
+  margin-left: -10px;
 }
 
 .music-card {
+  font-size: 14px;
   display: flex;
   align-items: center;
   padding: 15px 20px;
   gap: 10px;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0px 5px 20px 3px #e4ecf8;
+  box-shadow: 5px 10px 20px 3px #e4ecf8;
 }
 
 .sl-no {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
 }
 
@@ -392,12 +400,12 @@
 }
 
 .artists-s {
-  font-size: 15px;
+  font-size: 13px;
   color: grey;
 }
 
 .time {
-  font-size: 15px;
+  font-size: 13px;
   color: grey;
 }
 
@@ -423,8 +431,8 @@
 }
 
 .music-disk {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   animation: rotation 5s infinite linear;
 }
@@ -437,6 +445,10 @@
   }
 }
 
+.music-disk:hover {
+  cursor: progress;
+}
+
 .now-playing {
   width: 100%;
   margin-left: 20px;
@@ -444,41 +456,40 @@
 
 .playing-container {
   background-color: #fafafa;
-  margin-top: 10px;
-  height: 410px;
+  height: 360px;
   border-radius: 10px;
   box-shadow: 0px 0px 20px 3px #e4ecf8;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 30px 20px;
 }
 
 .playing-card {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   align-items: center;
   box-shadow: 0px 10px 20px 3px #e6e6e7;
   position: relative;
   padding: 10px 20px;
-  width: 600px;
+  width: 300px;
   border-radius: 20px;
 }
 
 .pc-title {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: bold;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 2px;
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
 .pc-sub {
-  font-size: 15px;
+  font-size: 13px;
   color: grey;
 }
 
@@ -507,7 +518,7 @@
   justify-content: center;
   position: absolute;
   left: 0px;
-  animation: slide 100s infinite linear;
+  animation: slide 50s infinite linear;
 }
 
 .progress-btn {
@@ -523,7 +534,7 @@
     left: 0;
   }
   to {
-    left: 520px;
+    left: 85%;
   }
 }
 
@@ -543,27 +554,30 @@
 
 .t1 {
   color: grey;
+  font-size: 12px;
 }
 
 .disk-center {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   background-color: #fff;
   border-radius: 50%;
   position: absolute;
-  top: 65px;
+  top: 58px;
+  box-shadow: inset 0px 0px 4px grey;
+  border: 1px solid rgb(75, 75, 75);
 }
 
 .pc-buttons {
-  margin-top: 30px;
-  width: 600px;
+  width: 300px;
   display: flex;
   justify-content: space-around;
+  margin-top: 15px;
 }
 
 .pc-btn {
-  height: 20px;
-  width: 20px;
+  height: 16px;
+  width: 16px;
   stroke: grey;
   fill: grey;
 }
@@ -587,7 +601,6 @@
   background-color: rgb(255, 255, 255);
   box-shadow: 0px 0px 10px 5px #e6edf8;
 }
-
 .pause:hover .pause-btn {
   fill: blue;
   stroke: blue;
