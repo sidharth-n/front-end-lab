@@ -8,7 +8,7 @@ document.querySelector(".r2").remove();
 text_area.focus();
 let msg = "";
 let pos = 0;
-let started = 0;
+let msg_count = 0;
 let prev_rand = -1;
 
 const rand_colors = [
@@ -17,16 +17,18 @@ const rand_colors = [
   "rgb(242, 242, 145)",
   "rgb(234, 139, 139)",
   "rgb(175, 175, 238)",
-  "rgb(242, 182, 125)",
+  "rgb(236, 173, 111)",
   "rgb(225, 227, 146)",
+  "rgb(207, 149, 245)",
 ];
 
 const random_color = () => {
   let rand = Math.floor(Math.random() * 8);
   if (rand == prev_rand) {
-    rand_colors();
+    random_color();
   }
   prev_rand = rand;
+  console.log("random no is : " + rand);
   return rand_colors[rand];
 };
 
@@ -46,21 +48,21 @@ const fetcher = () => {
 };
 
 const updater = () => {
-  if (started == 1) {
-    fetcher()
-      .read()
-      .then((r) => r.json())
-      .then((j) => {
-        if (msg != j.split("---")[0]) {
+  fetcher()
+    .read()
+    .then((r) => r.json())
+    .then((j) => {
+      if (msg != j.split("---")[2] > 0) {
+        if (j.split("---")[0]) {
           add_msg(j.split("---")[0], j.split("---")[1]);
           msg = j.split("---")[0];
         }
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => console.log("Message read successfully"));
-  }
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally(() => {});
 };
 
 const add_msg = (new_msg, s_time) => {
@@ -83,12 +85,12 @@ const add_msg = (new_msg, s_time) => {
 
 s_btn.addEventListener("click", () => {
   if (text_area.value != "") {
-    started = 1;
     const time = new Date();
     timeString = `${time.getHours()}:${time.getMinutes()}`;
-    fetcher().write(text_area.value + "---" + timeString);
+    fetcher().write(+text_area.value + "---" + timeString + "---" + msg_count);
+    msg_count++;
     text_area.value = "";
   }
 });
 
-setInterval(updater, 1000);
+setInterval(updater, 100);
