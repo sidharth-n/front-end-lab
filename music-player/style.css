@@ -123,7 +123,7 @@ body {
 
 .btn:hover {
   cursor: pointer;
-  box-shadow: 5px 5px 10px #bac8de, -5px -5px 10px #effaff,
+  box-shadow: 5px 5px 10px #bac8de, -5px -5px 5px rgb(244, 251, 253),
     inset 3px 2px 10px rgba(0, 0, 0, 0.219);
 }
 
@@ -319,6 +319,12 @@ body {
 }
 .btn2 {
   padding: 8px;
+  box-shadow: 2px 3px 10px #bac8de, -3px -3px 5px rgb(244, 251, 253);
+}
+
+.btn2:hover {
+  box-shadow: 2px 3px 10px #bac8de, -3px -3px 5px rgb(244, 251, 253),
+    inset 3px 2px 10px rgba(0, 0, 0, 0.219);
 }
 
 .overlay {

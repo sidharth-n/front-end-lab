@@ -135,10 +135,10 @@
 }
 
 .menu-item:hover .menu-item-name {
-  color: blue;
+  color: rgb(60 94 222);
 }
 .menu-item:hover .menu-icon {
-  stroke: blue;
+  stroke: rgb(60 94 222);
 }
 
 .menu-item-name {
@@ -273,15 +273,44 @@
   height: 220px;
   border-radius: 20px;
   box-shadow: 0px 10px 20px 3px #d3d2d2;
+  transition: box-shadow 0.2s ease-in-out;
 }
 
 .music-img:hover {
   cursor: pointer;
-  box-shadow: 0px 10px 20px 5px #b3b3b3;
+  box-shadow: 0px 10px 20px 6px #b3b3b3;
 }
 
 .img1 {
   width: 250px;
+  background-image: url(./assets/coloring-book.jpg);
+  background-size: contain;
+}
+.img2 {
+  background-image: url(./assets/blue-neighborhood.jpg);
+  background-size: cover;
+}
+.img3 {
+  background-image: url(./assets/starboy.jpg);
+  background-size: cover;
+}
+
+.img4 {
+  background-image: url(./assets/mirage.png);
+  background-size: cover;
+}
+
+.img5 {
+  background-image: url(./assets/panda.jpg);
+  background-size: cover;
+}
+.img6 {
+  background-image: url(./assets/calmdown.webp);
+  background-size: cover;
+}
+.img7 {
+  background-image: url(./assets/mirage.png);
+  background-size: cover;
 }
 
 .billboard-bar {
@@ -414,13 +443,13 @@
   height: 20px;
   width: 20px;
   fill: #b9c7db;
-  stroke: #b9c7db;
+  stroke: none;
+  transition: fill 0.4ss ease-out;
 }
 
 .like:hover {
   cursor: pointer;
   fill: red;
-  stroke: red;
 }
 
 .mc-345 {
