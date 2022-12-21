@@ -28,40 +28,43 @@ const updater = () => {
       .read()
       .then((r) => r.json())
       .then((j) => {
-        if (msg != j) {
-          consle.log(j.split("---")[0]);
-          add_msg(j);
-          msg = j;
+        if (msg != j.split("---")[0]) {
+          add_msg(j.split("---")[0], j.split("---")[1]);
+          msg = j.split("---")[0];
         }
       })
-      .catch((_) => {
-        console.log("some error");
+      .catch((error) => {
+        console.log(error);
       })
       .finally(() => console.log("Message read successfully"));
   }
 };
 
-const add_msg = (new_msg) => {
-  const el = document.createElement("div");
+const add_msg = (new_msg, s_time) => {
+  const msg_el = document.createElement("div");
+  const time_el = document.createElement("span");
+  time_el.classList.add("time");
   if (pos == 0) {
-    el.classList.add("s-msg", "msg");
+    msg_el.classList.add("s-msg", "msg");
     pos = 1;
   } else {
-    el.classList.add("r-msg", "msg");
+    msg_el.classList.add("r-msg", "msg");
     pos = 0;
   }
-  el.textContent = new_msg;
-  main_con.appendChild(el);
+  msg_el.textContent = new_msg;
+  time_el.textContent = s_time;
+  main_con.appendChild(msg_el);
+  msg_el.appendChild(time_el);
 };
 
 s_btn.addEventListener("click", () => {
   if (text_area.value != "") {
     started = 1;
     const time = new Date();
-    timeString = `${time.getMinutes()}:${time.getSeconds()}`;
+    timeString = `${time.getHours()}:${time.getMinutes()}`;
     fetcher().write(text_area.value + "---" + timeString);
     text_area.value = "";
   }
 });
 
-setInterval(updater, 2000);
+setInterval(updater, 1000);
