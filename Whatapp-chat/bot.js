@@ -6,10 +6,11 @@ const main_con = document.querySelector(".main-container");
 document.querySelector(".r1").remove();
 document.querySelector(".r2").remove();
 text_area.focus();
-let msg = "";
+let msg = {};
+let chat = [];
 let pos = 0;
-let msg_count = 0;
-let prev_rand = -1;
+let no = 0;
+let prev_msg = "";
 
 /* const getId = function (_id = null) {
   const getRandomId = () => {
@@ -30,7 +31,7 @@ let prev_rand = -1;
 };
 
 const _id = getId(); */
-const _id = "sid884866";
+const _id = "random48345";
 
 const rand_colors = [
   "rgb(180, 243, 244)",
@@ -45,11 +46,6 @@ const rand_colors = [
 
 const random_color = () => {
   let rand = Math.floor(Math.random() * 8);
-  if (rand == prev_rand) {
-    random_color();
-  }
-  prev_rand = rand;
-  console.log("random no is : " + rand);
   return rand_colors[rand];
 };
 
@@ -73,15 +69,15 @@ const updater = () => {
     .read()
     .then((r) => r.json())
     .then((j) => {
-      if (j.split("---")[2] > 0) {
-        if (msg != j) {
-          add_msg(j.split("---")[0], j.split("---")[1]);
-          msg = j;
-        }
+      let last_msg = j[j.length - 1];
+      if (prev_msg != last_msg.text) {
+        add_msg(last_msg.text, last_msg.time);
+        console.log(last_msg.text);
+        prev_msg = last_msg.text;
       }
     })
     .catch((error) => {
-      console.log(error);
+      console.log("no messages yet");
     })
     .finally(() => {});
 };
@@ -102,16 +98,22 @@ const add_msg = (new_msg, s_time) => {
   main_con.appendChild(msg_el);
   msg_el.appendChild(time_el);
   msg_el.style.backgroundColor = random_color();
+  main_con.scrollTop = main_con.scrollHeight;
 };
 
 s_btn.addEventListener("click", () => {
   if (text_area.value != "") {
     const time = new Date();
     timeString = `${time.getHours()}:${time.getMinutes()}`;
-    fetcher().write(text_area.value + "---" + timeString + "---" + msg_count);
-    msg_count++;
+    msg.no = no;
+    msg.text = text_area.value;
+    msg.time = timeString;
+    chat.push(msg);
+    fetcher().write(chat);
+    no++;
+    msg = {};
     text_area.value = "";
   }
 });
 
-setInterval(updater, 100);
+setInterval(updater, 500);

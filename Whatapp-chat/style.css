@@ -72,7 +72,6 @@ body {
   width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
-  scroll-behavior: smooth;
 }
 .date {
   font-size: 12px;
@@ -122,6 +121,10 @@ body {
 
 .r-msg {
   align-self: flex-start;
+}
+.r1,
+.r2 {
+  display: none;
 }
 
 .time {
