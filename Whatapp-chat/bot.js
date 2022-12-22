@@ -7,7 +7,21 @@ const main_div = document.querySelector(".main");
 const popup = document.querySelector(".popup");
 const close_btn = document.querySelector(".p-close");
 const create_room_btn = document.querySelector(".cr-btn");
+const join_room_btn = document.querySelector(".jr-btn");
 const room_link_area = document.querySelector(".room-link");
+const room_name = document.querySelector(".sender-name");
+let msg = {};
+let chat = [];
+let pos = 0;
+let no = 0;
+let prev_msg = "";
+let _id = "sidtesting123";
+const queryString = window.location.search;
+if (queryString != "") {
+  _id = queryString.replace("?", "");
+  room_name.innerText = `Room : ${_id}`;
+  popup.style.display = "none";
+}
 
 close_btn.addEventListener("click", () => {
   popup.style.display = "none";
@@ -30,14 +44,10 @@ console.log(screen.height);
 document.querySelector(".r1").remove();
 document.querySelector(".r2").remove();
 text_area.focus();
-let msg = {};
-let chat = [];
-let pos = 0;
-let no = 0;
-let prev_msg = "";
 
 create_room_btn.addEventListener("click", () => {
-  const _id = getId();
+  _id = getId();
+  room_name.innerText = _id;
   console.log(_id);
   room_link_area.innerText = `${window.location.href}?${_id}`;
   room_link_area.style.color = "lightblue";
@@ -46,6 +56,15 @@ create_room_btn.addEventListener("click", () => {
   create_room_btn.style.boxShadow = "none";
   create_room_btn.style.backgroundColor = "transparent";
   popup.style.left = `${(vw - popup.offsetWidth) / 2}px`;
+  join_room_btn.style.backgroundColor = "rgb(236, 95, 13)";
+  join_room_btn.style.boxShadow = "0px 5px 10px 2px rgb(44, 44, 44)";
+  join_room_btn.style.color = "white";
+});
+
+join_room_btn.addEventListener("click", () => {
+  if (create_room_btn.innerText == "Copy and share") {
+    popup.style.display = "none";
+  }
 });
 
 const getId = function (_id = null) {
