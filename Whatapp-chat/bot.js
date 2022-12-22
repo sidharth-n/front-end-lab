@@ -10,6 +10,7 @@ const create_room_btn = document.querySelector(".cr-btn");
 const join_room_btn = document.querySelector(".jr-btn");
 const room_link_area = document.querySelector(".room-link");
 const room_name = document.querySelector(".sender-name");
+const overlay = document.querySelector(".overlay");
 let msg = {};
 let chat = [];
 let pos = 0;
@@ -21,6 +22,7 @@ if (queryString != "") {
   _id = queryString.replace("?", "");
   room_name.innerText = `Room : ${_id}`;
   popup.style.display = "none";
+  overlay.style.display = "none";
 }
 
 close_btn.addEventListener("click", () => {
@@ -64,6 +66,8 @@ create_room_btn.addEventListener("click", () => {
 join_room_btn.addEventListener("click", () => {
   if (create_room_btn.innerText == "Copy and share") {
     popup.style.display = "none";
+    overlay.style.height = "0px";
+    overlay.style.width = "0px";
   }
 });
 
@@ -138,18 +142,12 @@ const add_msg = (new_msg, s_time) => {
   const msg_el = document.createElement("div");
   const time_el = document.createElement("span");
   time_el.classList.add("time");
-  if (pos == 0) {
-    msg_el.classList.add("s-msg", "msg");
-    pos = 1;
-  } else {
-    msg_el.classList.add("r-msg", "msg");
-    pos = 0;
-  }
+  msg_el.classList.add("r-msg", "msg");
   msg_el.textContent = new_msg;
   time_el.textContent = s_time;
   main_con.appendChild(msg_el);
   msg_el.appendChild(time_el);
-  msg_el.style.backgroundColor = random_color();
+  msg_el.style.backgroundColor = "transparent";
   main_con.scrollTop = main_con.scrollHeight;
 };
 
