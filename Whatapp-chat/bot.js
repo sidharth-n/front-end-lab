@@ -11,11 +11,32 @@ let pos = 0;
 let msg_count = 0;
 let prev_rand = -1;
 
+/* const getId = function (_id = null) {
+  const getRandomId = () => {
+    const randomChar = () =>
+      String.fromCharCode(97 + Math.floor(26 * Math.random()));
+    return [1, 1, 1]
+      .map((_) => {
+        return [1, 1, 1].map(randomChar).join("");
+      })
+      .join("-");
+  };
+
+  if (!_id) {
+    _id = getRandomId();
+  }
+
+  return _id;
+};
+
+const _id = getId(); */
+const _id = "sid884866";
+
 const rand_colors = [
   "rgb(180, 243, 244)",
   "rgb(255, 153, 153)",
   "rgb(242, 242, 145)",
-  "rgb(234, 139, 139)",
+  "rgb(200, 139, 139)",
   "rgb(175, 175, 238)",
   "rgb(236, 173, 111)",
   "rgb(225, 227, 146)",
@@ -33,7 +54,7 @@ const random_color = () => {
 };
 
 const fetcher = () => {
-  const url = `https://textdb.dev/api/data/sid123007`;
+  const url = `https://textdb.dev/api/data/${_id}`;
   const read = () => fetch(url);
   const write = (data) => {
     const value = JSON.stringify(data);
@@ -52,10 +73,10 @@ const updater = () => {
     .read()
     .then((r) => r.json())
     .then((j) => {
-      if (msg != j.split("---")[2] > 0) {
-        if (j.split("---")[0]) {
+      if (j.split("---")[2] > 0) {
+        if (msg != j) {
           add_msg(j.split("---")[0], j.split("---")[1]);
-          msg = j.split("---")[0];
+          msg = j;
         }
       }
     })
@@ -87,7 +108,7 @@ s_btn.addEventListener("click", () => {
   if (text_area.value != "") {
     const time = new Date();
     timeString = `${time.getHours()}:${time.getMinutes()}`;
-    fetcher().write(+text_area.value + "---" + timeString + "---" + msg_count);
+    fetcher().write(text_area.value + "---" + timeString + "---" + msg_count);
     msg_count++;
     text_area.value = "";
   }
