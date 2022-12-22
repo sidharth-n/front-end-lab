@@ -16,6 +16,7 @@ body {
   flex-direction: column;
 
   overflow: hidden;
+  position: relative;
 }
 
 .top-bar {
@@ -195,4 +196,67 @@ body {
   stroke: white;
   rotate: 45deg;
   margin-right: 2px;
+}
+.popup {
+  position: absolute;
+}
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 20px 20px;
+  background-color: rgb(73, 72, 72);
+  position: relative;
+  border-radius: 15px;
+  width: 300px;
+}
+
+.p-btns {
+  display: flex;
+  justify-content: center;
+}
+
+.pbtn {
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px 2px rgb(44, 44, 44);
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(236, 95, 13);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.user-id {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.p-close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  stroke: rgb(233, 29, 29);
+}
+
+.p-close:hover,
+.pbtn {
+  cursor: pointer;
+}
+
+.pbtn:active {
+  box-shadow: none;
+}
+
+.room-link {
+  color: white;
+  padding: 5px;
+  margin-top: -20px;
+  font-size: 13px;
+  word-wrap: break-word;
+  text-align: center;
+  display: none;
 }

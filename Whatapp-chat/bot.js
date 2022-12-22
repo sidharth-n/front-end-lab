@@ -3,6 +3,30 @@ const s_btn = document.querySelector(".send-btn");
 const r_msg = document.querySelector(".r-msg");
 const s_msg = document.querySelector(".s-msg");
 const main_con = document.querySelector(".main-container");
+const main_div = document.querySelector(".main");
+const popup = document.querySelector(".popup");
+const close_btn = document.querySelector(".p-close");
+const create_room_btn = document.querySelector(".cr-btn");
+const room_link_area = document.querySelector(".room-link");
+
+close_btn.addEventListener("click", () => {
+  popup.style.display = "none";
+});
+
+const vw = Math.max(
+  document.documentElement.clientWidth || 0,
+  window.innerWidth || 0
+);
+const vh = Math.max(
+  document.documentElement.clientHeight || 0,
+  window.innerHeight || 0
+);
+popup.style.top = `${vh / 2 - popup.offsetHeight / 2}px`;
+popup.style.left = `${(vw - popup.offsetWidth) / 2}px`;
+main_div.style.width = `${vw}px`;
+main_div.style.height = `${vh}px`;
+console.log(screen.width);
+console.log(screen.height);
 document.querySelector(".r1").remove();
 document.querySelector(".r2").remove();
 text_area.focus();
@@ -12,7 +36,19 @@ let pos = 0;
 let no = 0;
 let prev_msg = "";
 
-/* const getId = function (_id = null) {
+create_room_btn.addEventListener("click", () => {
+  const _id = getId();
+  console.log(_id);
+  room_link_area.innerText = `${window.location.href}?${_id}`;
+  room_link_area.style.color = "lightblue";
+  room_link_area.style.display = "block";
+  create_room_btn.innerText = "Copy and share";
+  create_room_btn.style.boxShadow = "none";
+  create_room_btn.style.backgroundColor = "transparent";
+  popup.style.left = `${(vw - popup.offsetWidth) / 2}px`;
+});
+
+const getId = function (_id = null) {
   const getRandomId = () => {
     const randomChar = () =>
       String.fromCharCode(97 + Math.floor(26 * Math.random()));
@@ -29,9 +65,6 @@ let prev_msg = "";
 
   return _id;
 };
-
-const _id = getId(); */
-const _id = "random48345";
 
 const rand_colors = [
   "rgb(180, 243, 244)",
