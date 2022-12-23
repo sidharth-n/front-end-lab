@@ -230,7 +230,11 @@ const add_msg = (new_msg, s_time, s_name, s_color) => {
   const name_el = document.createElement("span");
   time_el.classList.add("time");
   name_el.classList.add("snder-name");
-  msg_el.classList.add("r-msg", "msg");
+  if (s_name == userName) {
+    msg_el.classList.add("s-msg", "msg");
+  } else {
+    msg_el.classList.add("r-msg", "msg");
+  }
   msg_el.textContent = new_msg;
   time_el.textContent = s_time;
   name_el.textContent = s_name;
