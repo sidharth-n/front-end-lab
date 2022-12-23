@@ -5,12 +5,21 @@ const s_msg = document.querySelector(".s-msg");
 const main_con = document.querySelector(".main-container");
 const main_div = document.querySelector(".main");
 const popup = document.querySelector(".popup");
-const close_btn = document.querySelector(".p-close");
+const popup2 = document.querySelector(".room-join");
 const create_room_btn = document.querySelector(".cr-btn");
 const join_room_btn = document.querySelector(".jr-btn");
+const join_btn = document.querySelector(".j-btn");
 const room_link_area = document.querySelector(".room-link");
 const room_name = document.querySelector(".sender-name");
 const overlay = document.querySelector(".overlay");
+const senderName = document.querySelector(".snder-name");
+const color1 = document.querySelector(".c1");
+const color2 = document.querySelector(".c2");
+const color3 = document.querySelector(".c3");
+const color4 = document.querySelector(".c4");
+const color5 = document.querySelector(".c5");
+const colorSelected = document.querySelector(".colorPicked");
+const nickName = document.querySelector(".user-name");
 let msg = {};
 let chat = [];
 let pos = 0;
@@ -18,6 +27,8 @@ let no = 0;
 let prev_msg = "";
 let _id = "sidtesting123";
 let url = "";
+let userColor = "default";
+let userName = "Stranger";
 const queryString = window.location.search;
 if (queryString != "") {
   _id = queryString.replace("?", "");
@@ -34,14 +45,12 @@ const vh = Math.max(
   document.documentElement.clientHeight || 0,
   window.innerHeight || 0
 );
-popup.style.top = `${vh / 2 - popup.offsetHeight / 2}px`;
+popup.style.top = `${(vh - 100) / 2 - popup.offsetHeight / 2}px`;
 popup.style.left = `${(vw - popup.offsetWidth) / 2}px`;
 main_div.style.width = `${vw}px`;
 main_div.style.height = `${vh}px`;
-console.log(screen.width);
-console.log(screen.height);
-document.querySelector(".r1").remove();
-document.querySelector(".r2").remove();
+popup2.style.top = `${(vh - 200) / 2 - popup2.offsetHeight / 2}px`;
+popup2.style.left = `${(vw - popup.offsetWidth) / 2}px`;
 text_area.focus();
 
 create_room_btn.addEventListener("click", () => {
@@ -53,7 +62,7 @@ create_room_btn.addEventListener("click", () => {
     headers: { "Content-Type": "text/plain" },
     method: "POST",
   });
-  room_name.innerText = "room id : " + _id;
+  room_name.innerText = "room : " + _id;
   console.log(_id);
   room_link_area.innerText = `${window.location.href}?${_id}`;
   room_link_area.style.color = "lightblue";
@@ -62,16 +71,57 @@ create_room_btn.addEventListener("click", () => {
   create_room_btn.style.boxShadow = "none";
   create_room_btn.style.backgroundColor = "transparent";
   popup.style.left = `${(vw - popup.offsetWidth) / 2}px`;
-  join_room_btn.style.backgroundColor = "rgb(236, 95, 13)";
-  join_room_btn.style.boxShadow = "0px 5px 10px 2px rgb(44, 44, 44)";
+  join_room_btn.style.backgroundColor = "transparent";
+  join_room_btn.style.boxShadow = "0px 3px 10px 2px rgb(31, 31, 31)";
   join_room_btn.style.color = "white";
 });
 
 join_room_btn.addEventListener("click", () => {
   if (create_room_btn.innerText == "Copy and share") {
     popup.style.display = "none";
+    popup2.style.display = "flex";
+    /*   overlay.style.height = "0px";
+    overlay.style.width = "0px"; */
+  }
+});
+
+color1.addEventListener("click", () => {
+  userColor = "#c71717";
+  colorSelected.innerText = "red";
+  colorSelected.style.color = "#c71717";
+});
+color2.addEventListener("click", () => {
+  userColor = "#6da020";
+  colorSelected.innerText = "Green";
+  colorSelected.style.color = "#6da020";
+});
+color3.addEventListener("click", () => {
+  userColor = "#bd5e1f";
+  colorSelected.innerText = "Orange";
+  colorSelected.style.color = "#bd5e1f";
+});
+color4.addEventListener("click", () => {
+  userColor = "#146fc4";
+  colorSelected.innerText = "Blue";
+  colorSelected.style.color = "#146fc4";
+});
+color5.addEventListener("click", () => {
+  userColor = "#831fbd";
+  colorSelected.innerText = "Violet";
+  colorSelected.style.color = "#831fbd";
+});
+
+join_btn.addEventListener("click", () => {
+  if (nickName.value == "") {
+    nickName.style.border = `1px solid red`;
+  } else if (colorSelected.innerText == "Pick a color") {
+    colorSelected.style.color = "red";
+  } else {
+    popup2.style.display = "none";
     overlay.style.height = "0px";
     overlay.style.width = "0px";
+    userName = nickName.value;
+    console.log("nickname selected : " + nickName.value);
   }
 });
 
@@ -152,10 +202,6 @@ const initial_loader = () => {
 };
 initial_loader();
 
-close_btn.addEventListener("click", () => {
-  popup.style.display = "none";
-});
-
 const updater = () => {
   fetcher()
     .read()
@@ -163,7 +209,7 @@ const updater = () => {
     .then((j) => {
       let last_msg = j[j.length - 1];
       if (prev_msg != last_msg.text) {
-        add_msg(last_msg.text, last_msg.time);
+        add_msg(last_msg.text, last_msg.time, last_msg.name, last_msg.color);
         console.log(last_msg.text);
         prev_msg = last_msg.text;
       }
@@ -174,16 +220,21 @@ const updater = () => {
     .finally(() => {});
 };
 
-const add_msg = (new_msg, s_time) => {
+const add_msg = (new_msg, s_time, s_name, s_color) => {
   const msg_el = document.createElement("div");
   const time_el = document.createElement("span");
+  const name_el = document.createElement("span");
   time_el.classList.add("time");
+  name_el.classList.add("snder-name");
   msg_el.classList.add("r-msg", "msg");
   msg_el.textContent = new_msg;
   time_el.textContent = s_time;
+  name_el.textContent = s_name;
   main_con.appendChild(msg_el);
   msg_el.appendChild(time_el);
-  msg_el.style.backgroundColor = "transparent";
+  msg_el.appendChild(name_el);
+  name_el.style.color = s_color;
+  msg_el.style.border = `0.5px solid${s_color}`;
   main_con.scrollTop = main_con.scrollHeight;
 };
 
@@ -194,6 +245,8 @@ s_btn.addEventListener("click", () => {
     msg.no = no;
     msg.text = text_area.value;
     msg.time = timeString;
+    msg.name = userName;
+    msg.color = userColor;
     chat.push(msg);
     fetcher().write(msg);
     no++;

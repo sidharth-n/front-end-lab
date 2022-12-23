@@ -125,6 +125,7 @@ canvas {
   height: 10px;
   stroke: rgb(158, 3, 3);
   margin-right: 1.5px;
+  color: #831fbd;
 }
 
 .disclaimer {
@@ -136,11 +137,11 @@ canvas {
   border-radius: 10px;
   background-color: rgba(75, 75, 75, 0.6);
   text-align: center;
-  color: rgb(158, 3, 3);
+  color: #ec1052;
 }
 
 .msg {
-  padding: 10px 12px;
+  padding: 20px 12px 8px 12px;
   border-radius: 15px;
   display: flex;
   gap: 5px;
@@ -165,20 +166,25 @@ canvas {
   display: none;
 }
 
+.snder-name {
+  font-size: 13px;
+  color: rgb(112, 112, 112);
+  position: absolute;
+  top: -0px;
+  align-self: flex-start;
+  word-break: normal;
+  margin-top: 1px;
+}
+
 .time {
   font-size: 12px;
   color: rgb(112, 112, 112);
   position: relative;
   bottom: -5px;
-  left: 3px;
+  left: 2px;
   gap: 2px;
   align-self: flex-end;
   word-break: normal;
-}
-.d-tick {
-  width: 16px;
-  height: 16px;
-  stroke: rgb(15, 167, 238);
 }
 
 .bottom {
@@ -241,7 +247,7 @@ canvas {
 }
 .popup {
   position: absolute;
-  z-index: 2;
+  z-index: 5;
 }
 
 .popup-container {
@@ -250,7 +256,7 @@ canvas {
   align-items: center;
   gap: 40px;
   padding: 20px 20px;
-  background-color: rgb(73, 72, 72);
+  background-color: rgb(43, 42, 42);
   position: relative;
   border-radius: 15px;
   width: 300px;
@@ -265,11 +271,11 @@ canvas {
 .pbtn {
   padding: 10px 15px;
   border-radius: 10px;
-  box-shadow: 0px 5px 10px 2px rgb(44, 44, 44);
+  box-shadow: 0px 3px 10px 2px rgb(31, 31, 31);
   font-size: 14px;
   font-weight: bold;
-  color: white;
-  background-color: rgb(236, 95, 13);
+  color: var(--white);
+  background-color: transparent;
   transition: box-shadow 0.2s ease-in-out;
 }
 .jr-btn {
@@ -283,16 +289,7 @@ canvas {
   border-radius: 10px;
   font-size: 16px;
 }
-
-.p-close {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  stroke: rgb(233, 29, 29);
-}
-
-.p-close:hover,
-.pbtn {
+.pbtn:hover {
   cursor: pointer;
 }
 
@@ -320,4 +317,72 @@ canvas {
   z-index: 1;
   transition: height 15s ease-out;
   transition: width 15s ease-out;
+}
+
+.room-join {
+  padding: 10px 0px;
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  z-index: 4;
+  display: none;
+}
+
+.room-name {
+  margin-top: 5px;
+}
+.user-id-div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.user-name {
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 2px rgb(29, 29, 29);
+  color: var(--white);
+  background-color: transparent;
+  outline: none;
+}
+
+::placeholder {
+  font-size: 12px;
+}
+.color-picker {
+  font-size: 12px;
+  padding: 5px;
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.colorPicked {
+  width: 40%;
+}
+
+.j-btn {
+  color: var(--white);
+}
+
+.clr {
+  padding: 6px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+}
+
+.c1 {
+  background-color: #c71717;
+}
+.c2 {
+  background-color: #6da020;
+}
+.c3 {
+  background-color: #bd5e1f;
+}
+.c4 {
+  background-color: #146fc4;
+}
+.c5 {
+  background-color: #831fbd;
 }

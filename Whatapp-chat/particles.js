@@ -21,14 +21,14 @@ var pJS = function (tag_id, params) {
     },
     particles: {
       number: {
-        value: 80,
+        value: 400,
         density: {
           enable: true,
           value_area: 800,
         },
       },
       color: {
-        value: "rgb(189, 189, 189)",
+        value: "#fff",
       },
       shape: {
         type: "circle",
@@ -871,7 +871,8 @@ var pJS = function (tag_id, params) {
         init();
       }
     } else if (
-      /* on click event */
+
+    /* on click event */
       pJS.interactivity.events.onclick.enable &&
       isInArray("bubble", pJS.interactivity.events.onclick.mode)
     ) {
