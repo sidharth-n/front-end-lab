@@ -53,7 +53,7 @@ create_room_btn.addEventListener("click", () => {
     headers: { "Content-Type": "text/plain" },
     method: "POST",
   });
-  room_name.innerText = _id;
+  room_name.innerText = "room id : " + _id;
   console.log(_id);
   room_link_area.innerText = `${window.location.href}?${_id}`;
   room_link_area.style.color = "lightblue";
