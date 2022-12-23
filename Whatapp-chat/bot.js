@@ -34,7 +34,8 @@ if (queryString != "") {
   _id = queryString.replace("?", "");
   room_name.innerText = `Room : ${_id}`;
   popup.style.display = "none";
-  overlay.style.display = "none";
+  popup2.style.display = "flex";
+  overlay.style.display = "block";
 }
 
 const vw = Math.max(
@@ -45,12 +46,12 @@ const vh = Math.max(
   document.documentElement.clientHeight || 0,
   window.innerHeight || 0
 );
-popup.style.top = `${(vh - 100) / 2 - popup.offsetHeight / 2}px`;
+popup.style.top = `${(vh - 200) / 2 - popup.offsetHeight / 2}px`;
 popup.style.left = `${(vw - popup.offsetWidth) / 2}px`;
 main_div.style.width = `${vw}px`;
 main_div.style.height = `${vh}px`;
 popup2.style.top = `${(vh - 200) / 2 - popup2.offsetHeight / 2}px`;
-popup2.style.left = `${(vw - popup.offsetWidth) / 2}px`;
+popup2.style.left = `${(vw - popup2.offsetWidth) / 2}px`;
 text_area.focus();
 
 create_room_btn.addEventListener("click", () => {
@@ -70,7 +71,7 @@ create_room_btn.addEventListener("click", () => {
   create_room_btn.innerText = "Copy and share";
   create_room_btn.style.boxShadow = "none";
   create_room_btn.style.backgroundColor = "transparent";
-  popup.style.left = `${(vw - popup.offsetWidth) / 2}px`;
+  /* popup.style.left = `${(vw - popup.offsetWidth) / 2}px`; */
   join_room_btn.style.backgroundColor = "transparent";
   join_room_btn.style.boxShadow = "0px 3px 10px 2px rgb(31, 31, 31)";
   join_room_btn.style.color = "white";
@@ -80,6 +81,8 @@ join_room_btn.addEventListener("click", () => {
   if (create_room_btn.innerText == "Copy and share") {
     popup.style.display = "none";
     popup2.style.display = "flex";
+    popup2.style.top = `${(vh - 200) / 2 - popup2.offsetHeight / 2}px`;
+    popup2.style.left = `${(vw - popup2.offsetWidth) / 2}px`;
     /*   overlay.style.height = "0px";
     overlay.style.width = "0px"; */
   }
@@ -192,7 +195,7 @@ const initial_loader = () => {
     .then((r) => r.json())
     .then((j) => {
       for (let i = 0; i < j.length - 1; i++) {
-        add_msg(j[i].text, j[i].time);
+        add_msg(j[i].text, j[i].time, j[i].name, j[i].color);
       }
     })
     .catch((error) => {

@@ -322,7 +322,7 @@ canvas {
 .room-join {
   padding: 10px 0px;
   display: flex;
-  gap: 20px;
+  gap: 30px;
   position: absolute;
   z-index: 4;
   display: none;
@@ -334,7 +334,7 @@ canvas {
 .user-id-div {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
 .user-name {
