@@ -78,6 +78,7 @@ create_room_btn.addEventListener("click", () => {
 });
 
 join_room_btn.addEventListener("click", () => {
+  window.location = `${window.location.href}?${_id}`;
   if (create_room_btn.innerText == "Copy and share") {
     popup.style.display = "none";
     popup2.style.display = "flex";
