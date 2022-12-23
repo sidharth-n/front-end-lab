@@ -17,6 +17,7 @@ let pos = 0;
 let no = 0;
 let prev_msg = "";
 let _id = "sidtesting123";
+let url = "";
 const queryString = window.location.search;
 if (queryString != "") {
   _id = queryString.replace("?", "");
@@ -24,10 +25,6 @@ if (queryString != "") {
   popup.style.display = "none";
   overlay.style.display = "none";
 }
-
-close_btn.addEventListener("click", () => {
-  popup.style.display = "none";
-});
 
 const vw = Math.max(
   document.documentElement.clientWidth || 0,
@@ -49,6 +46,13 @@ text_area.focus();
 
 create_room_btn.addEventListener("click", () => {
   _id = getId();
+  url = `https://textdb.dev/api/data/${_id}`;
+  const value = JSON.stringify("");
+  fetch(url, {
+    body: value,
+    headers: { "Content-Type": "text/plain" },
+    method: "POST",
+  });
   room_name.innerText = _id;
   console.log(_id);
   room_link_area.innerText = `${window.location.href}?${_id}`;
@@ -106,19 +110,51 @@ const random_color = () => {
 };
 
 const fetcher = () => {
-  const url = `https://textdb.dev/api/data/${_id}`;
+  url = `https://textdb.dev/api/data/${_id}`;
   const read = () => fetch(url);
   const write = (data) => {
-    const value = JSON.stringify(data);
+    fetcher()
+      .read()
+      .then((r) => r.json())
+      .then((j) => {
+        let serverMsg = j || [];
+        console.log(serverMsg);
+        serverMsg.push(data);
+        const value = JSON.stringify(serverMsg);
 
-    fetch(url, {
-      body: value,
-      headers: { "Content-Type": "text/plain" },
-      method: "POST",
-    });
+        fetch(url, {
+          body: value,
+          headers: { "Content-Type": "text/plain" },
+          method: "POST",
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {});
   };
+
   return { read: read, write: write };
 };
+const initial_loader = () => {
+  fetcher()
+    .read()
+    .then((r) => r.json())
+    .then((j) => {
+      for (let i = 0; i < j.length - 1; i++) {
+        add_msg(j[i].text, j[i].time);
+      }
+    })
+    .catch((error) => {
+      console.log("Nothing initial to load");
+    })
+    .finally(() => {});
+};
+initial_loader();
+
+close_btn.addEventListener("click", () => {
+  popup.style.display = "none";
+});
 
 const updater = () => {
   fetcher()
@@ -159,7 +195,7 @@ s_btn.addEventListener("click", () => {
     msg.text = text_area.value;
     msg.time = timeString;
     chat.push(msg);
-    fetcher().write(chat);
+    fetcher().write(msg);
     no++;
     msg = {};
     text_area.value = "";
