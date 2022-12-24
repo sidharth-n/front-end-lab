@@ -68,7 +68,7 @@ canvas {
   box-shadow: 0px 3px 6px 3px rgb(7, 7, 7);
   border-radius: 50%;
   position: relative;
-  left: 70px;
+  left: 40px;
 }
 .a-i {
   stroke: rgb(209, 208, 208);
@@ -149,6 +149,7 @@ canvas {
   margin-right: 10px;
   word-break: break-word;
   overflow-wrap: break-word;
+  font-size: 17px;
 }
 .s-msg {
   align-self: flex-end;
@@ -156,10 +157,6 @@ canvas {
   border-top-right-radius: 0px;
 }
 
-.s-msg .snder-name {
-  position: absolute;
-  right: 5px;
-}
 .r-msg {
   align-self: flex-start;
   color: var(--white);
@@ -265,6 +262,28 @@ canvas {
   position: relative;
   border-radius: 15px;
   width: 300px;
+}
+.share-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 30px;
+  background-color: rgb(43, 42, 42);
+  position: relative;
+  border-radius: 15px;
+  width: 250px;
+  display: none;
+}
+
+.share-title {
+  color: rgb(196, 193, 193);
+  font-size: 18px;
+}
+.share-link-text {
+  font-size: 10px;
+  color: rgb(18, 124, 196);
+  text-align: center;
 }
 
 .p-btns {

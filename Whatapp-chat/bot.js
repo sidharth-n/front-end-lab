@@ -6,6 +6,7 @@ const main_con = document.querySelector(".main-container");
 const main_div = document.querySelector(".main");
 const popup = document.querySelector(".popup");
 const popup2 = document.querySelector(".room-join");
+const popup3 = document.querySelector(".share-link");
 const create_room_btn = document.querySelector(".cr-btn");
 const join_btn = document.querySelector(".j-btn");
 const room_name = document.querySelector(".sender-name");
@@ -21,6 +22,8 @@ const colorSelected = document.querySelector(".colorPicked");
 const nickName = document.querySelector(".user-name");
 const roomName = document.querySelector(".room-name");
 const shareBTn = document.querySelector(".add-btn");
+const closeBtn = document.querySelector(".close-btn");
+const shareLinkArea = document.querySelector(".share-link-text");
 let msg = {};
 let chat = [];
 let pos = 0;
@@ -140,8 +143,7 @@ join_btn.addEventListener("click", () => {
     colorSelected.style.color = "red";
   } else {
     popup2.style.display = "none";
-    overlay.style.height = "0px";
-    overlay.style.width = "0px";
+    overlay.style.display = "none";
     userName = nickName.value;
     console.log("nickname selected : " + nickName.value);
   }
@@ -223,7 +225,6 @@ const updater = () => {
     })
     .finally(() => {});
 };
-
 const add_msg = (new_msg, s_time, s_name, s_color) => {
   const msg_el = document.createElement("div");
   const time_el = document.createElement("span");
@@ -246,13 +247,21 @@ const add_msg = (new_msg, s_time, s_name, s_color) => {
   main_con.scrollTop = main_con.scrollHeight;
 };
 
-shareBTn.addEventListener("click", async () => {
-  try {
-    await navigator.share(new_url);
-    console.log("url shared");
-  } catch (err) {
-    console.log(err);
-  }
+shareBTn.addEventListener("click", () => {
+  new_url = `${window.location.href}?id=${_id}&rn=${roomName.value}`;
+  navigator.clipboard.writeText(new_url).then(() => {
+    console.log("text copied to clipboard : " + new_url);
+  });
+  overlay.style.display = "block";
+  popup3.style.display = "flex";
+  popup3.style.top = `${(vh - 200) / 2 - popup3.offsetHeight / 2}px`;
+  popup3.style.left = `${(vw - popup3.offsetWidth) / 2}px`;
+  shareLinkArea.innerText = new_url;
+});
+
+closeBtn.addEventListener("click", () => {
+  overlay.style.display = "none";
+  popup3.style.display = "none";
 });
 
 s_btn.addEventListener("click", () => {
