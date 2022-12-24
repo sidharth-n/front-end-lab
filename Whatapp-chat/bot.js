@@ -9,7 +9,6 @@ const popup2 = document.querySelector(".room-join");
 const create_room_btn = document.querySelector(".cr-btn");
 const join_room_btn = document.querySelector(".jr-btn");
 const join_btn = document.querySelector(".j-btn");
-const room_link_area = document.querySelector(".room-link");
 const room_name = document.querySelector(".sender-name");
 const overlay = document.querySelector(".overlay");
 const senderName = document.querySelector(".snder-name");
@@ -20,6 +19,7 @@ const color4 = document.querySelector(".c4");
 const color5 = document.querySelector(".c5");
 const colorSelected = document.querySelector(".colorPicked");
 const nickName = document.querySelector(".user-name");
+const roomName = document.querySelector(".room-name");
 let msg = {};
 let chat = [];
 let pos = 0;
@@ -55,6 +55,7 @@ popup2.style.left = `${(vw - popup2.offsetWidth) / 2}px`;
 text_area.focus();
 
 create_room_btn.addEventListener("click", () => {
+  console.log("button pressed");
   _id = getId();
   url = `https://textdb.dev/api/data/${_id}`;
   const value = JSON.stringify("");
@@ -63,14 +64,9 @@ create_room_btn.addEventListener("click", () => {
     headers: { "Content-Type": "text/plain" },
     method: "POST",
   });
-  room_name.innerText = "room : " + _id;
-  console.log(_id);
-  room_link_area.innerText = `${window.location.href}?${_id}`;
-  room_link_area.style.color = "lightblue";
-  room_link_area.style.display = "block";
-  create_room_btn.innerText = "Copy and share";
+  room_name.innerText = "room : " + roomName.value;
+  /* room_link_area.innerText = `${window.location.href}?${_id}`; */
   create_room_btn.style.boxShadow = "none";
-  create_room_btn.style.backgroundColor = "transparent";
   /* popup.style.left = `${(vw - popup.offsetWidth) / 2}px`; */
   join_room_btn.style.backgroundColor = "transparent";
   join_room_btn.style.boxShadow = "0px 3px 10px 2px rgb(31, 31, 31)";

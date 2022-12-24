@@ -141,7 +141,7 @@ canvas {
 }
 
 .msg {
-  padding: 20px 12px 8px 12px;
+  padding: 17px 12px 8px 10px;
   border-radius: 15px;
   display: flex;
   gap: 5px;
@@ -155,11 +155,14 @@ canvas {
 }
 .s-msg {
   align-self: flex-end;
+  color: var(--white);
+  border-top-right-radius: 0px;
 }
 
 .r-msg {
   align-self: flex-start;
   color: var(--white);
+  border-top-left-radius: 0px;
 }
 .r1,
 .r2 {
@@ -167,7 +170,7 @@ canvas {
 }
 
 .snder-name {
-  font-size: 13px;
+  font-size: 12px;
   color: rgb(112, 112, 112);
   position: absolute;
   top: -0px;
@@ -339,6 +342,19 @@ canvas {
 }
 
 .user-name {
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 2px rgb(29, 29, 29);
+  color: var(--white);
+  background-color: transparent;
+  outline: none;
+}
+.room-creation {
+  display: flex;
+  gap: 20px;
+}
+
+.room-name {
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 2px rgb(29, 29, 29);
