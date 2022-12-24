@@ -248,7 +248,7 @@ const add_msg = (new_msg, s_time, s_name, s_color) => {
 };
 
 shareBTn.addEventListener("click", () => {
-  new_url = `${window.location.href}?id=${_id}&rn=${roomName.value}`;
+  new_url = window.location;
   navigator.clipboard.writeText(new_url).then(() => {
     console.log("text copied to clipboard : " + new_url);
   });
