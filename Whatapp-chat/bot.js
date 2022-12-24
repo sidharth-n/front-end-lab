@@ -7,11 +7,11 @@ const main_div = document.querySelector(".main");
 const popup = document.querySelector(".popup");
 const popup2 = document.querySelector(".room-join");
 const create_room_btn = document.querySelector(".cr-btn");
-const join_room_btn = document.querySelector(".jr-btn");
 const join_btn = document.querySelector(".j-btn");
 const room_name = document.querySelector(".sender-name");
 const overlay = document.querySelector(".overlay");
 const senderName = document.querySelector(".snder-name");
+const roomTitle = document.querySelector(".room-title");
 const color1 = document.querySelector(".c1");
 const color2 = document.querySelector(".c2");
 const color3 = document.querySelector(".c3");
@@ -20,6 +20,7 @@ const color5 = document.querySelector(".c5");
 const colorSelected = document.querySelector(".colorPicked");
 const nickName = document.querySelector(".user-name");
 const roomName = document.querySelector(".room-name");
+const shareBTn = document.querySelector(".add-btn");
 let msg = {};
 let chat = [];
 let pos = 0;
@@ -29,13 +30,18 @@ let _id = "sidtesting123";
 let url = "";
 let userColor = "default";
 let userName = "Stranger";
+let new_url = "";
 const queryString = window.location.search;
 if (queryString != "") {
-  _id = queryString.replace("?", "");
-  room_name.innerText = `Room : ${_id}`;
+  const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+  });
+  _id = params.id;
+  room_name.innerText = `Room : ${params.rn}`;
   popup.style.display = "none";
   popup2.style.display = "flex";
   overlay.style.display = "block";
+  roomTitle.innerText = `Room : ${params.rn}`;
 }
 
 const vw = Math.max(
@@ -54,34 +60,49 @@ popup2.style.top = `${(vh - 200) / 2 - popup2.offsetHeight / 2}px`;
 popup2.style.left = `${(vw - popup2.offsetWidth) / 2}px`;
 text_area.focus();
 
-create_room_btn.addEventListener("click", () => {
-  console.log("button pressed");
-  _id = getId();
-  url = `https://textdb.dev/api/data/${_id}`;
-  const value = JSON.stringify("");
-  fetch(url, {
-    body: value,
-    headers: { "Content-Type": "text/plain" },
-    method: "POST",
-  });
-  room_name.innerText = "room : " + roomName.value;
-  /* room_link_area.innerText = `${window.location.href}?${_id}`; */
-  create_room_btn.style.boxShadow = "none";
-  /* popup.style.left = `${(vw - popup.offsetWidth) / 2}px`; */
-  join_room_btn.style.backgroundColor = "transparent";
-  join_room_btn.style.boxShadow = "0px 3px 10px 2px rgb(31, 31, 31)";
-  join_room_btn.style.color = "white";
-});
+const getId = function (_id = null) {
+  const getRandomId = () => {
+    const randomChar = () =>
+      String.fromCharCode(97 + Math.floor(26 * Math.random()));
+    return [1, 1, 1]
+      .map((_) => {
+        return [1, 1, 1].map(randomChar).join("");
+      })
+      .join("-");
+  };
 
-join_room_btn.addEventListener("click", () => {
-  window.location = `${window.location.href}?${_id}`;
-  if (create_room_btn.innerText == "Copy and share") {
+  if (!_id) {
+    _id = getRandomId();
+  }
+
+  return _id;
+};
+
+create_room_btn.addEventListener("click", () => {
+  if (roomName.value != "") {
+    _id = getId();
+    url = `https://textdb.dev/api/data/${_id}`;
+    const value = JSON.stringify("");
+    fetch(url, {
+      body: value,
+      headers: { "Content-Type": "text/plain" },
+      method: "POST",
+    });
+    /* room_link_area.innerText = `${window.location.href}?${_id}`; */
+    create_room_btn.style.boxShadow = "none";
+    create_room_btn.innerText = "room created";
+    /* popup.style.left = `${(vw - popup.offsetWidth) / 2}px`; */
+    new_url = `${window.location.href}?id=${_id}&rn=${roomName.value}`;
+    window.location = new_url;
+
     popup.style.display = "none";
     popup2.style.display = "flex";
     popup2.style.top = `${(vh - 200) / 2 - popup2.offsetHeight / 2}px`;
     popup2.style.left = `${(vw - popup2.offsetWidth) / 2}px`;
     /*   overlay.style.height = "0px";
     overlay.style.width = "0px"; */
+  } else {
+    roomName.style.border = "0.5px solid red";
   }
 });
 
@@ -112,6 +133,7 @@ color5.addEventListener("click", () => {
 });
 
 join_btn.addEventListener("click", () => {
+  console.log("join btn clicked");
   if (nickName.value == "") {
     nickName.style.border = `1px solid red`;
   } else if (colorSelected.innerText == "Pick a color") {
@@ -124,24 +146,6 @@ join_btn.addEventListener("click", () => {
     console.log("nickname selected : " + nickName.value);
   }
 });
-
-const getId = function (_id = null) {
-  const getRandomId = () => {
-    const randomChar = () =>
-      String.fromCharCode(97 + Math.floor(26 * Math.random()));
-    return [1, 1, 1]
-      .map((_) => {
-        return [1, 1, 1].map(randomChar).join("");
-      })
-      .join("-");
-  };
-
-  if (!_id) {
-    _id = getRandomId();
-  }
-
-  return _id;
-};
 
 const rand_colors = [
   "rgb(180, 243, 244)",
@@ -241,6 +245,15 @@ const add_msg = (new_msg, s_time, s_name, s_color) => {
   msg_el.style.border = `0.5px solid${s_color}`;
   main_con.scrollTop = main_con.scrollHeight;
 };
+
+shareBTn.addEventListener("click", async () => {
+  try {
+    await navigator.share(new_url);
+    console.log("url shared");
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 s_btn.addEventListener("click", () => {
   if (text_area.value != "") {
