@@ -40,11 +40,11 @@ if (queryString != "") {
     get: (searchParams, prop) => searchParams.get(prop),
   });
   _id = params.id;
-  room_name.innerText = `Room : ${params.rn}`;
+  room_name.innerText = `${params.rn}`;
   popup.style.display = "none";
   popup2.style.display = "flex";
   overlay.style.display = "block";
-  roomTitle.innerText = `Room : ${params.rn}`;
+  roomTitle.innerText = `${params.rn}`;
 }
 
 const vw = Math.max(

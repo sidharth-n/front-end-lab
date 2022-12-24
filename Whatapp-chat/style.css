@@ -53,7 +53,7 @@ canvas {
   justify-content: center;
   background-color: transparent;
   padding: 10px 8px;
-  position: relative;
+  border: 1px solid #000;
 }
 
 .profile {
@@ -67,8 +67,9 @@ canvas {
   padding: 6px 6px 2px 6px;
   box-shadow: 0px 3px 6px 3px rgb(7, 7, 7);
   border-radius: 50%;
-  position: relative;
-  left: 40px;
+  position: absolute;
+  top: 12px;
+  right: 8px;
 }
 .a-i {
   stroke: rgb(209, 208, 208);
