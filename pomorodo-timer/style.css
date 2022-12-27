@@ -63,7 +63,7 @@
 .current-task {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 20px;
   padding: 20px;
   background-color: #6a4ca5;
@@ -83,47 +83,43 @@
 }
 
 .timer-graphics {
-  border: 1px solid #000;
   margin-top: 30px;
-  /*  position: relative; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 30px;
+  background: radial-gradient(#2c2c57, 70%, #1c1c20);
 }
 
 .timer-circle {
-  width: 310px;
-  height: 310px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
-  background: conic-gradient(#4742c0, 45deg, #2f2d38 0deg);
+  /*  background: conic-gradient(#4742c0, 32deg, #2f2d38 0deg); */
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
+  opacity: 1;
+  box-shadow: 0px 0px 10px 1px #4742c0;
 }
 .timer-circle::before {
   content: "";
   position: absolute;
-  height: 280px;
-  width: 280px;
+  height: 230px;
+  width: 230px;
   border-radius: 50%;
   background-color: rgb(27, 27, 27);
-  z-index: 2;
-}
-.timer-circle::before {
-  content: "";
-  position: absolute;
-  height: 350px;
-  width: 350px;
-  border-radius: 50%;
-  background-color: rgb(231, 123, 123);
-  z-index: -10;
 }
 
 .timer-count {
   font-size: 50px;
   position: absolute;
-  top: 40%;
-  left: 31%;
+  top: 43%;
+  left: 34%;
   font-weight: lighter;
+  color: rgb(230, 229, 229);
 }
 
 .current-level {
@@ -180,4 +176,17 @@
   justify-content: space-around;
   margin-top: auto;
   width: 100%;
+}
+
+.bp-btn {
+  width: 22px;
+  height: 22px;
+  stroke: rgb(131, 131, 131);
+}
+
+.bp-btn:hover {
+  cursor: pointer;
+  stroke: #544fc9;
+  /*   box-shadow: 0px 0px 10px 0px #544fc9;
+  border: none; */
 }
