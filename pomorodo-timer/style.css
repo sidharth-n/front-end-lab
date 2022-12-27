@@ -1,0 +1,82 @@
+::-webkit-scrollbar {
+  width: 3px;
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #dadadb;
+}
+
+.debug-nav {
+  font-size: 15px;
+  font-weight: bold;
+  height: 40px;
+  width: 600px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 2px;
+  border: 1px solid rgb(235, 235, 235);
+  left: 600px;
+  background-color: rgba(255, 175, 175, 0.7);
+  border-radius: 20px;
+  display: none;
+}
+
+.debug-nav a {
+  text-decoration: none;
+}
+
+.debug-nav a:hover {
+  color: #82cbf5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: rgb(20, 20, 20);
+  color: white;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.current-task {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 20px;
+  background-color: #6a4ca5;
+  border-radius: 40px;
+  width: 100%;
+  font-size: 18px;
+}
+
+.task-name {
+  font-weight: lighter;
+}
+
+.edit {
+  width: 16px;
+  height: 16px;
+  margin-bottom: 2px;
+}
