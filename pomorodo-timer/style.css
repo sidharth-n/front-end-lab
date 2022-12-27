@@ -165,10 +165,15 @@
   margin-top: 20px;
 }
 
+.pause {
+  display: none;
+}
+
 .sp-btn {
   width: 35px;
   height: 35px;
-  margin-left: 5px;
+  margin-left: 4px;
+  stroke-width: "1";
 }
 
 .bottom-panel {
@@ -182,6 +187,10 @@
   width: 22px;
   height: 22px;
   stroke: rgb(131, 131, 131);
+}
+
+.pause {
+  margin: 0px 2px;
 }
 
 .bp-btn:hover {

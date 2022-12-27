@@ -4,6 +4,8 @@ const timerMinutes = document.querySelector(".t-min");
 const timerSeconds = document.querySelector(".t-secs");
 const taskName = document.querySelector(".current-task");
 const timerCircle = document.querySelector(".timer-circle");
+const pauseBtnIcon = document.querySelector(".pause");
+const startBtnIcon = document.querySelector(".start");
 const vw = Math.max(
   document.documentElement.clientWidth || 0,
   window.innerWidth || 0
@@ -23,6 +25,8 @@ console.log(digreePerSecond);
 
 let countdown = () => {
   let count = 1;
+  startBtnIcon.style.display = "none";
+  pauseBtnIcon.style.display = "flex";
   let timerDown = setInterval(() => {
     timerCircle.style.background = `conic-gradient(#4742c0, ${
       digreePerSecond * count
@@ -47,6 +51,6 @@ let countdown = () => {
   }, 1000);
 };
 
-startBtn.addEventListener("click", () => {
+startBtnIcon.addEventListener("click", () => {
   countdown();
 });
