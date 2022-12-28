@@ -12,7 +12,7 @@
       <div class="page timer-page">
         <div class="title">Pomodoro timer</div>
         <div class="current-task">
-          <div class="task-name">Task: Write an article</div>
+          <div class="task-name">Add new task to start</div>
           <svg
             class="edit"
             xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@
           </div>
 
           <div class="timer-count">
-            <span class="t-min">00</span>:<span class="t-secs">59</span>
+            <span class="t-min">25</span>:<span class="t-secs">00</span>
           </div>
           <div class="progress-btn"></div>
         </div>
@@ -107,43 +107,50 @@
           ><span class="title t2">Add new timer</span>
         </div>
         <div class="settings-container">
+          <div class="settings-box b0">
+            <input
+              type="text"
+              class="task-title"
+              placeholder="Enter a task title"
+            />
+          </div>
           <div class="settings-box b1">
             <span class="sb-title">Focus time</span>
             <select name="options" id="focus-time">
               <option value="5">5 Min</option>
-              <option value="5">10 Min</option>
-              <option value="5">15 Min</option>
-              <option value="5">20 Min</option>
-              <option value="5">25 Min</option>
-              <option value="5">30 Min</option>
+              <option value="10">10 Min</option>
+              <option value="15">15 Min</option>
+              <option value="20">20 Min</option>
+              <option value="25" selected>25 Min</option>
+              <option value="30">30 Min</option>
             </select>
           </div>
           <div class="settings-box b2">
             <span class="sb-title">Short Break</span>
             <select name="options" id="sbreak-time">
-              <option value="5">5 Min</option>
-              <option value="5">10 Min</option>
-              <option value="5">15 Min</option>
+              <option value="5" selected>5 Min</option>
+              <option value="10">10 Min</option>
+              <option value="15">15 Min</option>
             </select>
           </div>
           <div class="settings-box b3">
             <span class="sb-title">Long Break</span>
             <select name="options" id="lbreak-time">
-              <option value="5">20 Min</option>
-              <option value="5">25 Min</option>
-              <option value="5">30 Min</option>
-              <option value="5">60 Min</option>
+              <option value="15" selected>15 Min</option>
+              <option value="20">20 Min</option>
+              <option value="25">25 Min</option>
+              <option value="30">30 Min</option>
             </select>
           </div>
           <div class="settings-box b4">
             <span class="sb-title">Sections</span>
             <select name="options" id="sections">
-              <option value="5">1 interval</option>
-              <option value="5">2 intervals</option>
-              <option value="5">3 intervals</option>
-              <option value="5">4 intervals</option>
+              <option value="1">1 interval</option>
+              <option value="2">2 intervals</option>
+              <option value="3">3 intervals</option>
+              <option value="4" selected>4 intervals</option>
               <option value="5">5 intervals</option>
-              <option value="5">6 intervals</option>
+              <option value="6">6 intervals</option>
             </select>
           </div>
         </div>

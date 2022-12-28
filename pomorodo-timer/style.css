@@ -1,6 +1,6 @@
 ::-webkit-scrollbar {
   width: 3px;
-  display: none;
+  /*  display: none; */
 }
 
 ::-webkit-scrollbar-track {
@@ -16,17 +16,16 @@
   font-size: 15px;
   font-weight: bold;
   height: 40px;
-  width: 600px;
+  width: 400px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   position: absolute;
   top: 2px;
   border: 1px solid rgb(235, 235, 235);
-  left: 600px;
+  left: 700px;
   background-color: rgba(255, 175, 175, 0.7);
   border-radius: 20px;
-  display: none;
 }
 
 .debug-nav a {
@@ -45,6 +44,14 @@
   font-family: "Open Sans", sans-serif;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #664eff;
+  position: relative;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -52,6 +59,8 @@
   align-items: center;
   padding: 20px 20px;
   background-color: rgb(27, 27, 27);
+  width: 100%;
+  max-width: 600px;
 }
 .page {
   display: flex;
@@ -71,13 +80,14 @@
 .current-task {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 10px;
+  justify-content: space-between;
+  padding: 10px 20px;
   background-color: #6a4ca5;
   border-radius: 40px;
   width: 100%;
   font-size: 14px;
   margin-top: 20px;
+  opacity: 1;
 }
 
 .task-name {
@@ -198,6 +208,10 @@
   margin-top: 50px;
 }
 
+.start-stop:hover {
+  cursor: pointer;
+}
+
 .pause {
   display: none;
 }
@@ -255,6 +269,16 @@
   position: relative;
 }
 
+.task-title {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: rgb(172, 172, 172);
+  padding: 10px;
+  text-align: center;
+}
+
 .back {
   position: absolute;
   left: 0;
@@ -276,6 +300,11 @@
   background-color: #2c2c3e;
   color: rgb(172, 172, 172);
   font-size: 17px;
+}
+.b0 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 select {
@@ -306,6 +335,13 @@ select option {
 
 .sv-btn {
   padding: 20px 40px;
-  background-color: #664eff;
+  background-color: #2c2c3e;
   border-radius: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.sv-btn:hover {
+  cursor: pointer;
+  background-color: #664eff;
 }
