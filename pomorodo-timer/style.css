@@ -48,32 +48,33 @@
 .main {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  justify-content: space around;
   align-items: center;
-  padding: 40px 20px;
+  padding: 20px 20px;
   background-color: rgb(27, 27, 27);
   color: white;
 }
 
 .title {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .current-task {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px;
+  justify-content: space-around;
+  padding: 10px;
   background-color: #6a4ca5;
   border-radius: 40px;
   width: 100%;
-  font-size: 18px;
+  font-size: 14px;
+  margin-top: 20px;
 }
 
 .task-name {
   font-weight: lighter;
+  overflow-x: auto;
 }
 
 .edit {
@@ -83,41 +84,64 @@
 }
 
 .timer-graphics {
-  margin-top: 30px;
+  margin-top: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   padding: 30px;
   background: radial-gradient(#2c2c57, 70%, #1c1c20);
+  position: relative;
 }
 
 .timer-circle {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   /*  background: conic-gradient(#4742c0, 32deg, #2f2d38 0deg); */
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 1;
+  background-color: #1c1c20;
   box-shadow: 0px 0px 10px 1px #4742c0;
 }
+.timer-circle-fake {
+  width: 95%;
+  height: 95%;
+  border-radius: 50%;
+  background-color: #1c1c20;
+  position: relative;
+  /* opacity: 0; */
+  transform: rotate(0deg);
+}
+
 .timer-circle::before {
   content: "";
   position: absolute;
-  height: 230px;
-  width: 230px;
+  height: 190px;
+  width: 190px;
   border-radius: 50%;
   background-color: rgb(27, 27, 27);
+}
+.timer-progress-dot {
+  position: absolute;
+  top: -13px;
+  left: 85px;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background-color: rgb(214, 214, 214);
+  border: 4px solid #4742c0;
+  display: flex;
+  align-items: center;
 }
 
 .timer-count {
   font-size: 50px;
   position: absolute;
-  top: 43%;
-  left: 34%;
+  top: 38%;
+  left: 27%;
   font-weight: lighter;
   color: rgb(230, 229, 229);
 }
@@ -127,6 +151,7 @@
   align-items: center;
   justify-content: center;
   width: 200px;
+  margin-top: 20px;
 }
 
 .new-interval {
@@ -140,14 +165,14 @@
 }
 
 .i-dot {
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background-color: #444ba0;
 }
 .active-circle {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   border: 3px solid #444ba0;
   background-color: transparent;
@@ -162,7 +187,7 @@
   background-color: #664eff;
   display: flex;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .pause {
