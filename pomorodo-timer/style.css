@@ -13,19 +13,20 @@
 }
 
 .debug-nav {
-  font-size: 15px;
+  font-size: 12px;
   font-weight: bold;
   height: 40px;
-  width: 400px;
+  width: 350px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   position: absolute;
   top: 2px;
   border: 1px solid rgb(235, 235, 235);
-  left: 700px;
+  left: 0px;
   background-color: rgba(255, 175, 175, 0.7);
   border-radius: 20px;
+  display: none;
 }
 
 .debug-nav a {
@@ -50,6 +51,7 @@ body {
   align-items: center;
   background-color: #664eff;
   position: relative;
+  overflow: none;
 }
 
 .main {
@@ -206,6 +208,7 @@ body {
   display: flex;
   align-items: center;
   margin-top: 50px;
+  box-shadow: 0px 0px 10px 3px #6044fa;
 }
 
 .start-stop:hover {

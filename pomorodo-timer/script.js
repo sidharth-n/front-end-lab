@@ -13,6 +13,7 @@ const settingsPageIcon = document.querySelector(".settings-section");
 const timerPageIcon = document.querySelector(".timer-section");
 const saveBtn = document.querySelector(".save");
 const newTaskName = document.querySelector(".task-title");
+const newTaskNameBox = document.querySelector(".b0");
 const newTaskft = document.querySelector("#focus-time");
 const newTasksb = document.querySelector("#sbreak-time");
 const newTasklb = document.querySelector("#lbreak-time");
@@ -26,14 +27,14 @@ if (value.includes("debug")) {
   debug_nav.style.display = "none";
 }
 timerPage.style.display = "none";
-timerPageIcon.style.stroke = "#6965e7";
+settingsPageIcon.style.stroke = "#6965e7";
 let state = "pause";
 let speed = 10;
 let timer;
 let count = 1;
 let tasks = {};
-let minutes = 0;
-let seconds = 0;
+let minutes;
+let seconds;
 newTaskName.focus();
 const vw = Math.max(
   document.documentElement.clientWidth || 0,
@@ -45,16 +46,24 @@ const vh = Math.max(
 );
 
 saveBtn.addEventListener("click", () => {
-  tasks.title = newTaskName.value;
-  tasks.focusTime = newTaskft.value;
-  tasks.shortBreak = newTasksb.value;
-  tasks.longBreak = newTasklb.value;
-  tasks.sections = newTaskSections.value;
-  taskName.innerText = `Task: ${tasks.title}`;
-  settingsPage.style.display = "none";
-  timerPage.style.display = "flex";
-  timerPageIcon.style.stroke = "#6965e7";
-  settingsPageIcon.style.stroke = "rgb(131, 131, 131)";
+  if (newTaskName.value == "") {
+    newTaskNameBox.style.border = "1px solid #6965e7";
+  } else {
+    tasks.title = newTaskName.value;
+    tasks.focus = newTaskft.value;
+    tasks.shortBreak = newTasksb.value;
+    tasks.longBreak = newTasklb.value;
+    tasks.sections = newTaskSections.value;
+    taskName.innerText = `Task: ${tasks.title}`;
+    settingsPage.style.display = "none";
+    timerPage.style.display = "flex";
+    timerPageIcon.style.stroke = "#6965e7";
+    settingsPageIcon.style.stroke = "rgb(131, 131, 131)";
+    timerMinutes.innerText =
+      +tasks.focus >= 10 ? +tasks.focus : `0${tasks.focus}`;
+    console.log(tasks);
+    minutes = +tasks.focus;
+  }
 });
 
 settingsPageIcon.addEventListener("click", () => {
@@ -70,12 +79,14 @@ timerPageIcon.addEventListener("click", () => {
   settingsPageIcon.style.stroke = "rgb(131, 131, 131)";
 });
 main_div.style.height = `${vh}px`;
-minutes = Number(timerMinutes.innerText);
+/* minutes = Number(timerMinutes.innerText);
+seconds = Number(timerSeconds.innerText); */
 seconds = Number(timerSeconds.innerText);
-const totalTime = minutes * 60 + seconds;
-const digreePerSecond = 360 / totalTime;
-console.log(digreePerSecond);
+/* console.log(digreePerSecond); */
 let countdown = () => {
+  const totalTime = minutes * 60 + seconds;
+  const digreePerSecond = 360 / totalTime;
+  console.log("minutes after : " + minutes);
   timer = setInterval(() => {
     if (minutes != 0) {
       if (seconds == 0) {
@@ -92,6 +103,7 @@ let countdown = () => {
     }
     if (seconds <= 0 && minutes <= 0) {
       clearInterval(timer);
+      new Audio("./assets/notify.wav").play();
       taskBar.style.backgroundColor = "green";
       state = "start";
       startBtnIcon.style.display = "flex";
@@ -109,6 +121,7 @@ let countdown = () => {
 };
 
 startBtn.addEventListener("click", () => {
+  new Audio("./assets/start-stop.wav").play();
   if (state == "pause") {
     state = "start";
     startBtnIcon.style.display = "none";
@@ -119,6 +132,6 @@ startBtn.addEventListener("click", () => {
     state = "pause";
     startBtnIcon.style.display = "flex";
     pauseBtnIcon.style.display = "none";
-    console.log("Its paused");
+    console.log("pause is pressed");
   }
 });
