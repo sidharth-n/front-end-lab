@@ -9,87 +9,152 @@
   </head>
   <body>
     <div class="main">
-      <div class="title">Pomodoro timer</div>
-      <div class="current-task">
-        <div class="task-name">Task: Write an article</div>
-        <svg
-          class="edit"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path
-            d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"
-          ></path>
-        </svg>
-      </div>
-      <div class="timer-graphics">
-        <div class="timer-circle">
-          <div class="timer-circle-fake">
-            <div class="timer-progress-dot"></div>
+      <div class="page timer-page">
+        <div class="title">Pomodoro timer</div>
+        <div class="current-task">
+          <div class="task-name">Task: Write an article</div>
+          <svg
+            class="edit"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"
+            ></path>
+          </svg>
+        </div>
+        <div class="timer-graphics">
+          <div class="timer-circle">
+            <div class="timer-circle-fake">
+              <div class="timer-progress-dot"></div>
+            </div>
+          </div>
+
+          <div class="timer-count">
+            <span class="t-min">00</span>:<span class="t-secs">59</span>
+          </div>
+          <div class="progress-btn"></div>
+        </div>
+        <div class="current-level">
+          <div class="start-dot i-dot"></div>
+          <div class="new-interval">
+            <div class="i-line"></div>
+            <div class="i-dot"></div>
+          </div>
+          <div class="new-interval">
+            <div class="i-line"></div>
+            <div class="i-dot active-circle"></div>
+          </div>
+          <div class="new-interval inactive-level">
+            <div class="i-line"></div>
+            <div class="i-dot"></div>
           </div>
         </div>
-
-        <div class="timer-count">
-          <span class="t-min">00</span>:<span class="t-secs">59</span>
+        <div class="start-stop">
+          <svg
+            class="start sp-btn"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <svg
+            class="pause sp-btn"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="6" y="4" width="4" height="16"></rect>
+            <rect x="14" y="4" width="4" height="16"></rect>
+          </svg>
         </div>
-        <div class="progress-btn"></div>
       </div>
-      <div class="current-level">
-        <div class="start-dot i-dot"></div>
-        <div class="new-interval">
-          <div class="i-line"></div>
-          <div class="i-dot"></div>
+      <div class="page settings-page">
+        <div class="head">
+          <svg
+            class="back"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline></svg
+          ><span class="title t2">Add new timer</span>
         </div>
-        <div class="new-interval">
-          <div class="i-line"></div>
-          <div class="i-dot active-circle"></div>
+        <div class="settings-container">
+          <div class="settings-box b1">
+            <span class="sb-title">Focus time</span>
+            <select name="options" id="focus-time">
+              <option value="5">5 Min</option>
+              <option value="5">10 Min</option>
+              <option value="5">15 Min</option>
+              <option value="5">20 Min</option>
+              <option value="5">25 Min</option>
+              <option value="5">30 Min</option>
+            </select>
+          </div>
+          <div class="settings-box b2">
+            <span class="sb-title">Short Break</span>
+            <select name="options" id="sbreak-time">
+              <option value="5">5 Min</option>
+              <option value="5">10 Min</option>
+              <option value="5">15 Min</option>
+            </select>
+          </div>
+          <div class="settings-box b3">
+            <span class="sb-title">Long Break</span>
+            <select name="options" id="lbreak-time">
+              <option value="5">20 Min</option>
+              <option value="5">25 Min</option>
+              <option value="5">30 Min</option>
+              <option value="5">60 Min</option>
+            </select>
+          </div>
+          <div class="settings-box b4">
+            <span class="sb-title">Sections</span>
+            <select name="options" id="sections">
+              <option value="5">1 interval</option>
+              <option value="5">2 intervals</option>
+              <option value="5">3 intervals</option>
+              <option value="5">4 intervals</option>
+              <option value="5">5 intervals</option>
+              <option value="5">6 intervals</option>
+            </select>
+          </div>
         </div>
-        <div class="new-interval inactive-level">
-          <div class="i-line"></div>
-          <div class="i-dot"></div>
+        <div class="save-cancel-btns">
+          <div class="sv-btn cancel">Cancel</div>
+          <div class="sv-btn save">Save</div>
         </div>
-      </div>
-      <div class="start-stop">
-        <svg
-          class="start sp-btn"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <polygon points="5 3 19 12 5 21 5 3"></polygon>
-        </svg>
-        <svg
-          class="pause sp-btn"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <rect x="6" y="4" width="4" height="16"></rect>
-          <rect x="14" y="4" width="4" height="16"></rect>
-        </svg>
       </div>
       <div class="bottom-panel">
         <svg
-          class="bp-btn schedule"
+          class="bp-btn schedule-section"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -106,7 +171,7 @@
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         <svg
-          class="bp-btn"
+          class="bp-btn timer-section"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -121,7 +186,7 @@
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
         <svg
-          class="bp-btn"
+          class="bp-btn settings-section"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"
@@ -143,7 +208,7 @@
           <line x1="18" y1="16" x2="22" y2="16"></line>
         </svg>
         <svg
-          class="bp-btn"
+          class="bp-btn user-section"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
           height="24"

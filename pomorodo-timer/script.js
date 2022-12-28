@@ -7,9 +7,16 @@ const timerCircle = document.querySelector(".timer-circle");
 const pauseBtnIcon = document.querySelector(".pause");
 const startBtnIcon = document.querySelector(".start");
 const progressBtn = document.querySelector(".timer-circle-fake");
+const settingsPage = document.querySelector(".settings-page");
+const timerPage = document.querySelector(".timer-page");
+const settingsPageIcon = document.querySelector(".settings-section");
+const timerPageIcon = document.querySelector(".timer-section");
+settingsPage.style.display = "none";
+timerPageIcon.style.stroke = "#6965e7";
 let state = "pause";
 let speed = 100;
 let timer;
+let count = 1;
 const vw = Math.max(
   document.documentElement.clientWidth || 0,
   window.innerWidth || 0
@@ -19,6 +26,19 @@ const vh = Math.max(
   window.innerHeight || 0
 );
 
+settingsPageIcon.addEventListener("click", () => {
+  settingsPage.style.display = "flex";
+  timerPage.style.display = "none";
+  timerPageIcon.style.stroke = "rgb(131, 131, 131)";
+  settingsPageIcon.style.stroke = "#6965e7";
+});
+timerPageIcon.addEventListener("click", () => {
+  settingsPage.style.display = "none";
+  timerPage.style.display = "flex";
+  timerPageIcon.style.stroke = "#6965e7";
+  settingsPageIcon.style.stroke = "rgb(131, 131, 131)";
+});
+
 main_div.style.width = `${vw}px`;
 main_div.style.height = `${vh}px`;
 let minutes = Number(timerMinutes.innerText);
@@ -26,7 +46,6 @@ let seconds = Number(timerSeconds.innerText);
 const totalTime = minutes * 60 + seconds;
 const digreePerSecond = 360 / totalTime;
 console.log(digreePerSecond);
-let count = 1;
 let countdown = () => {
   timer = setInterval(() => {
     if (minutes != 0) {
