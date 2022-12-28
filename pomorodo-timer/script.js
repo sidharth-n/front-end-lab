@@ -21,6 +21,8 @@ const newTaskSections = document.querySelector("#sections");
 const taskName = document.querySelector(".task-name");
 const value = window.location.search;
 const debug_nav = document.querySelector(".debug-nav");
+const taskDoneTone = new Audio("./assets/notify.wav");
+const buttonPressTone = new Audio("./assets/start-stop.wav");
 if (value.includes("debug")) {
   debug_nav.style.display = "flex";
 } else {
@@ -103,7 +105,7 @@ let countdown = () => {
     }
     if (seconds <= 0 && minutes <= 0) {
       clearInterval(timer);
-      new Audio("./assets/notify.wav").play();
+      taskDoneTone.play();
       taskBar.style.backgroundColor = "green";
       state = "start";
       startBtnIcon.style.display = "flex";
@@ -121,7 +123,7 @@ let countdown = () => {
 };
 
 startBtn.addEventListener("click", () => {
-  new Audio("./assets/start-stop.wav").play();
+  buttonPressTone.play();
   if (state == "pause") {
     state = "start";
     startBtnIcon.style.display = "none";
