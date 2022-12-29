@@ -5,7 +5,7 @@ if (value.includes("debug")) {
 } else {
   debug_nav.style.display = "none";
 }
-
+const mainDiv = document.querySelector(".main");
 const back = document.querySelector(".back");
 const animalsListPage = document.querySelector(".animals-list-page");
 const animalsDetailPage = document.querySelector(".animal-details-page");
@@ -15,7 +15,12 @@ const catPlayBtn = document.querySelector(".play-cat");
 const horsePlayBtn = document.querySelector(".play-horse");
 const dogPlayBtn = document.querySelector(".play-dog");
 const monkeyPlayBtn = document.querySelector(".play-monkey");
+const vh = Math.max(
+  document.documentElement.clientHeight || 0,
+  window.innerHeight || 0
+);
 
+mainDiv.style.height = `${vh}px`;
 back.addEventListener("click", () => {
   animalsDetailPage.style.display = "none";
   animalsListPage.style.display = "flex";
