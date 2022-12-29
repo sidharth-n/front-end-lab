@@ -15,7 +15,6 @@ const catPlayBtn = document.querySelector(".play-cat");
 const horsePlayBtn = document.querySelector(".play-horse");
 const dogPlayBtn = document.querySelector(".play-dog");
 const monkeyPlayBtn = document.querySelector(".play-monkey");
-const catImage = document.querySelector(".a2 > .animal-image");
 
 back.addEventListener("click", () => {
   animalsDetailPage.style.display = "none";
@@ -33,8 +32,6 @@ lionPlayBtn.addEventListener("click", () => {
 
 catPlayBtn.addEventListener("click", () => {
   new Audio("./assets/sounds/cat.wav").play();
-  catImage.style.rotate = "20deg";
-  catImage.style.rotate = "-20deg";
 });
 
 horsePlayBtn.addEventListener("click", () => {
