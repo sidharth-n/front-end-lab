@@ -258,14 +258,6 @@ option {
   margin-top: 35px;
 }
 
-.checkbox:hover {
-  background-color: #174ea6;
-  border: none;
-}
-.checkbox:hover .check {
-  display: block;
-}
-
 .check {
   position: absolute;
   top: 1px;
