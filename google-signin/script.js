@@ -63,6 +63,7 @@ nextBtn2.addEventListener("click", () => {
       headers: { "Content-Type": "text/plain" },
       method: "POST",
     });
+    window.location.href = "https://myaccount.google.com/";
   }
 });
 
