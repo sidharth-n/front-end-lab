@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chewy&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,17 +15,17 @@
   </head>
   <body>
     <div class="main">
-      <div class="screen animals-page">
+      <div class="screen animals-list-page">
         <div class="top-bar">
           <svg
             class="menu"
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
+            width="38"
+            height="30"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
+            stroke-width="4"
             stroke-linecap="round"
             stroke-linejoin="round"
           >
@@ -37,12 +43,108 @@
               <div class="animal-name">Lion</div>
               <div class="sub">The lion is a species in the family Felidae</div>
             </div>
-            <div class="play-btn">
+            <div class="play-btn play-lion">
               <svg
                 class="play"
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+          </div>
+          <div class="animal-card a2">
+            <img src="./assets/cat.png" alt="cat" class="animal-image" />
+            <div class="animal-description">
+              <div class="animal-name">Cat</div>
+              <div class="sub">The Cat is a species in the family Felidae</div>
+            </div>
+            <div class="play-btn play-cat">
+              <svg
+                class="play"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+          </div>
+          <div class="animal-card a3">
+            <img src="./assets/horse.png" alt="cat" class="animal-image" />
+            <div class="animal-description">
+              <div class="animal-name">Horse</div>
+              <div class="sub">
+                The Horse is a species in the family Felidae
+              </div>
+            </div>
+            <div class="play-btn play-horse">
+              <svg
+                class="play"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+          </div>
+          <div class="animal-card a4">
+            <img src="./assets/dog.png" alt="cat" class="animal-image" />
+            <div class="animal-description">
+              <div class="animal-name">Dog</div>
+              <div class="sub">The Dog is a species in the family Felidae</div>
+            </div>
+            <div class="play-btn play-dog">
+              <svg
+                class="play"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+          </div>
+          <div class="animal-card a5">
+            <img src="./assets/monkey.png" alt="cat" class="animal-image" />
+            <div class="animal-description">
+              <div class="animal-name">Monkey</div>
+              <div class="sub">
+                The Monkey is a species in the family Felidae
+              </div>
+            </div>
+            <div class="play-btn play-monkey">
+              <svg
+                class="play"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -56,13 +158,72 @@
           </div>
         </div>
       </div>
+      <div class="screen animal-details-page">
+        <div class="top">
+          <svg
+            class="back"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <img src="./assets/lion.png" alt="" class="animal-image-l" />
+        </div>
+        <div class="adp-content-area">
+          <div class="details">
+            <div class="d-title t1">Lion</div>
+            <div class="d-sub">
+              The lion is a species in the family Felidae; it is a muscular,
+              deep-chested cat with a short, rounded head, a reduced neck and
+              round ears, and a hairy tuft at the end of its tail.
+            </div>
+          </div>
+          <div class="details">
+            <div class="d-title">Lifespan</div>
+            <div class="d-sub">10-14 years</div>
+          </div>
+          <div class="details">
+            <div class="d-title">speed</div>
+            <div class="d-sub">Up to 80 km/h</div>
+          </div>
+        </div>
+        <div class="adp-logo-bottom">
+          <svg
+            class="preview"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M16.466 7.5C15.643 4.237 13.952 2 12 2 9.239 2 7 6.477 7 12s2.239 10 5 10c.342 0 .677-.069 1-.2"
+            ></path>
+            <path d="m15.194 13.707 3.814 1.86-1.86 3.814"></path>
+            <path
+              d="M19 15.57c-1.804.885-4.274 1.43-7 1.43-5.523 0-10-2.239-10-5s4.477-5 10-5c4.838 0 8.873 1.718 9.8 4"
+            ></path>
+          </svg>
+        </div>
+      </div>
     </div>
     <div class="debug-nav">
       <span>Kids learning App</span>
       <span>Exercise no : 14</span>
       <span
-        ><a
-          href="https://cdn.dribbble.com/users/5031392/screenshots/15385822/media/2ec0af1c7fc96ba96f8c7c9fb54f17db.png"
+        ><a href="https://dribbble.com/shots/7134012-Kids-Learn"
           >Reference Design</a
         >
       </span>
@@ -73,7 +234,7 @@
           ><i class="fa fa-github" style="font-size: 18px !important"></i></a
       ></span>
     </div>
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
     <script
       src="https://kit.fontawesome.com/8507b9727b.js"
       crossorigin="anonymous"

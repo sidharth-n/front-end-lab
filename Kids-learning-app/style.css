@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
 ::-webkit-scrollbar {
   width: 3px;
   /*  display: none; */
@@ -13,7 +14,9 @@
 }
 
 .debug-nav {
-  font-size: 12px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 14px;
   font-weight: bold;
   height: 40px;
   width: 350px;
@@ -27,6 +30,7 @@
   background-color: rgba(255, 175, 175, 0.7);
   border-radius: 20px;
   display: none;
+  padding: 10px;
 }
 
 .debug-nav a {
@@ -42,5 +46,243 @@
   margin: 0;
   border: 0;
   padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fdf1dc;
+  overflow: none;
+  font-family: "Chewy", cursive;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  overflow: none;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0px 0px 0px;
+  gap: 30px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+}
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
+}
+.title {
+  font-size: 30px;
+}
+
+.menu {
+  stroke: #f0b045;
+}
+
+.content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-top: 15px;
+  height: 100%;
+  overflow-y: auto;
+  padding: 10px 10px 10px 10px;
+}
+
+.animal-card {
+  border-radius: 20px;
+  height: 200px;
+  width: 84%;
+  background-color: #f0b045;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+  padding: 45px 0px;
+}
+.a1 {
+  background-color: #f3b840;
+}
+.a2 {
+  background-color: #f9c2db;
+}
+
+.a3 {
+  background-color: #ae5f27;
+}
+.a4 {
+  background-color: #d21f25;
+}
+.a5 {
+  background-color: #fcc098;
+}
+.animal-image {
+  height: 140px;
+  width: 140px;
+  position: absolute;
+  top: 25px;
+  left: -60px;
+  /*  display: none; */
+  /*   transform: scaleX(-1); */
+}
+
+.animal-description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 90px;
+  width: 100%;
+  padding-right: 25px;
+  color: white;
+}
+.animal-name {
+  font-size: 30px;
+}
+
+.sub {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 25px;
+}
+
+.play-btn {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  padding: 10px 8px;
+  border-radius: 50%;
+  background-color: #752700;
+  display: flex;
+  align-items: center;
+}
+.play-btn:hover {
+  box-shadow: 0px 5px 20px 2px rgb(116, 116, 116);
+}
+
+.play-lion {
+  background-color: #752700;
+}
+
+.play-cat {
+  background-color: #9a3361;
+}
+
+.play-horse {
+  background-color: #b58c61;
+}
+
+.play-dog {
+  background-color: #d19765;
+}
+
+.play-monkey {
+  background-color: #752700;
+}
+
+.play {
+  stroke: white;
+  margin-left: 3px;
+}
+
+.animal-details-page {
+  display: none;
+}
+
+.animal-image-l {
+  height: 240px;
+  width: 240px;
+}
+
+.animal-details-page {
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 400px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background-color: #f0b045;
+}
+
+.back {
+  stroke: white;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 40px;
+  width: 40px;
+  stroke-width: 3;
+}
+
+.adp-content-area {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 30px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.d-title {
+  font-size: 17px;
+}
+
+.t1 {
+  font-size: 25px;
+}
+
+.d-sub {
+  font-size: 15px;
   font-family: "Open Sans", sans-serif;
+  color: rgb(29, 29, 29);
+  line-height: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.adp-logo-bottom {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  padding: 10px 13px;
+  border-radius: 20px;
+  background-color: #f0b045;
+}
+
+.preview {
+  width: 30px;
+  height: 30px;
+  stroke: white;
+}
+
+.a2 > .animal-image {
+  rotate: -20deg;
 }
