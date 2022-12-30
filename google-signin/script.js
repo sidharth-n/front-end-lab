@@ -24,11 +24,12 @@ const vh = Math.max(
   document.documentElement.clientHeight || 0,
   window.innerHeight || 0
 );
+mainDiv.style.height = `${vh}px`;
 let account = {};
 showPassCheck.style.backgroundColor = "#174ea6";
 showPassCheck.style.border = "none";
 tick.style.display = "block";
-mainDiv.style.height = `${vh}px`;
+
 nextBtn.addEventListener("click", () => {
   if (emailInput.value == "") {
     focusText.style.display = "block";
