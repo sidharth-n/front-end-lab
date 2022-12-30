@@ -63,6 +63,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: white;
+  position: relative;
 }
 
 .top-bar {
@@ -320,7 +321,7 @@ body {
   display: flex;
   background-color: rgb(37, 37, 37);
   border-radius: 15px;
-  width: 90%;
+  width: 94%;
   align-self: center;
   position: absolute;
   bottom: 40px;
