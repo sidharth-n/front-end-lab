@@ -66,7 +66,7 @@ body {
 }
 
 .top-bar {
-  padding: 20px;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   border-bottom: 0.5px solid rgb(165, 165, 165);
@@ -146,7 +146,7 @@ body {
   height: 150px;
   border-radius: 10px;
   background-image: url(./assets/hadimba.jpg);
-  background-size: cover;
+  background-size: contain;
   box-shadow: 0px 8px 20px 3px rgb(105, 105, 105);
   position: relative;
   flex-shrink: 0;
@@ -217,7 +217,7 @@ body {
 }
 
 .menu-con {
-  height: 58%;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -235,13 +235,13 @@ body {
   background-color: white;
   position: relative;
   box-shadow: 0px 5px 20px 3px rgb(226, 226, 226);
-  background-size: cover;
+  background-size: contain;
 }
 .place-img {
   width: 80px;
   height: 75px;
   border-radius: 10px;
-  background-color: green;
+  background-color: rgb(255, 255, 255);
 }
 
 .p1 {
