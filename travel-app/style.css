@@ -1,6 +1,6 @@
 ::-webkit-scrollbar {
   width: 3px;
-  height: 2px;
+  height: 0px;
   /*  display: none; */
 }
 
@@ -105,7 +105,7 @@ body {
 .content-area {
   background-color: #f2f4f5;
   display: flex;
-  gap: 20px;
+  gap: 15px;
   flex-direction: column;
   padding: 15px 0px;
   flex: 1;
@@ -115,7 +115,7 @@ body {
 .section-head {
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 6px;
   padding: 0px 15px;
 }
 
@@ -134,11 +134,12 @@ body {
   overflow-x: auto;
   overflow-y: hidden;
 
-  padding: 5px 15px;
+  padding: 30px 15px;
   /* z-index: 1; */
   /* height: 250px; */
   flex-shrink: 0;
   z-index: 1;
+  margin-top: -30px;
 }
 
 .card {
@@ -216,6 +217,9 @@ body {
   stroke: none;
 }
 
+.s2 {
+  margin-top: -15px;
+}
 .menu-con {
   margin-bottom: 100px;
   display: flex;
