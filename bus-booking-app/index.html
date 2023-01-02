@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chewy&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bus booking</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="top-bar">
+        <span class="title"
+          ><span class="greeting">Hello, Faza!</span>Where are you going?</span
+        >
+        <div class="profile-box">
+          <img
+            src="./assets/profile.png"
+            alt="profile-pic"
+            class="profile-pic"
+          />
+        </div>
+      </div>
+      <div class="search-container">
+        <div class="from-to-con">
+          <div class="sub-text">From Station</div>
+          <div class="main-text">Pasar Senen (PSE)</div>
+        </div>
+        <div class="from-to-con">
+          <div class="sub-text">To Station</div>
+          <div class="main-text">Solo Balapan (Solo)</div>
+        </div>
+        <div class="dep-ret-con">
+          <div class="from-to-con">
+            <div class="sub-text">Departure</div>
+            <div class="main-text">Jan 7th, 2023</div>
+          </div>
+          <div class="from-to-con">
+            <div class="sub-text">Return</div>
+            <div class="main-text">Jan 15th, 2023</div>
+          </div>
+        </div>
+        <div class="search-btn">Search Bus</div>
+        <div class="shuffle-btn">
+          <svg
+            class="up-down"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="11 17 7 21 3 17"></polyline>
+            <line x1="7" y1="21" x2="7" y2="9"></line>
+            <polyline points="21 7 17 3 13 7"></polyline>
+            <line x1="17" y1="15" x2="17" y2="3"></line>
+          </svg>
+        </div>
+      </div>
+      <div class="upcoming-con">
+        Upcomming Ticket <span class="see-all">See All</span>
+      </div>
+      <div class="ticket-con">
+        <div class="tc1">
+          <div class="time-date-box">
+            <svg
+              class="date"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <div class="tc1-txt">Jan. 04 2023</div>
+          </div>
+          <div class="time-date-box">
+            <svg
+              class="clock"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <div class="tc1-txt">20h 5min</div>
+          </div>
+        </div>
+        <div class="tc2">
+          <div class="tc2-1">
+            <span class="tc2txt"
+              >PSE <span class="sub tc2sub"></span> Pasar Senen</span
+            >
+          </div>
+          <div class="tc2-mid">
+            <div class="dot"></div>
+            <div class="line"></div>
+            <div class="dot"></div>
+            <div class="bus-icon">
+              <svg
+                class="bus"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M19 17h2l.64-2.54c.24-.959.24-1.962 0-2.92l-1.07-4.27A3 3 0 0 0 17.66 5H4a2 2 0 0 0-2 2v10h2"
+                ></path>
+                <path d="M14 17H9"></path>
+                <circle cx="6.5" cy="17.5" r="2.5"></circle>
+                <circle cx="16.5" cy="17.5" r="2.5"></circle>
+              </svg>
+            </div>
+          </div>
+          <div class="tc2-1">
+            <span class="tc2txt"
+              >Balapan <span class="sub tc2sub"></span> Surakarfa</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="bottom-nav">
+        <svg
+          class="home bi"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          notif
+        >
+          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <svg
+          class="noti bi"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+        </svg>
+        <svg
+          class="ticket bi"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M3 7v2a3 3 0 1 1 0 6v2c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-2a3 3 0 1 1 0-6V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2Z"
+          ></path>
+          <path d="M13 5v2"></path>
+          <path d="M13 17v2"></path>
+          <path d="M13 11v2"></path>
+        </svg>
+        <svg
+          class="user bi"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </div>
+    </div>
+    <div class="debug-nav">
+      <span>Bus booking</span>
+      <span>Exercise no : 17</span>
+      <span
+        ><a href="https://dribbble.com/shots/18742581-Travel-Mobile-App"
+          >Reference Design</a
+        >
+      </span>
+      <span
+        ><a
+          href="https://github.com/sidharth-n/front-end-lab/tree/main/pomorodo-timer"
+          target="_blank"
+          ><i class="fa fa-github" style="font-size: 18px !important"></i></a
+      ></span>
+    </div>
+    <script src="./script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/8507b9727b.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

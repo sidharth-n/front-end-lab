@@ -1,0 +1,74 @@
+::-webkit-scrollbar {
+  width: 3px;
+  height: 0px;
+  /*  display: none; */
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #dadadb;
+}
+
+.debug-nav {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  height: 40px;
+  width: 350px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 2px;
+  border: 1px solid rgb(235, 235, 235);
+  left: 0px;
+  background-color: rgba(255, 175, 175, 0.7);
+  border-radius: 20px;
+  display: none;
+  padding: 10px;
+}
+
+.debug-nav a {
+  text-decoration: none;
+}
+
+.debug-nav a:hover {
+  color: #82cbf5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  color: rgb(53, 53, 53);
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e0e0;
+}
+
+.main {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  position: relative;
+}
+
+.top-bar {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.5px solid rgb(165, 165, 165);
+}
