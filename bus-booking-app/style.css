@@ -65,10 +65,11 @@ body {
   flex-direction: column;
   background-color: white;
   position: relative;
+  padding: 15px;
 }
 
 .top-bar {
-  padding: 20px 10px;
+  padding: 20px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -95,8 +96,214 @@ body {
 
 .search-container {
   display: flex;
+  /* align-items: center; */
   flex-direction: column;
   background-color: #f6f6f6;
   border-radius: 30px;
+  gap: 15px;
+  padding: 15px;
+  position: relative;
+  margin-top: 10px;
+}
+
+.from-to-con {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 10px;
+  border-radius: 20px;
+  background-color: white;
+  gap: 5px;
+  width: 100%;
+}
+.sub-text {
+  font-size: 12px;
+  color: grey;
+}
+
+.main-text {
+  font-weight: bold;
+}
+
+.dep-ret-con {
+  display: flex;
   gap: 10px;
+}
+
+.search-btn {
+  width: 100%;
+  text-align: center;
+  background-color: var(--violet);
+  color: white;
+  padding: 20px;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.shuffle-btn {
+  background-color: var(--violet);
+  padding: 12px 12px;
+  margin-top: -35px;
+  align-self: flex-end;
+  margin-right: 50px;
+  margin-bottom: -30px;
+  border-radius: 50%;
+  display: flex;
+  z-index: 10;
+}
+
+.up-down {
+  stroke: white;
+}
+
+.upcoming-con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.see-all {
+  font-size: 17px;
+  color: var(--violet);
+}
+
+.ticket-con {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  background-color: #f6f6f6;
+  border-radius: 20px;
+  position: relative;
+}
+
+.tc1 {
+  display: flex;
+  padding: 20px;
+  padding-bottom: 30px;
+  justify-content: space-between;
+  border-bottom: 3px dashed rgb(185, 185, 185);
+}
+
+.time-date-box {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  gap: 5px;
+  border-radius: 20px;
+  background-color: rgba(176, 170, 248, 0.3);
+}
+
+.date {
+  height: 16px;
+  width: 16px;
+  stroke: var(--violet);
+}
+.clock {
+  height: 16px;
+  width: 16px;
+  stroke: var(--violet);
+}
+
+.tc1-txt {
+  font-size: 14px;
+  color: var(--violet);
+}
+
+.tc2 {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.tc2txt {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  gap: 5px;
+  font-weight: bold;
+}
+
+.tc2sub {
+  font-size: 14px;
+  color: grey;
+  font-weight: normal;
+}
+
+.tc2-mid {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: var(--violet);
+}
+
+.line {
+  height: 3px;
+  border-radius: 20px;
+  background-color: var(--violet);
+  width: 100px;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+.bus {
+  width: 20px;
+  height: 20px;
+  stroke: white;
+}
+
+.bus-icon {
+  display: flex;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: var(--violet);
+  position: absolute;
+  top: -15px;
+  left: 40px;
+}
+
+.t-circle {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+}
+
+.c1 {
+  top: 40%;
+  left: -15px;
+}
+
+.c2 {
+  top: 40%;
+  right: -15px;
+}
+
+.bottom-nav {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 0px;
+  background-color: #f6f6f6;
+  padding: 30px;
+  left: 0px;
+}
+
+.bi {
+  stroke: rgb(109, 109, 109);
+}
+.bi:hover {
+  stroke: var(--violet);
 }
