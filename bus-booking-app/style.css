@@ -48,6 +48,7 @@
   padding: 0;
   color: rgb(53, 53, 53);
   font-family: "Open Sans", sans-serif;
+  --violet: #3b46f1;
 }
 
 body {
@@ -67,8 +68,35 @@ body {
 }
 
 .top-bar {
-  padding: 10px 20px;
+  padding: 20px 10px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 0.5px solid rgb(165, 165, 165);
+  align-items: center;
+}
+
+.profile-pic {
+  height: 35px;
+  width: 35px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.greeting {
+  font-size: 14px;
+  color: grey;
+  font-weight: normal;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #f6f6f6;
+  border-radius: 30px;
+  gap: 10px;
 }
