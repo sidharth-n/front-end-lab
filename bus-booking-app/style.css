@@ -141,6 +141,11 @@ body {
   border-radius: 20px;
 }
 
+.search-btn:hover {
+  cursor: pointer;
+  box-shadow: 0px 5px 20px 4px rgb(192, 192, 192);
+}
+
 .shuffle-btn {
   background-color: var(--violet);
   padding: 12px 12px;
@@ -151,6 +156,13 @@ body {
   border-radius: 50%;
   display: flex;
   z-index: 10;
+}
+/* .shuffle-btn:hover {
+  box-shadow: 0px 5px 20px 4px rgb(192, 192, 192);
+} */
+
+.shuffle-btn:hover .up-down {
+  transform: scaleY(-1);
 }
 
 .up-down {
@@ -170,6 +182,10 @@ body {
 .see-all {
   font-size: 16px;
   color: var(--violet);
+}
+.see-all:hover {
+  cursor: pointer;
+  color: rgb(255, 0, 191);
 }
 
 .ticket-con {
