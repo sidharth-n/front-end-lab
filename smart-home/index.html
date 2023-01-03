@@ -19,14 +19,83 @@
   </head>
   <body>
     <div class="main">
-      <div class="top-bar">
-        <span class="greeting"
-          ><span class="welcome">Welcome</span>Back To your <br />Home</span
-        >
-        <div class="search-super-con">
-          <div class="search-con">
+      <div class="page-1">
+        <div class="top-bar">
+          <span class="greeting"
+            ><span class="welcome">Welcome</span>Back To your <br />Home</span
+          >
+          <div class="search-super-con">
+            <div class="search-con">
+              <svg
+                class="search"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="select-room-con">
+          <div class="room-box b1">Living</div>
+          <div class="room-box">Bedroom</div>
+          <div class="room-box">Bathroom</div>
+          <div class="room-box">Kitchen</div>
+        </div>
+        <div class="device-title-section">
+          <span class="title">4 Active Devices</span>
+          <div class="add-btn">Add+</div>
+        </div>
+        <div class="devices-con">
+          <div class="device-card d1">
+            <div class="d-name">
+              Smart Lamp <span class="d-room">Living Room</span>
+            </div>
+            <div class="switch s1">
+              <div class="switch-circle"></div>
+            </div>
+            <img src="./assets/lamp.png" alt="smart lamp" class="d-image" />
+          </div>
+          <div class="device-card">
+            <div class="d-name">
+              Vaccum Cleaner <span class="d-room">Living Room</span>
+            </div>
+            <div class="switch s2">
+              <div class="switch-circle"></div>
+            </div>
+            <img src="./assets/vaccum.png" alt="smart lamp" class="d-image" />
+          </div>
+          <div class="device-card">
+            <div class="d-name">
+              CCTV Camera <span class="d-room">Living Room</span>
+            </div>
+            <div class="switch s3">
+              <div class="switch-circle"></div>
+            </div>
+            <img src="./assets/cctv.png" alt="smart lamp" class="d-image" />
+          </div>
+          <div class="device-card">
+            <div class="d-name">
+              Smart Speaker <span class="d-room">Living Room</span>
+            </div>
+            <div class="switch s4">
+              <div class="switch-circle"></div>
+            </div>
+            <img src="./assets/speaker.png" alt="smart lamp" class="d-image" />
+          </div>
+        </div>
+        <div class="bottom-nav">
+          <div class="btn-con home">
             <svg
-              class="search"
+              class="bi"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
@@ -37,149 +106,183 @@
               stroke-linecap="round"
               stroke-linejoin="round"
             >
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <div class="btn-con">
+            <svg
+              class="bi"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M3 3v18h18"></path>
+              <path d="M13 17V9"></path>
+              <path d="M18 17V5"></path>
+              <path d="M8 17v-3"></path>
+            </svg>
+          </div>
+          <div class="btn-con">
+            <svg
+              class="bi"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+          </div>
+          <div class="btn-con">
+            <svg
+              class="bi"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
+              ></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </div>
+          <div class="btn-con">
+            <svg
+              class="bi"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
             </svg>
           </div>
         </div>
       </div>
-      <div class="select-room-con">
-        <div class="room-box b1">Living</div>
-        <div class="room-box">Bedroom</div>
-        <div class="room-box">Bathroom</div>
-        <div class="room-box">Kitchen</div>
-      </div>
-      <div class="device-title-section">
-        <span class="title">4 Active Devices</span>
-        <div class="add-btn">Add+</div>
-      </div>
-      <div class="devices-con">
-        <div class="device-card d1">
-          <div class="d-name">
-            Smart Lamp <span class="d-room">Living Room</span>
+      <div class="page-2">
+        <div class="content">
+          <div class="back-btn-super-con">
+            <div class="back-btn">
+              <svg
+                class="back"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </div>
           </div>
-          <div class="switch s1">
-            <div class="switch-circle"></div>
+          <div class="head">
+            <div class="title">
+              <span class="title-normal">Light in</span>Living Room
+            </div>
+            <div class="switch p2"></div>
           </div>
-          <img src="./assets/lamp.png" alt="smart lamp" class="d-image" />
-        </div>
-        <div class="device-card">
-          <div class="d-name">
-            Vaccum Cleaner <span class="d-room">Living Room</span>
+          <div class="cards-con">
+            <div class="c-left">
+              <div class="p2card light-card">
+                <span class="l-text"><span class="no">6</span>Lights</span>
+                <img src="./assets/lamp.png" alt="" class="d-image d1 p2d1" />
+              </div>
+              <div class="p2card c-progress-card">
+                <div class="circle-1-transparent">
+                  <div class="gradient-circle">
+                    <div class="inner-circle-1">
+                      <div class="inner-dash-circle"></div>
+                    </div>
+                  </div>
+                  <div class="w-circle c1"></div>
+                  <div class="w-circle c2"></div>
+                </div>
+              </div>
+            </div>
+            <div class="c-right">
+              <div class="progress-bar">
+                <div class="progress-txt">
+                  <span class="l-text"
+                    ><span class="no">72%</span>Brightness</span
+                  >
+                </div>
+                <div class="progress"></div>
+              </div>
+            </div>
           </div>
-          <div class="switch s2">
-            <div class="switch-circle"></div>
+          <div class="schedule-con">
+            <div class="s-left">
+              <div class="s-title">Schedule</div>
+              <div class="time"><span class="from-to">From</span>6:00 pm</div>
+              <div class="time"><span class="from-to">To</span>11:00 pm</div>
+            </div>
+            <div class="s-right">
+              <div class="s-btn">
+                <svg
+                  class="si"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="18" y1="2" x2="22" y2="6"></line>
+                  <path d="M7.5 20.5 19 9l-4-4L3.5 16.5 2 22z"></path>
+                </svg>
+              </div>
+              <div class="s-btn">
+                <svg
+                  class="si"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+              </div>
+            </div>
           </div>
-          <img src="./assets/vaccum.png" alt="smart lamp" class="d-image" />
-        </div>
-        <div class="device-card">
-          <div class="d-name">
-            CCTV Camera <span class="d-room">Living Room</span>
-          </div>
-          <div class="switch s3">
-            <div class="switch-circle"></div>
-          </div>
-          <img src="./assets/cctv.png" alt="smart lamp" class="d-image" />
-        </div>
-        <div class="device-card">
-          <div class="d-name">
-            Smart Speaker <span class="d-room">Living Room</span>
-          </div>
-          <div class="switch s4">
-            <div class="switch-circle"></div>
-          </div>
-          <img src="./assets/speaker.png" alt="smart lamp" class="d-image" />
-        </div>
-      </div>
-      <div class="bottom-nav">
-        <div class="btn-con home">
-          <svg
-            class="bi"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-          </svg>
-        </div>
-        <div class="btn-con">
-          <svg
-            class="bi"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M3 3v18h18"></path>
-            <path d="M13 17V9"></path>
-            <path d="M18 17V5"></path>
-            <path d="M8 17v-3"></path>
-          </svg>
-        </div>
-        <div class="btn-con">
-          <svg
-            class="bi"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-          </svg>
-        </div>
-        <div class="btn-con">
-          <svg
-            class="bi"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
-            ></path>
-            <circle cx="12" cy="12" r="3"></circle>
-          </svg>
-        </div>
-        <div class="btn-con">
-          <svg
-            class="bi"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
         </div>
       </div>
     </div>
