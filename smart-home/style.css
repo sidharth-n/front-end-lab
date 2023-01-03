@@ -141,19 +141,21 @@ body {
 }
 .devices-con {
   margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  column-gap: 0px;
-  row-gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  /*  overflow-y: auto; */
+  margin-bottom: 80px;
+  padding: 10px 0px;
 }
 
 .device-card {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  height: 174px;
-  width: 174px;
+  /* height: 175px;
+  width: 175px; */
   border-radius: 40px;
   background-color: rgba(207, 207, 207, 0.5);
   backdrop-filter: blur(40px);
@@ -197,8 +199,8 @@ body {
 
 .d-image {
   position: absolute;
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
   right: 5px;
   bottom: 0px;
 }
