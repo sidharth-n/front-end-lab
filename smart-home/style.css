@@ -259,6 +259,7 @@ body {
   background-color: white;
   border-radius: 50%;
   align-self: flex-start;
+  transition: align-self 1s ease-in-out;
 }
 
 .switch:hover .switch-circle {
@@ -373,6 +374,9 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.p2 {
+  background-color: rgb(255, 196, 0);
+}
 
 .title {
   font-size: 33px;
@@ -424,12 +428,20 @@ body {
 .l-text {
   display: flex;
   flex-direction: column;
-  font-size: 15px;
+  font-size: 13px;
+  color: rgb(226, 226, 226);
 }
 
 .no {
+  font-size: 30px;
+  font-weight: bold;
+}
+.no2 {
   font-size: 25px;
   font-weight: bold;
+}
+.per {
+  font-weight: normal;
 }
 
 .c-progress-card {
@@ -577,6 +589,15 @@ body {
   padding: 25px 10px;
   border-radius: 15px;
   border: 1px solid grey;
+}
+
+.s-btn:hover {
+  background-color: #fff;
+  border: 1px solid white;
+  cursor: pointer;
+}
+.s-btn:hover .si {
+  stroke: rgb(54, 54, 54);
 }
 
 .si {
