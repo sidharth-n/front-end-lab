@@ -314,6 +314,7 @@ body {
 .table {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .table-left {
@@ -323,7 +324,7 @@ body {
 
 .table-right {
   display: flex;
-  justify-content: flex-end;
+  align-self: flex-end;
   gap: 30px;
 }
 
