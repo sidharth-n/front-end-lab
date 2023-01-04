@@ -282,7 +282,7 @@ body {
   height: 100%;
   font-size: 11px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   gap: 7px;
   padding: 0px 10px;
@@ -355,5 +355,9 @@ body {
   margin-top: -2px;
 }
 .thank-you {
+  align-self: center;
+}
+
+.main-menu {
   align-self: center;
 }
