@@ -2,6 +2,7 @@ const value = window.location.search;
 const debug_nav = document.querySelector(".debug-nav");
 const mainDiv = document.querySelector(".main");
 const checkoutBtn = document.querySelector(".checkout");
+const menuBtn = document.querySelector(".main-menu");
 const page1 = document.querySelector(".page-1");
 const page2 = document.querySelector(".page-2");
 const foodDetailsSection = document.querySelector(".food-details");
@@ -24,4 +25,9 @@ checkoutBtn.addEventListener("click", () => {
 
 foodCard.addEventListener("click", () => {
   foodDetailsSection.style.display = "flex";
+});
+
+menuBtn.addEventListener("click", () => {
+  page1.style.display = "flex";
+  page2.style.display = "none";
 });
