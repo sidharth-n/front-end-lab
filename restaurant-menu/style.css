@@ -87,8 +87,13 @@ body {
 }
 
 .left-menu {
-  width: 30%;
-  /*  border: 1px solid #000; */
+  width: 120px;
+  /*   border: 1px solid #000; */
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-heads {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -97,7 +102,83 @@ body {
 }
 .item:hover {
   cursor: pointer;
-  color: rgb(7, 7, 88);
+  color: rgb(134, 134, 134);
+}
+.i1 {
+  color: rgb(134, 134, 134);
+}
+
+.food-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 50px;
+  display: none;
+}
+
+.fd-head {
+  font-weight: bold;
+  font-size: 20px;
+}
+.fd-txt {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.line {
+  height: 3px;
+  width: 70%;
+  background-color: black;
+  border-radius: 40px;
+}
+.fd-options {
+  margin-top: 10px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fdi {
+  width: 15px;
+  height: 15px;
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}
+.veg-no {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}
+
+.add {
+  padding: 7px 15px;
+  border-radius: 20px;
+  border: 1px solid black;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.add:hover {
+  color: white;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: black;
 }
 
 .scrolling-right {
@@ -106,7 +187,7 @@ body {
   gap: 100px;
   flex: 1;
   /*  border: 1px solid #000; */
-  padding: 50% 20px 40px 20px;
+  padding: 135px 20px 40px 20px;
   height: 100%;
   overflow: auto;
 }
@@ -145,7 +226,7 @@ body {
   width: 130px;
   height: 130px;
   top: -60px;
-  left: 20%;
+  left: 15%;
 }
 
 .f-name {
@@ -162,4 +243,15 @@ body {
   font-size: 15px;
   font-weight: bold;
   margin-top: 5px;
+}
+
+.page-1 {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.page-2 {
+  width: 100%;
+  height: 100%;
 }
