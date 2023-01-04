@@ -30,4 +30,5 @@ foodCard.addEventListener("click", () => {
 menuBtn.addEventListener("click", () => {
   page1.style.display = "flex";
   page2.style.display = "none";
+  foodDetailsSection.style.display = "none";
 });
