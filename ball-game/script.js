@@ -15,7 +15,8 @@ const vh = Math.max(
   window.innerHeight || 0
 );
 mainDiv.style.height = `${vh}px`;
-
+ball1.style.left = `${mainDiv.offsetWidth / 2}px`;
+ball1.style.top = `${mainDiv.offsetHeight / 2}px`;
 sensor.start();
 sensor.onreading = () => {
   x = sensor.x * 100;
@@ -27,8 +28,8 @@ sensor.onreading = () => {
   report += `Ball X : ${ball1.offsetLeft} <br>`;
   report += `Ball Y : ${ball1.offsetTop} <br>`;
   consoleBox.innerHTML = report;
-  ball1.style.left = `${ball1.offsetLeft + x}px`;
-  ball1.style.top = `${ball1.offsetTop - y}px`;
+  ball1.style.left = `${ball1.offsetLeft + y < 0 ? 0 : ball1.offsetLeft + y}px`;
+  ball1.style.top = `${ball1.offsetTop + x < 0 ? 0 : ball1.offsetTop + x}px`;
 };
 
 sensor.onerror = (event) => {
