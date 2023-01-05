@@ -72,7 +72,7 @@ body {
   width: 30px;
   border-radius: 50%;
   box-shadow: 0px 0px 5px 5px rgb(158, 158, 158), 0.3;
-  transition: left 0.3s linear, top 0.3s linear;
+  transition: left 0.5s linear, top 0.5s linear;
 }
 
 .b1 {
