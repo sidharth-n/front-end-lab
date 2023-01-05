@@ -20,7 +20,7 @@ sensor.start();
 sensor.onreading = () => {
   x = sensor.x * 100;
   y = sensor.y * 100;
-  x = sensor.z * 100;
+  z = sensor.z * 100;
   report = `X-axis AV : ${x} <br>`;
   report += `Y-axis AV : ${y} <br>`;
   report += `Z-axis AV : ${z} <br>`;
