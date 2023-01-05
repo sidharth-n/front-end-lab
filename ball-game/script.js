@@ -18,10 +18,17 @@ mainDiv.style.height = `${vh}px`;
 
 sensor.start();
 sensor.onreading = () => {
-  report = `X-axis angular velocity : ${sensor.x} <br>`;
-  report += `Y-axis angular velocity : ${sensor.y} <br>`;
-  report += `Z-axis angular velocity : ${sensor.z} <br>`;
+  x = sensor.x * 100;
+  y = sensor.y * 100;
+  x = sensor.z * 100;
+  report = `X-axis AV : ${x} <br>`;
+  report += `Y-axis AV : ${y} <br>`;
+  report += `Z-axis AV : ${z} <br>`;
+  report += `Ball X : ${ball1.offsetLeft} <br>`;
+  report += `Ball Y : ${ball1.offsetTop} <br>`;
   consoleBox.innerHTML = report;
+  ball1.style.left = `${ball1.offsetLeft + x}px`;
+  ball1.style.top = `${ball1.offsetTop - y}px`;
 };
 
 sensor.onerror = (event) => {

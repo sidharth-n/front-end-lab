@@ -94,4 +94,6 @@ body {
   position: absolute;
   bottom: 20px;
   background-color: rgb(243, 226, 171);
+  font-size: 14px;
+  font-weight: bold;
 }
