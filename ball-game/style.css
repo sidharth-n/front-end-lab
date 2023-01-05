@@ -84,8 +84,8 @@ body {
 
 .b2 {
   position: absolute;
-  right: 20px;
-  bottom: 20px;
+  left: 20px;
+  top: 20px;
   background-color: rgb(0, 255, 106);
 }
 
