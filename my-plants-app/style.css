@@ -78,6 +78,7 @@ body {
   position: absolute;
   top: -90vh;
   z-index: 0;
+  align-self: center;
 }
 
 .pull-down-title {
@@ -230,6 +231,7 @@ body {
   justify-content: space-around;
   width: 100%;
   padding: 10px;
+  /*   position: relative; */
 }
 
 .bi {
@@ -273,7 +275,8 @@ body {
 .page-1 {
   width: 100%;
   height: 100%;
-  display: none;
+  align-items: center;
+  /* display: none; */
 }
 
 /*  page 2 */
@@ -285,6 +288,7 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
+  display: none;
 }
 
 .logo {
@@ -295,18 +299,18 @@ body {
 .page-2-curved-con {
   align-self: center;
   width: 500px;
-  /*  height: 90vh; */
+  height: 85vh;
   background-color: rgb(241, 241, 241);
   border-bottom-left-radius: 35%;
   border-bottom-right-radius: 35%;
   position: absolute;
   top: 0;
-  height: 90vh;
   padding: 25px 85px 0px 85px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   overflow: auto;
+  position: relative;
 }
 
 .head {
@@ -540,4 +544,12 @@ body {
 }
 .nc-3 {
   background-image: url(./assets/pl1.jpeg);
+}
+
+.hori2 {
+  background-color: red;
+  position: absolute;
+  top: -20px;
+  left: 43%;
+  z-index: 10;
 }
