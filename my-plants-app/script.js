@@ -21,7 +21,7 @@ mainDiv.style.height = `${vh}px`;
 
 pullBtn1.addEventListener("click", () => {
   /* page1.style.position = "absolute"; */
-  page2.style.marginTop = "-100vh";
+  page2.style.marginTop = `-${vh}px`;
   /*  page2.style.marginTop = "-100px"; */
   /* pullBtn1.style.backgroundColor = "blue"; */
 });
