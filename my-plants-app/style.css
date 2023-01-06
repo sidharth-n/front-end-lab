@@ -281,4 +281,263 @@ body {
 .page-2 {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+}
+
+.page-2-curved-con {
+  align-self: center;
+  width: 500px;
+  /*  height: 90vh; */
+  background-color: rgb(241, 241, 241);
+  border-bottom-left-radius: 35%;
+  border-bottom-right-radius: 35%;
+  position: absolute;
+  top: 0;
+  height: 90vh;
+  padding: 25px 85px 0px 85px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: auto;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+}
+
+.p2-title {
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 10px;
+  color: var(--green);
+}
+
+.calender {
+  height: 16px;
+  width: 16px;
+}
+
+.h-icon-con {
+  display: flex;
+  padding: 7px;
+  border-radius: 50%;
+  border: 1px solid grey;
+  margin-left: auto;
+}
+
+.info-cards-con {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info-card {
+  /*   width: 150px;
+  height: 150px; */
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px 0px rgb(212, 212, 212);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ic-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ic-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.ic-title {
+  font-size: 25px;
+  font-weight: bold;
+  position: relative;
+}
+
+.ic-content {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  font-weight: bold;
+  gap: 3px;
+  color: var(--green);
+}
+
+.sub {
+  font-weight: normal;
+  font-size: 16px;
+  color: var(--green);
+}
+
+.digree {
+  font-size: 16px;
+  position: absolute;
+  color: var(--green);
+}
+
+.c1 > .ic-top > .ic-icon {
+  stroke: red;
+}
+.c1 > .ic-top > .ic-title {
+  color: red;
+}
+
+.c2 > .ic-top > .ic-icon {
+  stroke: var(--green);
+}
+.c2 > .ic-top > .ic-title {
+  color: var(--green);
+}
+.c1 {
+  background-color: #fff;
+}
+
+.c2 {
+  background-color: #e2ed7c;
+}
+
+.notify-con {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.nc-head {
+  font-size: 23px;
+  font-weight: bold;
+  color: var(--green);
+}
+
+.noti-box {
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+  background-color: #fff;
+  position: relative;
+}
+
+.img-card {
+  height: 50px;
+  width: 60px;
+  border-radius: 15px;
+  background-image: url(./assets/pl2.jpeg);
+  background-size: cover;
+}
+
+.nb-txt {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: bold;
+}
+.nbt-head {
+  color: var(--green);
+}
+
+.nb-icon {
+  margin-left: auto;
+  padding: 10px;
+  display: flex;
+  border-radius: 15px;
+  background-color: rgb(216, 216, 216);
+}
+
+.nbi {
+  height: 20px;
+  width: 20px;
+  stroke: var(--green);
+}
+
+.more-btn {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  background-color: var(--green);
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  position: absolute;
+  bottom: -10px;
+  left: 45%;
+}
+.b1,
+.b2 {
+  z-index: 6;
+}
+.b1 {
+  margin-top: 10px;
+}
+
+.b3 {
+  background-color: rgb(5, 255, 109);
+  z-index: 5;
+  margin-top: -58px;
+  transition: margin 0.3s ease-in;
+}
+
+.b4 {
+  background-color: rgb(255, 230, 0);
+  z-index: 4;
+  margin-top: -58px;
+  transition: margin 0.3s ease-in;
+}
+
+.news-con {
+  margin-top: 15px;
+}
+
+.news-title {
+  font-size: 18px;
+  color: var(--green);
+  font-weight: bold;
+}
+
+.news-cards-con {
+  padding: 5px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  margin-right: -25px;
+}
+
+.news-card {
+  flex-shrink: 0;
+  width: 120px;
+  height: 160px;
+  border-radius: 10px;
+  background-color: rgb(255, 0, 0);
+  background-size: cover;
+}
+
+.nc-1 {
+  background-image: url(./assets/aloe.jpeg);
+}
+
+.nc-2 {
+  background-image: url(./assets/pl3.jpeg);
+}
+.nc-3 {
+  background-image: url(./assets/pl1.jpeg);
 }
