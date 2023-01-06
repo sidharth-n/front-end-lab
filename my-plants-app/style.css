@@ -88,7 +88,7 @@ body {
 }
 
 .pull-down-con {
-  margin-top: 40px;
+  margin-top: 35px;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -106,15 +106,17 @@ body {
 .pull-bar-hori {
   width: 60px;
   height: 3px;
-  background-color: grey;
-  border-bottom-right-radius: 40%;
-  border-bottom-left-radius: 40%;
+  background-color: rgb(189, 189, 189);
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-top-right-radius: -50%;
+  border-top-left-radius: -50%;
 }
 
 .pull-bar-verti {
   width: 2px;
-  height: 40px;
-  background-color: rgb(190, 190, 190);
+  height: 48px;
+  background-color: rgb(196, 196, 196);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -138,6 +140,7 @@ body {
   /*   border: 1px solid #000; */
   width: 100%;
   padding: 20px;
+  padding-top: 10px;
 }
 
 .cc-title {
@@ -151,7 +154,7 @@ body {
   margin-right: -20px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0px;
 }
 
 .plants-area {
@@ -164,9 +167,9 @@ body {
 }
 
 .plant-card {
-  height: 150px;
-  width: 130px;
-  box-shadow: 0px 0px 5px 0px rgba(153, 153, 153, 0.6);
+  height: 160px;
+  width: 135px;
+  box-shadow: 0px 0px 5px 0px rgba(211, 211, 211, 0.6);
   border-radius: 30px;
   flex-shrink: 0;
   background-image: url(./assets/pl1.jpeg);
@@ -180,10 +183,19 @@ body {
 .p1pc2 {
   background-image: url(./assets/pl2.jpeg);
 }
-
+.p2pc2 {
+  background-image: url(./assets/aloe.jpeg);
+}
+.p2pc1 {
+  background-image: url(./assets/pl3.jpeg);
+}
+.p2pc3 {
+  background-image: url(./assets/pl4.jpeg);
+}
 .plant-details {
   display: flex;
   flex-direction: column;
+  gap: 2px;
   position: absolute;
   bottom: 0px;
   padding: 6px 10px 15px 15px;
@@ -194,13 +206,13 @@ body {
 }
 
 .pl-name {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   color: var(--green);
 }
 
 .pl-area {
-  font-size: 12px;
+  font-size: 11px;
   color: grey;
 }
 
@@ -208,7 +220,7 @@ body {
   width: 100%;
   height: 20px;
   background-color: #d2d7d1;
-  box-shadow: 10px 20px 30px 1px rgb(82, 82, 82), 20px -10px 10px 2px #c2c9c0;
+  box-shadow: 10px 20px 30px 1px rgb(82, 82, 82), 15px -5px 10px 5px #d2d8d0;
 }
 
 .bottom-nav {
@@ -243,4 +255,17 @@ body {
 
 .pl-icon:hover .bi {
   stroke: white;
+}
+
+.p2 {
+  margin-top: 20px;
+}
+.p2 > .pl-table {
+  width: 120%;
+  margin-left: -20px;
+  margin-right: 20px;
+}
+
+.p2 > .plants-area {
+  margin-left: -20px;
 }
