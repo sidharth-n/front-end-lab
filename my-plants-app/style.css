@@ -60,7 +60,7 @@ body {
 
 .main {
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -134,6 +134,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: -3px;
+  animation: 1s ease-in-out 0s infinite alternate swing;
+}
+
+@keyframes swing {
+  from {
+    transform: rotateZ(10deg);
+  }
+  to {
+    transform: rotateZ(-10deg);
+  }
 }
 
 .pull-circle {
@@ -571,4 +582,15 @@ body {
   top: -20px;
   left: 43%;
   z-index: 10;
+  animation: 1s ease-in-out 0s infinite up-down;
+  animation-fill-mode: forwards;
+}
+
+@keyframes up-down {
+  from {
+    margin-top: 0px;
+  }
+  to {
+    margin-top: 3px;
+  }
 }
