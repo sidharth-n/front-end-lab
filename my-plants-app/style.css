@@ -286,11 +286,11 @@ body {
 
 .page-1 {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   align-items: center;
   position: relative;
   margin-top: 0px;
-  border: 1px solid #000;
+  transition: margin-top 0.7s ease-in-out;
   flex-shrink: 0;
   /*  display: none; */
 }
@@ -299,13 +299,12 @@ body {
 
 .page-2 {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  transition: margin-top 0.4s ease-out;
-  border: 1px solid #000;
+  transition: margin-top 0.7s ease-in-out;
   flex-shrink: 0;
   /*  display: none; */
 }
@@ -502,6 +501,7 @@ body {
   position: absolute;
   bottom: -10px;
   left: 45%;
+  transition: opacity 0.5s ease-in-out;
 }
 .b1,
 .b2 {
@@ -512,17 +512,17 @@ body {
 }
 
 .b3 {
-  background-color: rgb(5, 255, 109);
+  background-color: rgb(230, 230, 230);
   z-index: 5;
-  margin-top: -58px;
-  transition: margin 0.3s ease-in;
+  margin-top: -65px;
+  transition: margin 0.4s ease-in-out;
 }
 
 .b4 {
-  background-color: rgb(255, 230, 0);
+  background-color: rgb(230, 230, 230);
   z-index: 4;
-  margin-top: -58px;
-  transition: margin 0.3s ease-in;
+  margin-top: -65px;
+  transition: margin 0.4s ease-in-out;
 }
 
 .news-con {
@@ -566,7 +566,7 @@ body {
 }
 
 .hori2 {
-  background-color: red;
+  background-color: rgb(167, 167, 167);
   position: absolute;
   top: -20px;
   left: 43%;
