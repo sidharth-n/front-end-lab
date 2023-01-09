@@ -16,20 +16,20 @@ const vh = Math.max(
   window.innerHeight || 0
 );
 mainDiv.style.height = `${vh}px`;
-ball1.style.left = `${mainDiv.offsetWidth / 2}px`;
-ball1.style.top = `${mainDiv.offsetHeight / 2}px`;
+/* ball1.style.left = `${mainDiv.offsetWidth / 2}px`;
+ball1.style.top = `${mainDiv.offsetHeight / 2}px`; */
 sensor.start();
 sensor.onreading = () => {
-  x = sensor.x * 150;
+  /* x = sensor.x * 150;
   y = sensor.y * 100;
   z = sensor.z * 100;
   report = `X-axis AV : ${x} <br>`;
   report += `Y-axis AV : ${y} <br>`;
   report += `Z-axis AV : ${z} <br>`;
   report += `Ball X : ${ball1.offsetLeft} <br>`;
-  report += `Ball Y : ${ball1.offsetTop} <br>`;
-  consoleBox.innerHTML = report;
-  ball1.style.left = `${
+  report += `Ball Y : ${ball1.offsetTop} <br>`; */
+  consoleBox.innerHTML = sensor;
+  /* ball1.style.left = `${
     ball1.offsetLeft + y < 0
       ? 0
       : ball1.offsetLeft + y > mainDiv.offsetWidth - 30
@@ -48,7 +48,7 @@ sensor.onreading = () => {
     ball1.offsetTop == ball2.offsetTop
   ) {
     consoleBox.innerHTML = "YOU WON !!!";
-  }
+  } */
 };
 
 sensor.onerror = (event) => {
