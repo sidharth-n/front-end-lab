@@ -1,7 +1,8 @@
 const value = window.location.search;
 const debug_nav = document.querySelector(".debug-nav");
 const mainDiv = document.querySelector(".main");
-const tiles = document.querySelector(".tile");
+const tileBox = document.querySelector(".tiles-box");
+const reveal = document.querySelector(".reveal");
 
 if (value.includes("debug")) {
   debug_nav.style.display = "flex";
@@ -14,14 +15,7 @@ const vh = Math.max(
 );
 mainDiv.style.height = `${vh}px`;
 
-tiles.addEventListener("click", () => {
-  console.log("its working");
-  /* tiles.style.backgroundColor = "orange"; */
-  tiles.style.transform = "rotateY(90deg)";
-  tiles.style.transform = "rotateY(0deg)";
+reveal.addEventListener("click", () => {
+  tileBox.style.display = "none";
+  console.log("revealed");
 });
-
-/* tiles.addEventListener("click", () => {
-  console.log("its working");
-});
- */
