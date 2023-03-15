@@ -1,0 +1,17 @@
+#askButton {
+  padding: 0 16px;
+  height: 36px;
+  border-radius: 18px;
+  font-size: 14px;
+  background-color: #0f0f0f;
+  color: white;
+  font-family: "Roboto", "Arial", sans-serif;
+  margin: 0px 10px;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+}
+
+#askButton:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Hello Button",
+  "version": "1.0.1",
+  "description": "Adds a hello button to the YouTube page",
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/watch*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
