@@ -47,6 +47,7 @@ function addHelloButton() {
     const popupDiv = document.createElement("div");
     popupDiv.id = "askButton";
     popupDiv.id = "popupDiv";
+
     // Make the popup div draggable
     let isDragging = false;
     let mouseOffsetX = 0;
