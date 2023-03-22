@@ -22,11 +22,11 @@
 #popupDiv {
   width: 400px;
   height: 600px;
-  background-color: rgb(0, 0, 0);
+  background-color: #222222;
   box-shadow: 0px 5px 20px 3px rgb(48, 48, 48);
   position: absolute;
-  right: 120px;
-  top: 90px;
+  right: 50%;
+  top: 10%;
   z-index: 9999;
   cursor: move;
   border-radius: 15px;
@@ -50,12 +50,12 @@
   padding: 5px 25px;
 
   display: flex;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: #222222;
   justify-content: space-between;
   align-items: center;
 }
 #title {
-  color: rgb(44, 44, 44);
+  color: rgb(253, 253, 253);
   font-size: 16px;
   font-weight: bold;
   padding-left: 20px;
@@ -65,9 +65,13 @@
   text-align: center;
 
   border-radius: 10px;
-  background-color: rgb(255, 255, 255);
-  color: #000000;
+  background: transparent;
   font-weight: 100;
   cursor: pointer;
   border: none;
+  margin-right: 5px;
+}
+
+#close-svg {
+  stroke: white;
 }
