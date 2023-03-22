@@ -1,6 +1,3 @@
-function closeDiv() {
-  popupDiv.remove();
-}
 function addHelloButton() {
   const subscribeButton = document.querySelector("#subscribe-button");
   if (!subscribeButton) return;
@@ -23,11 +20,13 @@ function addHelloButton() {
     iframe.id = "iframe";
     // Append the iframe to the popup div
     popupDiv.appendChild(iframe);
-
+    function closeDiv() {
+      popupDiv.remove();
+    }
     // Create a close button element and append it to the popup div
     const topBar = document.createElement("div");
     topBar.id = "top-bar";
-    topBar.innerHTML = `<div id='title'>GPTube</div><button id='closeBtn' onClick='closeDiv()'><svg id='close-svg' xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+    topBar.innerHTML = `<div id='title'>GPTube</div><button id='closeBtn'><svg id='close-svg' xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
 viewBox="0 0 24 24" 
 fill="none" stroke="currentColor" 
 stroke-width="2" stroke-linecap="round" 
@@ -37,7 +36,12 @@ y1="6" x2="18" y2="18"></line>
 </svg>
 </button>`;
     popupDiv.appendChild(topBar);
-
+    const closeButton = document.querySelector("#closeBtn");
+    if (closeButton) {
+      closeButton.addEventListener("click", () => {
+        alert("close button clicked");
+      });
+    }
     // Make the popup div draggable
     let isDragging = false;
     let mouseOffsetX = 0;
