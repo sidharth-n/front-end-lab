@@ -11,6 +11,9 @@
   text-align: center;
   border: none;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 
 #askButton:hover {
   cursor: pointer;
@@ -18,8 +21,8 @@
 
 #popupDiv {
   width: 400px;
-  height: 800px;
-  background-color: white;
+  height: 600px;
+  background-color: rgb(0, 0, 0);
   border: 1px solid black;
   position: absolute;
   left: 50px;
@@ -27,4 +30,43 @@
   z-index: 9999;
   cursor: move;
   border-radius: 15px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  padding: 10px;
+  padding-top: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+#iframe {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+#topBar {
+  position: absolute;
+  padding: 5px 15px;
+  top: 0;
+  /*   display: flex;
+
+  justify-content: space-between;
+  align-items: center; */
+}
+#title {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#closeBtn {
+  text-align: center;
+
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+  font-weight: 100;
+  cursor: pointer;
+  border: none;
 }
