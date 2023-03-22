@@ -25,15 +25,14 @@
   background-color: rgb(0, 0, 0);
   box-shadow: 0px 5px 20px 3px rgb(48, 48, 48);
   position: absolute;
-  left: 50px;
-  top: 50px;
+  right: 120px;
+  top: 90px;
   z-index: 9999;
   cursor: move;
   border-radius: 15px;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  position: relative;
   overflow: hidden;
 }
 
