@@ -20,9 +20,7 @@ function addHelloButton() {
     iframe.id = "iframe";
     // Append the iframe to the popup div
     popupDiv.appendChild(iframe);
-    function closeDiv() {
-      popupDiv.remove();
-    }
+
     // Create a close button element and append it to the popup div
     const topBar = document.createElement("div");
     topBar.id = "top-bar";
@@ -36,12 +34,7 @@ y1="6" x2="18" y2="18"></line>
 </svg>
 </button>`;
     popupDiv.appendChild(topBar);
-    const closeButton = document.querySelector("#closeBtn");
-    if (closeButton) {
-      closeButton.addEventListener("click", () => {
-        alert("close button clicked");
-      });
-    }
+
     // Make the popup div draggable
     let isDragging = false;
     let mouseOffsetX = 0;
@@ -66,6 +59,12 @@ y1="6" x2="18" y2="18"></line>
 
     // Add the popup div to the body
     document.body.appendChild(popupDiv);
+
+    // Add event listener to close button once it's been added to the DOM
+    const closeButton = document.querySelector("#closeBtn");
+    closeButton.addEventListener("click", () => {
+      popupDiv.remove();
+    });
   });
 }
 
