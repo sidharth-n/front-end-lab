@@ -20,7 +20,7 @@ function App() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer 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`,
+        Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
         model: "gpt-3.5-turbo",
@@ -61,7 +61,7 @@ function App() {
       {isLoading ? (
         <div className="flex flex-col items-center">
           <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
-          <p>Retrieving ancient wisdom...</p>
+          <p>Connecting to heaven...</p>
         </div>
       ) : (
         quote.verse && (
