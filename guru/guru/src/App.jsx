@@ -14,7 +14,7 @@ function App() {
     event.preventDefault();
     setIsLoading(true);
 
-    const prompt = `Retrieve a excerpt from bible relevant to the life issue: "${issue}". Provide the excerpt and a short explanation of how it addresses the issue. give them back as a json file which contains only two keys -one is the verse and next is its explanation`;
+    const prompt = `Retrieve a excerpt from bhagavat gita relevant to the life issue: "${issue}". Provide the excerpt i the way krishna is telling to me also include where in bhavat gita it is said just give me the dialouge krishna would say based on bhagavat gita and a short explanation of how it addresses the issue. give them back as a json file which contains only two keys -one is the verse and next is its explanation`;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -61,7 +61,7 @@ function App() {
       {isLoading ? (
         <div className="flex flex-col items-center">
           <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
-          <p>Connecting to heaven...</p>
+          <p>Connecting to Krishna...</p>
         </div>
       ) : (
         quote.verse && (
