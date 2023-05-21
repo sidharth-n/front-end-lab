@@ -6,6 +6,7 @@ function App() {
   const [issue, setIssue] = useState("");
   const [quote, setQuote] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [showCards, setShowCards] = useState(true);
 
   const handleChange = (event) => {
     setIssue(event.target.value);
@@ -14,8 +15,9 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
+    setShowCards(false);
 
-    const prompt = `Imagine you are a indian spiritual guru.give me a very wise and knowledgable reply to my life issue: "${issue}".you can refer to bhavat gita , upanishads, yoga sutras, vedas and any indian spiritual teachings of any spiritrual masters.the reply should be quoted and should resemble the language and dilect of a guru.this is just for an experiment. you don't have to mention an caution message along. please give the reply in a json format.`;
+    const prompt = `Retrieve a quote from Bhagavad Gita relevant to the life issue: "${issue}". Provide a verse and a short explanation of how it addresses the issue. give them back as a json file which contains only two keys -one is the verse and next is its explanation`;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -57,13 +59,19 @@ function App() {
             <Quote verse={quote.verse} explanation={quote.explanation} />
           )
         )}
-        <div className="flex flex-col items-center">
-          <div className="card">This is based on the Bhagavad Gita.</div>
-          <div className="card">It is completely fictitious.</div>
-          <div className="card">
-            Ask a question and receive a verse from the Gita as guidance.
+        {showCards && (
+          <div className="flex-cols justify-around items-center mx-4 ">
+            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded ">
+              This is based on the Bhagavad Gita.
+            </div>
+            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded ">
+              It is completely fictitious.
+            </div>
+            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded ">
+              Ask a question and receive a verse from the Gita as guidance.
+            </div>
           </div>
-        </div>
+        )}
       </main>
       <footer className="p-4 bg-gray-800">
         <form onSubmit={handleSubmit} className="flex items-center">
