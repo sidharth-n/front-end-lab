@@ -61,28 +61,22 @@ function App() {
   }, []);
 
   return (
-    <div className="flex flex-col h-screen bg-black text-white">
+    <div className="flex flex-col h-screen bg-black text-white font-sans">
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
       />
-      {/*   <header className="p-4 mx-auto">
-        <h1 className="text-sm font-bold mt-0 mb-4">Krishna Online</h1>
-      </header> */}
-      <main
-        className="flex-1 overflow-auto p-4 mt-2 mb-24"
-        ref={quoteContainerRef}
-      >
-        <div className="quote-container mt-16">
+      <main className="flex-1 overflow-auto p-4 mt-2 mb-24">
+        <div className="quote-container flex justify-center items-center">
           {isLoading ? (
-            <div className="flex flex-col items-center">
+            <div className="text-center">
               <TypeAnimation
                 sequence={[
                   "Connecting to Krishna...",
                   1000,
-                  "Please wait for a moment...",
+                  "Dicussing your issues...",
                   1000,
-                  "Finding the perfect quote...",
+                  "Finding a solution...",
                   1000,
                 ]}
                 wrapper="span"
@@ -100,13 +94,14 @@ function App() {
         {showCards && (
           <div className="flex-cols justify-around items-center mx-4">
             <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
-              This is based on the Bhagavad Gita.
+              Krishna only speaks on behalf of Bhagavad Gita.
             </div>
             <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
-              It is completely fictitious.
+              The responses may sometimes produce inaccurate results.
             </div>
             <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
-              Ask a question and receive a verse from the Gita as guidance.
+              All your conversations with Krishna are anonymous and safe.
+              Nothing is being recorded.
             </div>
           </div>
         )}
@@ -117,7 +112,7 @@ function App() {
             <input
               type="text"
               placeholder="Your life issues"
-              className="w-full p-3 bg-gray-900 border border-gray-700 rounded-xl text-white outline-none"
+              className="w-full p-3 bg-gray-900 border border-gray-700 rounded-xl text-white outline-none shadow-md"
               value={issue}
               onChange={handleChange}
               autoFocus
@@ -134,7 +129,7 @@ function App() {
           </div>
           <button
             type="submit"
-            className="ml-4 bg-gray-900 text-white p-3 rounded-full"
+            className="ml-4 bg-gray-900 text-white p-3 rounded-full shadow-md"
           >
             <SendIcon />
           </button>
