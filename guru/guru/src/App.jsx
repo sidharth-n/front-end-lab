@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Quote from "./components/Quote.jsx";
 import SendIcon from "./SendIcon";
+import CloseIcon from "./CloseIcon";
 
 function App() {
   const [issue, setIssue] = useState("");
@@ -43,6 +44,10 @@ function App() {
     setIsLoading(false);
   };
 
+  const handleClear = () => {
+    setIssue("");
+  };
+
   return (
     <div className="flex flex-col h-screen bg-black text-white">
       {/*   <header className="p-4 mx-auto">
@@ -75,14 +80,25 @@ function App() {
       </main>
       <footer className="fixed bottom-0 w-full p-4">
         <form onSubmit={handleSubmit} className="flex items-center">
-          <input
-            type="text"
-            placeholder="Your life issues"
-            className="flex-grow focus-visible p-3 bg-gray-800 border border-gray-600 rounded-xl text-white outline-none"
-            value={issue}
-            onChange={handleChange}
-            autoFocus
-          />
+          <div className="relative flex-grow">
+            <input
+              type="text"
+              placeholder="Your life issues"
+              className="w-full p-3 pl-10 bg-gray-800 border border-gray-600 rounded-xl text-white outline-none"
+              value={issue}
+              onChange={handleChange}
+              autoFocus
+            />
+            {issue && (
+              <button
+                type="button"
+                className="absolute top-1 right-2 text-gray-500"
+                onClick={handleClear}
+              >
+                <CloseIcon />
+              </button>
+            )}
+          </div>
           <button
             type="submit"
             className="ml-4 bg-gray-800 text-white p-3 rounded-full"
@@ -94,6 +110,5 @@ function App() {
     </div>
   );
 }
-export default App;
 
-//Bearer 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
+export default App;
