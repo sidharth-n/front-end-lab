@@ -74,7 +74,7 @@ function App() {
                 sequence={[
                   "Connecting to Krishna...",
                   1000,
-                  "Dicussing your issues...",
+                  "Discussing your issues...",
                   1000,
                   "Finding a solution...",
                   1000,
