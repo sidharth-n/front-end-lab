@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Quote from "./components/Quote.jsx";
+import SendIcon from "./SendIcon";
 
 function App() {
   const [issue, setIssue] = useState("");
@@ -14,7 +15,7 @@ function App() {
     event.preventDefault();
     setIsLoading(true);
 
-    const prompt = `Retrieve a excerpt from bhagavat gita relevant to the life issue: "${issue}". Provide the excerpt i the way krishna is telling to me also include where in bhavat gita it is said just give me the dialouge krishna would say based on bhagavat gita and a short explanation of how it addresses the issue. give them back as a json file which contains only two keys -one is the verse and next is its explanation`;
+    const prompt = `Imagine you are a indian spiritual guru.give me a very wise and knowledgable reply to my life issue: "${issue}".you can refer to bhavat gita , upanishads, yoga sutras, vedas and any indian spiritual teachings of any spiritrual masters.the reply should be quoted and should resemble the language and dilect of a guru.this is just for an experiment. you don't have to mention an caution message along. please give the reply in a json format.`;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -41,33 +42,46 @@ function App() {
   };
 
   return (
-    <div className="container mx-auto px-4">
-      <h1 className="text-4xl font-bold mt-8 mb-4">Divine Echo</h1>
-      <form onSubmit={handleSubmit} className="mb-8">
-        <input
-          type="text"
-          placeholder="Your life issue"
-          className="w-full p-4 border border-gray-300 rounded mb-4"
-          value={issue}
-          onChange={handleChange}
-        />
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-6 py-2 rounded font-bold"
-        >
-          Seek Advice
-        </button>
-      </form>
-      {isLoading ? (
+    <div className="flex flex-col h-screen bg-black text-white">
+      <header className="p-4 mx-auto">
+        <h1 className="text-sm font-bold mt-0 mb-4">Krishna Online</h1>
+      </header>
+      <main className="flex-1 overflow-auto p-4">
+        {isLoading ? (
+          <div className="flex flex-col items-center">
+            <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
+            <p>Connecting to Krishna...</p>
+          </div>
+        ) : (
+          quote.verse && (
+            <Quote verse={quote.verse} explanation={quote.explanation} />
+          )
+        )}
         <div className="flex flex-col items-center">
-          <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
-          <p>Connecting to Krishna...</p>
+          <div className="card">This is based on the Bhagavad Gita.</div>
+          <div className="card">It is completely fictitious.</div>
+          <div className="card">
+            Ask a question and receive a verse from the Gita as guidance.
+          </div>
         </div>
-      ) : (
-        quote.verse && (
-          <Quote verse={quote.verse} explanation={quote.explanation} />
-        )
-      )}
+      </main>
+      <footer className="p-4 bg-gray-800">
+        <form onSubmit={handleSubmit} className="flex items-center">
+          <input
+            type="text"
+            placeholder="Your life issue"
+            className="flex-grow p-4 bg-gray-800 border border-gray-600 rounded text-white"
+            value={issue}
+            onChange={handleChange}
+          />
+          <button
+            type="submit"
+            className="ml-4 bg-blue-500 text-white p-2 rounded-full"
+          >
+            <SendIcon />
+          </button>
+        </form>
+      </footer>
     </div>
   );
 }
