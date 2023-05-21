@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Quote from "./components/Quote.jsx";
 import SendIcon from "./SendIcon";
 import CloseIcon from "./CloseIcon";
@@ -8,6 +8,7 @@ function App() {
   const [quote, setQuote] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [showCards, setShowCards] = useState(true);
+  const quoteContainerRef = useRef(null);
 
   const handleChange = (event) => {
     setIssue(event.target.value);
@@ -58,6 +59,14 @@ function App() {
     };
   }, []);
 
+  /*   useEffect(() => {
+    // Scroll to the bottom of the quote container when a new quote appears
+    if (quoteContainerRef.current) {
+      quoteContainerRef.current.scrollTop =
+        quoteContainerRef.current.scrollHeight;
+    }
+  }, [quote]); */
+
   return (
     <div className="flex flex-col h-screen bg-black text-white">
       <meta
@@ -67,7 +76,10 @@ function App() {
       {/*   <header className="p-4 mx-auto">
         <h1 className="text-sm font-bold mt-0 mb-4">Krishna Online</h1>
       </header> */}
-      <main className="flex-1 overflow-auto p-4 mt-2 mb-24">
+      <main
+        className="flex-1 overflow-auto p-4 mt-2 mb-24"
+        ref={quoteContainerRef}
+      >
         <div className="quote-container">
           {isLoading ? (
             <div className="flex flex-col items-center">
@@ -117,7 +129,7 @@ function App() {
           </div>
           <button
             type="submit"
-            className="ml-4 bg-gray-900 text-white p-3 rounded-full "
+            className="ml-4 bg-gray-900 text-white p-3 rounded-full"
           >
             <SendIcon />
           </button>
