@@ -73,7 +73,7 @@ function App() {
         className="flex-1 overflow-auto p-4 mt-2 mb-24"
         ref={quoteContainerRef}
       >
-        <div className="quote-container">
+        <div className="quote-container mt-16">
           {isLoading ? (
             <div className="flex flex-col items-center">
               <TypeAnimation
@@ -88,7 +88,7 @@ function App() {
                 wrapper="span"
                 cursor={true}
                 repeat={Infinity}
-                style={{ fontSize: "2em", display: "inline-block" }}
+                style={{ fontSize: "1em", display: "inline-block" }}
               />
             </div>
           ) : (
