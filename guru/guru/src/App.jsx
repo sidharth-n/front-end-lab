@@ -45,10 +45,10 @@ function App() {
 
   return (
     <div className="flex flex-col h-screen bg-black text-white">
-      <header className="p-4 mx-auto">
+      {/*   <header className="p-4 mx-auto">
         <h1 className="text-sm font-bold mt-0 mb-4">Krishna Online</h1>
-      </header>
-      <main className="flex-1 overflow-auto p-4">
+      </header> */}
+      <main className="flex-1 overflow-auto p-4 mt-24">
         {isLoading ? (
           <div className="flex flex-col items-center">
             <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
@@ -73,18 +73,19 @@ function App() {
           </div>
         )}
       </main>
-      <footer className="p-4 bg-gray-800">
+      <footer className="fixed bottom-0 w-full p-4">
         <form onSubmit={handleSubmit} className="flex items-center">
           <input
             type="text"
-            placeholder="Your life issue"
-            className="flex-grow p-4 bg-gray-800 border border-gray-600 rounded text-white"
+            placeholder="Your life issues"
+            className="flex-grow focus-visible p-3 bg-gray-800 border border-gray-600 rounded-xl text-white outline-none"
             value={issue}
             onChange={handleChange}
+            autoFocus
           />
           <button
             type="submit"
-            className="ml-4 bg-blue-500 text-white p-2 rounded-full"
+            className="ml-4 bg-gray-800 text-white p-3 rounded-full"
           >
             <SendIcon />
           </button>
@@ -93,7 +94,6 @@ function App() {
     </div>
   );
 }
-
 export default App;
 
 //Bearer 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
