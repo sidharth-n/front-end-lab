@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Quote from "./components/Quote.jsx";
 import SendIcon from "./SendIcon";
 import CloseIcon from "./CloseIcon";
@@ -48,22 +48,38 @@ function App() {
     setIssue("");
   };
 
+  useEffect(() => {
+    // Disable body scrolling on mobile
+    document.body.style.overflow = "hidden";
+
+    // Re-enable body scrolling when component is unmounted
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
   return (
     <div className="flex flex-col h-screen bg-black text-white">
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+      />
       {/*   <header className="p-4 mx-auto">
         <h1 className="text-sm font-bold mt-0 mb-4">Krishna Online</h1>
       </header> */}
-      <main className="flex-1 overflow-auto p-4 mt-24">
-        {isLoading ? (
-          <div className="flex flex-col items-center">
-            <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
-            <p>Connecting to Krishna...</p>
-          </div>
-        ) : (
-          quote.verse && (
-            <Quote verse={quote.verse} explanation={quote.explanation} />
-          )
-        )}
+      <main className="flex-1 overflow-auto p-4 mt-2 mb-24">
+        <div className="quote-container">
+          {isLoading ? (
+            <div className="flex flex-col items-center">
+              <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
+              <p>Connecting to Krishna...</p>
+            </div>
+          ) : (
+            quote.verse && (
+              <Quote verse={quote.verse} explanation={quote.explanation} />
+            )
+          )}
+        </div>
         {showCards && (
           <div className="flex-cols justify-around items-center mx-4 ">
             <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded ">
@@ -84,7 +100,7 @@ function App() {
             <input
               type="text"
               placeholder="Your life issues"
-              className="w-full p-3 pl-10 bg-gray-800 border border-gray-600 rounded-xl text-white outline-none"
+              className="w-full p-3 bg-gray-900 border border-gray-700 rounded-xl text-white outline-none"
               value={issue}
               onChange={handleChange}
               autoFocus
@@ -101,7 +117,7 @@ function App() {
           </div>
           <button
             type="submit"
-            className="ml-4 bg-gray-800 text-white p-3 rounded-full"
+            className="ml-4 bg-gray-900 text-white p-3 rounded-full "
           >
             <SendIcon />
           </button>
