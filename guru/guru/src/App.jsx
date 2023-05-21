@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Quote from "./components/Quote.jsx";
 import SendIcon from "./SendIcon";
 import CloseIcon from "./CloseIcon";
+import { TypeAnimation } from "react-type-animation";
 
 function App() {
   const [issue, setIssue] = useState("");
@@ -59,14 +60,6 @@ function App() {
     };
   }, []);
 
-  /*   useEffect(() => {
-    // Scroll to the bottom of the quote container when a new quote appears
-    if (quoteContainerRef.current) {
-      quoteContainerRef.current.scrollTop =
-        quoteContainerRef.current.scrollHeight;
-    }
-  }, [quote]); */
-
   return (
     <div className="flex flex-col h-screen bg-black text-white">
       <meta
@@ -83,8 +76,20 @@ function App() {
         <div className="quote-container">
           {isLoading ? (
             <div className="flex flex-col items-center">
-              <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
-              <p>Connecting to Krishna...</p>
+              <TypeAnimation
+                sequence={[
+                  "Connecting to Krishna...",
+                  1000,
+                  "Please wait for a moment...",
+                  1000,
+                  "Finding the perfect quote...",
+                  1000,
+                ]}
+                wrapper="span"
+                cursor={true}
+                repeat={Infinity}
+                style={{ fontSize: "2em", display: "inline-block" }}
+              />
             </div>
           ) : (
             quote.verse && (
@@ -93,14 +98,14 @@ function App() {
           )}
         </div>
         {showCards && (
-          <div className="flex-cols justify-around items-center mx-4 ">
-            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded ">
+          <div className="flex-cols justify-around items-center mx-4">
+            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
               This is based on the Bhagavad Gita.
             </div>
-            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded ">
+            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
               It is completely fictitious.
             </div>
-            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded ">
+            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
               Ask a question and receive a verse from the Gita as guidance.
             </div>
           </div>
