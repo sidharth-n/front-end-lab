@@ -212,8 +212,6 @@ import {
 import { translateText } from "./TranslationService";
 import joeIco from "./icon.png";
 
-//const joeIco = "icon.png"; // Replace with your bot's avatar
-
 function App() {
   const [question, setQuestion] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -279,23 +277,34 @@ function App() {
       <MainContainer>
         <ChatContainer>
           <MessageList>
-            <MessageSeparator content="Monday, 23 December 2019" as="h1" />
+            <MessageSeparator content="Monday, 25 May 2023" as="h1" />
             {messages.map((message, index) => (
               <Message key={index} model={message} avatarPosition="tl">
                 {message.sender === "Bot" && (
                   <Avatar src={joeIco} name={"Bot"} size="sm" />
                 )}
-                {index === messages.length - 1 && typingIndicator && (
-                  <TypingIndicator content="Bot is typing" />
-                )}
+                <MessageSeparator content="Monday, 23 December 2019" as="h1" />
               </Message>
             ))}
+            {typingIndicator && (
+              <Message
+                typingIndicator={<TypingIndicator content="Emily is typing" />}
+                model={{
+                  message: `ഒന്ന് ആലോയിക്കട്ടെ... വെയ്റ്റ് ...`,
+                  sender: "Bot",
+                  direction: "incoming",
+                  position: "single",
+                }}
+              >
+                <Avatar src={joeIco} name={"Bot"} size="sm" />
+                <TypingIndicator content="Bot is typing" />
+              </Message>
+            )}
           </MessageList>
           <MessageInput
             autoFocus
             placeholder="Type message here"
             attachButton={false}
-            //value={question}
             onChange={setQuestion}
             onSend={handleSubmit}
           />
