@@ -6,14 +6,14 @@ import { TypeAnimation } from "react-type-animation";
 import { translateText } from "./TranslationService";
 
 function App() {
-  const [issue, setIssue] = useState("");
+  const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showCards, setShowCards] = useState(true);
   const quoteContainerRef = useRef(null);
 
   const handleChange = (event) => {
-    setIssue(event.target.value);
+    setQuestion(event.target.value);
   };
 
   const handleSubmit = async (event) => {
@@ -21,7 +21,10 @@ function App() {
     setIsLoading(true);
     setShowCards(false);
 
-    const prompt = `Retrieve the answer to this question: "${issue}" in a json format with key "answer" and give me. make sure to return only the json no matter what the prompt is and to only reply in english no matter what the language is asked upon`;
+    // Translate the question to English before sending it to GPT-3
+    const translatedQuestion = await translateText(question, "en");
+
+    const prompt = `Retrieve the answer to this question: "${translatedQuestion}" in a json format with key "answer" and give me. make sure to return only the json no matter what the prompt is and to only reply in english no matter what the language is asked upon`;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -37,20 +40,17 @@ function App() {
     });
 
     const data = await response.json();
-    //console.log(data);
     const result = data.choices[0].message.content;
-    console.log(result);
     const parsedResult = JSON.parse(result);
-    const answer_from_gpt = parsedResult.answer;
+    console.log(parsedResult);
+    const answer_from_gpt = await translateText(parsedResult.answer, "ml");
 
-    const translatedAnswer = await translateText(answer_from_gpt, "ml");
-    console.log(translatedAnswer);
-    setAnswer(translatedAnswer);
+    setAnswer(answer_from_gpt);
     setIsLoading(false);
   };
 
   const handleClear = () => {
-    setIssue("");
+    setQuestion("");
   };
 
   useEffect(() => {
@@ -117,11 +117,11 @@ function App() {
               type="text"
               placeholder="Ask in english"
               className="w-full p-3 bg-gray-900 border border-gray-700 rounded-xl text-white outline-none shadow-md"
-              value={issue}
+              value={question}
               onChange={handleChange}
               autoFocus
             />
-            {issue && (
+            {question && (
               <button
                 type="button"
                 className="absolute top-1 right-2 text-gray-500"
