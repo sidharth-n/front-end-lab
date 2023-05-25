@@ -1,16 +1,30 @@
-import { useState, useEffect, useRef } from "react";
-import Quote from "./components/Quote.jsx";
+/* import { useState, useEffect, useRef } from "react";
 import SendIcon from "./SendIcon";
 import CloseIcon from "./CloseIcon";
-import { TypeAnimation } from "react-type-animation";
 import { translateText } from "./TranslationService";
+
+function MessageBubble({ message, isUser }) {
+  return (
+    <div className={`bubble ${isUser ? "user-bubble" : "bot-bubble"}`}>
+      <p>{message}</p>
+    </div>
+  );
+}
+
+function ChatWindow({ messages }) {
+  return (
+    <div className="chat-window">
+      {messages.map((message, index) => (
+        <MessageBubble key={index} {...message} />
+      ))}
+    </div>
+  );
+}
 
 function App() {
   const [question, setQuestion] = useState("");
-  const [answer, setAnswer] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [showCards, setShowCards] = useState(true);
-  const quoteContainerRef = useRef(null);
+  const [messages, setMessages] = useState([]);
 
   const handleChange = (event) => {
     setQuestion(event.target.value);
@@ -19,12 +33,18 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    setShowCards(false);
+
+    // Add user's question to the chat
+    setMessages([...messages, { message: question, isUser: true }]);
 
     // Translate the question to English before sending it to GPT-3
     const translatedQuestion = await translateText(question, "en");
 
-    const prompt = ` ${translatedQuestion}.`;
+    const prompt = `Retrieve the answer to this question: "${translatedQuestion}" in a json format with key "answer" and give me. make sure to return only the json no matter what the prompt is and to only reply in english no matter what the language is asked upon`;
+
+    // Add typing message from bot
+    setMessages([...messages, { message: "Typing...", isUser: false }]);
+
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -40,11 +60,17 @@ function App() {
 
     const data = await response.json();
     const result = data.choices[0].message.content;
-    //const parsedResult = JSON.parse(result);
-    console.log(result);
-    const answer_from_gpt = await translateText(result, "ml");
+    const parsedResult = JSON.parse(result);
+    console.log(parsedResult);
+    const answer_from_gpt = await translateText(parsedResult.answer, "ml");
 
-    setAnswer(answer_from_gpt);
+    // Replace bot's last message (Typing...) with the actual answer
+    const updatedMessages = [...messages];
+    updatedMessages[updatedMessages.length - 1] = {
+      message: answer_from_gpt,
+      isUser: false,
+    };
+    setMessages(updatedMessages);
     setIsLoading(false);
   };
 
@@ -52,63 +78,9 @@ function App() {
     setQuestion("");
   };
 
-  useEffect(() => {
-    // Disable body scrolling on mobile
-    document.body.style.overflow = "hidden";
-
-    // Re-enable body scrolling when component is unmounted
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, []);
-
   return (
     <div className="flex flex-col h-screen bg-black text-white font-sans">
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-      />
-      <main className="flex-1 overflow-auto p-4 mt-2 mb-24">
-        <div className="quote-container flex justify-center items-center">
-          {isLoading ? (
-            <div className="text-center">
-              <TypeAnimation
-                sequence={[
-                  "Connecting to Bot...",
-                  1000,
-                  "Asking question...",
-                  1000,
-                  "Getting reply...",
-                  1000,
-                ]}
-                wrapper="span"
-                cursor={true}
-                repeat={Infinity}
-                style={{ fontSize: "1em", display: "inline-block" }}
-              />
-            </div>
-          ) : (
-            answer && <Quote answer={answer} />
-          )}
-        </div>
-        {showCards && (
-          <div className="flex-cols justify-around items-center mx-4">
-            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
-              വൈവിധ്യമാർന്ന ചോദ്യങ്ങളിലും സംഭാഷണങ്ങളിലും നിങ്ങളെ സഹായിക്കാൻ
-              കഴിയുന്ന നൂതന ഭാഷാ മോഡലായ ChatGPT യുടെ കഴിവുകൾ അനുഭവിക്കുക.
-            </div>
-            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
-              ചോദ്യങ്ങൾക്ക് ഉത്തരം നൽകുന്നത് മുതൽ വിവിധ വിഷയങ്ങൾ ചർച്ച
-              ചെയ്യുന്നത് വരെ, വിജ്ഞാനപ്രദവും സഹായകരവുമായ പ്രതികരണങ്ങൾ
-              നൽകുന്നതിനാണ് ഞങ്ങളുടെ AI രൂപകൽപ്പന ചെയ്തിരിക്കുന്നത്.
-            </div>
-            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
-              നിങ്ങളുടെ സന്ദേശം ഇംഗ്ലീഷിൽ ടൈപ്പുചെയ്യാൻ ആരംഭിക്കുക, നമുക്ക്
-              ഒരുമിച്ച് പര്യവേക്ഷണം ചെയ്യാം!
-            </div>
-          </div>
-        )}
-      </main>
+      <ChatWindow messages={messages} />
       <footer className="fixed bottom-0 w-full p-4">
         <form onSubmit={handleSubmit} className="flex items-center">
           <div className="relative flex-grow">
@@ -142,4 +114,397 @@ function App() {
   );
 }
 
+export default App; */
+
+import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import {
+  MainContainer,
+  ChatContainer,
+  MessageList,
+  Message,
+  MessageInput,
+  Avatar,
+  ConversationHeader,
+  TypingIndicator,
+  MessageSeparator,
+} from "@chatscope/chat-ui-kit-react";
+const joeIco = "./botIcon.jpg";
+const localSender = "me";
+function App() {
+  return (
+    <>
+      <div
+        style={{
+          height: "500px",
+        }}
+      >
+        <ChatContainer>
+          <MessageList
+            typingIndicator={<TypingIndicator content="Joe is typing" />}
+          >
+            <MessageSeparator content="Saturday, 30 November 2019" />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: "Joe",
+
+                direction: "incoming",
+
+                position: "single",
+              }}
+            >
+              <Avatar src={joeIco} name={"Joe"} />
+            </Message>
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: localSender,
+
+                direction: "outgoing",
+
+                position: "single",
+              }}
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: "Joe",
+
+                direction: "incoming",
+
+                position: "first",
+              }}
+              avatarSpacer
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: "Joe",
+
+                direction: "incoming",
+
+                position: "normal",
+              }}
+              avatarSpacer
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: "Joe",
+
+                direction: "incoming",
+
+                position: "normal",
+              }}
+              avatarSpacer
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: "Joe",
+
+                direction: "incoming",
+
+                position: "last",
+              }}
+            >
+              <Avatar src={joeIco} name={"Joe"} />
+            </Message>
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: localSender,
+
+                direction: "outgoing",
+
+                position: "first",
+              }}
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: localSender,
+
+                direction: "outgoing",
+
+                position: "normal",
+              }}
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: localSender,
+
+                direction: "outgoing",
+
+                position: "normal",
+              }}
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: localSender,
+
+                direction: "outgoing",
+
+                position: "last",
+              }}
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: "Joe",
+
+                direction: "incoming",
+
+                position: "first",
+              }}
+              avatarSpacer
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: "Joe",
+
+                direction: "incoming",
+
+                position: "last",
+              }}
+            >
+              <Avatar src={joeIco} name={"Joe"} />
+            </Message>
+
+            <MessageSeparator content="Saturday, 31 November 2019" />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: "Joe",
+
+                direction: "incoming",
+
+                position: "single",
+              }}
+            >
+              <Avatar src={joeIco} name={"Joe"} />
+            </Message>
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: localSender,
+
+                direction: "outgoing",
+
+                position: "single",
+              }}
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: "Joe",
+
+                direction: "incoming",
+
+                position: "first",
+              }}
+              avatarSpacer
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: "Joe",
+
+                direction: "incoming",
+
+                position: "normal",
+              }}
+              avatarSpacer
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: "Joe",
+
+                direction: "incoming",
+
+                position: "normal",
+              }}
+              avatarSpacer
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: "Joe",
+
+                direction: "incoming",
+
+                position: "last",
+              }}
+            >
+              <Avatar src={joeIco} name={"Joe"} />
+            </Message>
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: localSender,
+
+                direction: "outgoing",
+
+                position: "first",
+              }}
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: localSender,
+
+                direction: "outgoing",
+
+                position: "normal",
+              }}
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: localSender,
+
+                direction: "outgoing",
+
+                position: "normal",
+              }}
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: localSender,
+
+                direction: "outgoing",
+
+                position: "last",
+              }}
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: "Joe",
+
+                direction: "incoming",
+
+                position: "first",
+              }}
+              avatarSpacer
+            />
+
+            <Message
+              model={{
+                message: "Hello my friend",
+
+                sentTime: "15 mins ago",
+
+                sender: "Joe",
+
+                direction: "incoming",
+
+                position: "last",
+              }}
+            >
+              <Avatar src={joeIco} name={"Joe"} />
+            </Message>
+          </MessageList>
+        </ChatContainer>
+      </div>
+    </>
+  );
+}
 export default App;
