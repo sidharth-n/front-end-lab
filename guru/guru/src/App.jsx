@@ -3,6 +3,7 @@ import Quote from "./components/Quote.jsx";
 import SendIcon from "./SendIcon";
 import CloseIcon from "./CloseIcon";
 import { TypeAnimation } from "react-type-animation";
+import { translateText } from "./TranslationService";
 
 function App() {
   const [issue, setIssue] = useState("");
@@ -20,7 +21,7 @@ function App() {
     setIsLoading(true);
     setShowCards(false);
 
-    const prompt = `Retrieve a quote from Bhagavad Gita relevant to the life issue: "${issue}". Provide a verse and a short explanation of how it addresses the issue. give them back as a json file which contains only two keys -one is the verse and next is its explanation`;
+    const prompt = issue;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -42,14 +43,15 @@ function App() {
     const parsedResult = JSON.parse(result);
     const { verse, explanation } = parsedResult;
 
-    setQuote({ verse, explanation });
+    const translatedExplanation = await translateText(explanation, "ml");
+
+    setQuote({ verse, explanation: translatedExplanation });
     setIsLoading(false);
   };
 
   const handleClear = () => {
     setIssue("");
   };
-
   useEffect(() => {
     // Disable body scrolling on mobile
     document.body.style.overflow = "hidden";
