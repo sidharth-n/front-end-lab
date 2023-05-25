@@ -198,7 +198,7 @@ function App() {
 export default App; */
 
 import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   MainContainer,
   ChatContainer,
@@ -210,7 +210,7 @@ import {
 } from "@chatscope/chat-ui-kit-react";
 import { translateText } from "./TranslationService";
 
-const joeIco = "./botIcon.jpg"; // Replace with your bot's avatar
+const joeIco = "icon.png"; // Replace with your bot's avatar
 
 function App() {
   const [question, setQuestion] = useState("");
@@ -219,11 +219,9 @@ function App() {
   const [typingIndicator, setTypingIndicator] = useState(false);
 
   const handleSubmit = async (event) => {
-    //event.preventDefault();
     setIsLoading(true);
-    console.log("button clicked");
     // Add user's question to the chat
-    setMessages([
+    const newMessages = [
       ...messages,
       {
         message: question,
@@ -232,7 +230,8 @@ function App() {
         sentTime: "just now",
         position: "single",
       },
-    ]);
+    ];
+    setMessages(newMessages);
 
     // Translate the question to English before sending it to GPT-3
     const translatedQuestion = await translateText(question, "en");
@@ -257,21 +256,18 @@ function App() {
 
     const data = await response.json();
     const result = data.choices[0].message.content;
-    const parsedResult = JSON.parse(result);
-    console.log(parsedResult);
-    const answer_from_gpt = await translateText(parsedResult.answer, "ml");
+    console.log(result);
+    const answer_from_gpt = await translateText(result, "ml");
 
     // Replace bot's last message (Typing...) with the actual answer
-    setMessages([
-      ...messages,
-      {
-        message: answer_from_gpt,
-        sender: "Bot",
-        direction: "incoming",
-        sentTime: "just now",
-        position: "single",
-      },
-    ]);
+    newMessages.push({
+      message: answer_from_gpt,
+      sender: "Bot",
+      direction: "incoming",
+      sentTime: "just now",
+      position: "single",
+    });
+    setMessages(newMessages);
     setIsLoading(false);
     setTypingIndicator(false);
   };
@@ -280,15 +276,14 @@ function App() {
     <div style={{ height: "90vh" }}>
       <MainContainer>
         <ChatContainer>
-          <MessageList
-            typingIndicator={
-              typingIndicator && <TypingIndicator content="Bot is typing" />
-            }
-          >
+          <MessageList>
             {messages.map((message, index) => (
               <Message key={index} model={message}>
                 {message.sender === "Bot" && (
                   <Avatar src={joeIco} name={"Bot"} />
+                )}
+                {index === messages.length - 1 && typingIndicator && (
+                  <TypingIndicator content="Bot is typing" />
                 )}
               </Message>
             ))}
@@ -298,8 +293,6 @@ function App() {
             value={question}
             onChange={setQuestion}
             onSend={handleSubmit}
-            onFocus={() => setTypingIndicator(true)}
-            onBlur={() => setTypingIndicator(false)}
           />
         </ChatContainer>
       </MainContainer>
