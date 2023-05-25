@@ -116,7 +116,7 @@ function App() {
 
 export default App; */
 
-import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+/* import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import {
   MainContainer,
   ChatContainer,
@@ -135,12 +135,12 @@ function App() {
     <>
       <div
         style={{
-          height: "500px",
+          height: "90vh",
         }}
       >
         <ChatContainer>
           <MessageList
-            typingIndicator={<TypingIndicator content="Joe is typing" />}
+            typingIndicator={<TypingIndicator content="Bot is typing" />}
           >
             <MessageSeparator content="Saturday, 30 November 2019" />
 
@@ -173,157 +173,6 @@ function App() {
                 position: "single",
               }}
             />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: "Joe",
-
-                direction: "incoming",
-
-                position: "first",
-              }}
-              avatarSpacer
-            />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: "Joe",
-
-                direction: "incoming",
-
-                position: "normal",
-              }}
-              avatarSpacer
-            />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: "Joe",
-
-                direction: "incoming",
-
-                position: "normal",
-              }}
-              avatarSpacer
-            />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: "Joe",
-
-                direction: "incoming",
-
-                position: "last",
-              }}
-            >
-              <Avatar src={joeIco} name={"Joe"} />
-            </Message>
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: localSender,
-
-                direction: "outgoing",
-
-                position: "first",
-              }}
-            />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: localSender,
-
-                direction: "outgoing",
-
-                position: "normal",
-              }}
-            />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: localSender,
-
-                direction: "outgoing",
-
-                position: "normal",
-              }}
-            />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: localSender,
-
-                direction: "outgoing",
-
-                position: "last",
-              }}
-            />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: "Joe",
-
-                direction: "incoming",
-
-                position: "first",
-              }}
-              avatarSpacer
-            />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: "Joe",
-
-                direction: "incoming",
-
-                position: "last",
-              }}
-            >
-              <Avatar src={joeIco} name={"Joe"} />
-            </Message>
-
-            <MessageSeparator content="Saturday, 31 November 2019" />
-
             <Message
               model={{
                 message: "Hello my friend",
@@ -335,176 +184,127 @@ function App() {
                 direction: "incoming",
 
                 position: "single",
-              }}
-            >
-              <Avatar src={joeIco} name={"Joe"} />
-            </Message>
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: localSender,
-
-                direction: "outgoing",
-
-                position: "single",
-              }}
-            />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: "Joe",
-
-                direction: "incoming",
-
-                position: "first",
-              }}
-              avatarSpacer
-            />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: "Joe",
-
-                direction: "incoming",
-
-                position: "normal",
-              }}
-              avatarSpacer
-            />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: "Joe",
-
-                direction: "incoming",
-
-                position: "normal",
-              }}
-              avatarSpacer
-            />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: "Joe",
-
-                direction: "incoming",
-
-                position: "last",
-              }}
-            >
-              <Avatar src={joeIco} name={"Joe"} />
-            </Message>
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: localSender,
-
-                direction: "outgoing",
-
-                position: "first",
-              }}
-            />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: localSender,
-
-                direction: "outgoing",
-
-                position: "normal",
-              }}
-            />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: localSender,
-
-                direction: "outgoing",
-
-                position: "normal",
-              }}
-            />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: localSender,
-
-                direction: "outgoing",
-
-                position: "last",
-              }}
-            />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: "Joe",
-
-                direction: "incoming",
-
-                position: "first",
-              }}
-              avatarSpacer
-            />
-
-            <Message
-              model={{
-                message: "Hello my friend",
-
-                sentTime: "15 mins ago",
-
-                sender: "Joe",
-
-                direction: "incoming",
-
-                position: "last",
               }}
             >
               <Avatar src={joeIco} name={"Joe"} />
             </Message>
           </MessageList>
+          <MessageInput placeholder="Type message here" />
         </ChatContainer>
       </div>
     </>
   );
 }
+export default App; */
+
+import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import { useState } from "react";
+import {
+  MainContainer,
+  ChatContainer,
+  MessageList,
+  Message,
+  MessageInput,
+  Avatar,
+  TypingIndicator,
+} from "@chatscope/chat-ui-kit-react";
+import { translateText } from "./TranslationService";
+
+const joeIco = "./botIcon.jpg"; // Replace with your bot's avatar
+
+function App() {
+  const [question, setQuestion] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const [typingIndicator, setTypingIndicator] = useState(false);
+
+  const handleSubmit = async (event) => {
+    //event.preventDefault();
+    setIsLoading(true);
+    console.log("button clicked");
+    // Add user's question to the chat
+    setMessages([
+      ...messages,
+      {
+        message: question,
+        sender: "me",
+        direction: "outgoing",
+        sentTime: "just now",
+        position: "single",
+      },
+    ]);
+
+    // Translate the question to English before sending it to GPT-3
+    const translatedQuestion = await translateText(question, "en");
+
+    const prompt = `${translatedQuestion}`;
+
+    // Add typing message from bot
+    setTypingIndicator(true);
+
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "user", content: prompt }],
+        temperature: 0.7,
+      }),
+    });
+
+    const data = await response.json();
+    const result = data.choices[0].message.content;
+    const parsedResult = JSON.parse(result);
+    console.log(parsedResult);
+    const answer_from_gpt = await translateText(parsedResult.answer, "ml");
+
+    // Replace bot's last message (Typing...) with the actual answer
+    setMessages([
+      ...messages,
+      {
+        message: answer_from_gpt,
+        sender: "Bot",
+        direction: "incoming",
+        sentTime: "just now",
+        position: "single",
+      },
+    ]);
+    setIsLoading(false);
+    setTypingIndicator(false);
+  };
+
+  return (
+    <div style={{ height: "90vh" }}>
+      <MainContainer>
+        <ChatContainer>
+          <MessageList
+            typingIndicator={
+              typingIndicator && <TypingIndicator content="Bot is typing" />
+            }
+          >
+            {messages.map((message, index) => (
+              <Message key={index} model={message}>
+                {message.sender === "Bot" && (
+                  <Avatar src={joeIco} name={"Bot"} />
+                )}
+              </Message>
+            ))}
+          </MessageList>
+          <MessageInput
+            placeholder="Type message here"
+            value={question}
+            onChange={setQuestion}
+            onSend={handleSubmit}
+            onFocus={() => setTypingIndicator(true)}
+            onBlur={() => setTypingIndicator(false)}
+          />
+        </ChatContainer>
+      </MainContainer>
+    </div>
+  );
+}
+
 export default App;
