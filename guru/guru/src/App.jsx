@@ -24,8 +24,7 @@ function App() {
     // Translate the question to English before sending it to GPT-3
     const translatedQuestion = await translateText(question, "en");
 
-    const prompt = `Retrieve the answer to this question: "${translatedQuestion}" in a json format with key "answer" and give me. make sure to return only the json no matter what the prompt is and to only reply in english no matter what the language is asked upon`;
-
+    const prompt = ` ${translatedQuestion}.`;
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -41,9 +40,9 @@ function App() {
 
     const data = await response.json();
     const result = data.choices[0].message.content;
-    const parsedResult = JSON.parse(result);
-    console.log(parsedResult);
-    const answer_from_gpt = await translateText(parsedResult.answer, "ml");
+    //const parsedResult = JSON.parse(result);
+    console.log(result);
+    const answer_from_gpt = await translateText(result, "ml");
 
     setAnswer(answer_from_gpt);
     setIsLoading(false);
