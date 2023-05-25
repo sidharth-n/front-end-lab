@@ -7,7 +7,7 @@ import { translateText } from "./TranslationService";
 
 function App() {
   const [issue, setIssue] = useState("");
-  const [quote, setQuote] = useState({});
+  const [answer, setAnswer] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showCards, setShowCards] = useState(true);
   const quoteContainerRef = useRef(null);
@@ -21,7 +21,7 @@ function App() {
     setIsLoading(true);
     setShowCards(false);
 
-    const prompt = issue;
+    const prompt = `Retrieve the answer to this question: "${issue}" in a json format with key "answer" and give me. make sure to return only the json no matter what the prompt is and to only reply in english no matter what the language is asked upon`;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -37,21 +37,22 @@ function App() {
     });
 
     const data = await response.json();
-
+    //console.log(data);
     const result = data.choices[0].message.content;
     console.log(result);
     const parsedResult = JSON.parse(result);
-    const { verse, explanation } = parsedResult;
+    const answer_from_gpt = parsedResult.answer;
 
-    const translatedExplanation = await translateText(explanation, "ml");
-
-    setQuote({ verse, explanation: translatedExplanation });
+    const translatedAnswer = await translateText(answer_from_gpt, "ml");
+    console.log(translatedAnswer);
+    setAnswer(translatedAnswer);
     setIsLoading(false);
   };
 
   const handleClear = () => {
     setIssue("");
   };
+
   useEffect(() => {
     // Disable body scrolling on mobile
     document.body.style.overflow = "hidden";
@@ -74,11 +75,11 @@ function App() {
             <div className="text-center">
               <TypeAnimation
                 sequence={[
-                  "Connecting to Krishna...",
+                  "Connecting to Bot...",
                   1000,
-                  "Discussing your issues...",
+                  "Asking question...",
                   1000,
-                  "Finding a solution...",
+                  "Getting reply...",
                   1000,
                 ]}
                 wrapper="span"
@@ -88,22 +89,23 @@ function App() {
               />
             </div>
           ) : (
-            quote.verse && (
-              <Quote verse={quote.verse} explanation={quote.explanation} />
-            )
+            answer && <Quote answer={answer} />
           )}
         </div>
         {showCards && (
           <div className="flex-cols justify-around items-center mx-4">
             <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
-              Krishna only speaks on behalf of Bhagavad Gita.
+              വൈവിധ്യമാർന്ന ചോദ്യങ്ങളിലും സംഭാഷണങ്ങളിലും നിങ്ങളെ സഹായിക്കാൻ
+              കഴിയുന്ന നൂതന ഭാഷാ മോഡലായ ChatGPT യുടെ കഴിവുകൾ അനുഭവിക്കുക.
             </div>
             <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
-              The responses may sometimes produce inaccurate results.
+              ചോദ്യങ്ങൾക്ക് ഉത്തരം നൽകുന്നത് മുതൽ വിവിധ വിഷയങ്ങൾ ചർച്ച
+              ചെയ്യുന്നത് വരെ, വിജ്ഞാനപ്രദവും സഹായകരവുമായ പ്രതികരണങ്ങൾ
+              നൽകുന്നതിനാണ് ഞങ്ങളുടെ AI രൂപകൽപ്പന ചെയ്തിരിക്കുന്നത്.
             </div>
             <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
-              All your conversations with Krishna are anonymous and safe.
-              Nothing is being recorded.
+              നിങ്ങളുടെ സന്ദേശം ഇംഗ്ലീഷിൽ ടൈപ്പുചെയ്യാൻ ആരംഭിക്കുക, നമുക്ക്
+              ഒരുമിച്ച് പര്യവേക്ഷണം ചെയ്യാം!
             </div>
           </div>
         )}
@@ -113,7 +115,7 @@ function App() {
           <div className="relative flex-grow">
             <input
               type="text"
-              placeholder="Your life issues"
+              placeholder="Ask in english"
               className="w-full p-3 bg-gray-900 border border-gray-700 rounded-xl text-white outline-none shadow-md"
               value={issue}
               onChange={handleChange}
