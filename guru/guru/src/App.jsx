@@ -207,10 +207,12 @@ import {
   MessageInput,
   Avatar,
   TypingIndicator,
+  MessageSeparator,
 } from "@chatscope/chat-ui-kit-react";
 import { translateText } from "./TranslationService";
+import joeIco from "./icon.png";
 
-const joeIco = "icon.png"; // Replace with your bot's avatar
+//const joeIco = "icon.png"; // Replace with your bot's avatar
 
 function App() {
   const [question, setQuestion] = useState("");
@@ -277,10 +279,11 @@ function App() {
       <MainContainer>
         <ChatContainer>
           <MessageList>
+            <MessageSeparator content="Monday, 23 December 2019" as="h1" />
             {messages.map((message, index) => (
-              <Message key={index} model={message}>
+              <Message key={index} model={message} avatarPosition="tl">
                 {message.sender === "Bot" && (
-                  <Avatar src={joeIco} name={"Bot"} />
+                  <Avatar src={joeIco} name={"Bot"} size="sm" />
                 )}
                 {index === messages.length - 1 && typingIndicator && (
                   <TypingIndicator content="Bot is typing" />
@@ -289,8 +292,10 @@ function App() {
             ))}
           </MessageList>
           <MessageInput
+            autoFocus
             placeholder="Type message here"
-            value={question}
+            attachButton={false}
+            //value={question}
             onChange={setQuestion}
             onSend={handleSubmit}
           />
