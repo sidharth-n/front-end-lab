@@ -3,6 +3,7 @@ import SendIcon from "./SendIcon";
 import CloseIcon from "./CloseIcon";
 import { TypeAnimation } from "react-type-animation";
 import TextToSpeech from "././components/TextToSpeech";
+import { BackgroundAnimation } from "././components/3dCanvas";
 
 function App() {
   const [question, setQuestion] = useState("");
@@ -88,6 +89,7 @@ function App() {
             audioResponse && <TextToSpeech text={audioResponse} />
           )}
         </div>
+        <BackgroundAnimation />
       </main>
       <footer className="fixed bottom-0 w-full p-4">
         <form onSubmit={handleSubmit} className="flex items-center">
