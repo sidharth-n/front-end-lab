@@ -18,7 +18,7 @@ import { useRef, useEffect } from "react";
 function BackgroundAnimation({ animationName }) {
   const model = useGLTF("./mice.gltf");
   model.scene.scale.set(0.06, 0.06, 0.06);
-  model.scene.position.set(-0.5, 1.8, -6);
+  model.scene.position.set(0, 0, -6);
   model.scene.rotation.set(0, 0, 0);
   const animations = useAnimations(model.animations, model.scene);
   console.log(animations);

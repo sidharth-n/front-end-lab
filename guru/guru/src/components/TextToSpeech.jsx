@@ -69,6 +69,7 @@ function TextToSpeech({ text, onAudioEnd, onAudioStart }) {
     <div className="Audio">
       {audioSrc && (
         <audio
+          className="hidden"
           src={audioSrc}
           controls
           autoPlay

@@ -15,8 +15,10 @@ function App() {
   const [audioResponse, setAudioResponse] = useState("");
   const [animationName, setAnimationName] = useState("Freeze");
   const idleAnimations = ["Idle02"];
-  const talkAnimations = ["Talk04" /* "Talk02", "Talk03", "Talk04" */];
+  const talkAnimations = ["Talk04"];
+  const thinkAnimations = ["Think01"]; /* "Talk02", "Talk03", "Talk04" */
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isThinking, setIsThinking] = useState(false);
 
   function getRandomAnimation(animationList) {
     const randomIndex = Math.floor(Math.random() * animationList.length);
@@ -24,10 +26,14 @@ function App() {
   }
 
   useEffect(() => {
-    if (!isPlaying) {
+    if (isThinking) {
+      setAnimationName("Think01");
+    } else if (isPlaying) {
+      setAnimationName(getRandomAnimation(talkAnimations));
+    } else {
       setAnimationName(getRandomAnimation(idleAnimations));
     }
-  }, [isPlaying]);
+  }, [isPlaying, isThinking]);
 
   const handleChange = (event) => {
     setQuestion(event.target.value);
@@ -37,7 +43,7 @@ function App() {
     event.preventDefault();
     setIsLoading(true);
     setShowCards(false);
-
+    setIsThinking(true);
     const prompt = question;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -60,8 +66,6 @@ function App() {
 
     setIsLoading(false);
     setAudioResponse(result);
-    setAnimationName(getRandomAnimation(talkAnimations));
-    setIsPlaying(true);
   };
 
   const handleClear = () => {
@@ -90,12 +94,12 @@ function App() {
             <div className="text-center">
               <TypeAnimation
                 sequence={[
-                  "Connecting to GPT",
-                  1000,
-                  "Finding answers",
-                  1000,
-                  "please ",
-                  1000,
+                  "Thank you...",
+                  500,
+                  "You made him happy..",
+                  500,
+                  "he will talk to you now.. ",
+                  500,
                 ]}
                 wrapper="span"
                 cursor={true}
@@ -107,6 +111,10 @@ function App() {
             audioResponse && (
               <TextToSpeech
                 text={audioResponse}
+                onAudioStart={() => {
+                  setIsPlaying(true);
+                  setIsThinking(false);
+                }}
                 onAudioEnd={() => setIsPlaying(false)}
               />
             )
