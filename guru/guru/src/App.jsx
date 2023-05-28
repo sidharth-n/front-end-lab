@@ -16,11 +16,19 @@ import joeIco from "./icon.png";
 function App() {
   const [question, setQuestion] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [messages, setMessages] = useState(
-    JSON.parse(localStorage.getItem("chatHistory")) || []
-  );
+  const [messages, setMessages] = useState([]);
   const [typingIndicator, setTypingIndicator] = useState(false);
 
+  // Load initial messages from local storage
+  useEffect(() => {
+    const storedMessages = localStorage.getItem("chatHistory");
+    if (storedMessages) {
+      console.log("Loading chat history" + storedMessages);
+      setMessages(JSON.parse(storedMessages));
+    }
+  }, []);
+
+  // Update local storage whenever messages change
   useEffect(() => {
     localStorage.setItem("chatHistory", JSON.stringify(messages));
   }, [messages]);
@@ -96,12 +104,10 @@ function App() {
                 {message.sender === "Bot" && (
                   <Avatar src={joeIco} name={"Bot"} size="sm" />
                 )}
-                <MessageSeparator content="Monday, 23 December 2019" as="h1" />
               </Message>
             ))}
             {typingIndicator && (
               <Message
-                typingIndicator={<TypingIndicator content="Emily is typing" />}
                 model={{
                   message: `ഒന്ന് ആലോയിക്കട്ടെ... വെയ്റ്റ് ...`,
                   sender: "Bot",
