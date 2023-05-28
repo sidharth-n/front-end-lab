@@ -61,7 +61,7 @@ function App() {
     setIsLoading(true);
     setShowCards(false);
     setIsThinking(true);
-    const prompt = question;
+    const prompt = `Pretend that you are a lazy mice named micky. you are lazy but if someone asks you a question you become happy to answer them. keep this profile and answer the question "${question}"`;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
