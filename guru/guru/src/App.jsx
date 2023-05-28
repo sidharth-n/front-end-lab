@@ -14,10 +14,9 @@ function App() {
   const quoteContainerRef = useRef(null);
   const [audioResponse, setAudioResponse] = useState("");
   const [animationName, setAnimationName] = useState("Freeze");
-  const idleAnimations = ["Idle01", "Idle02", "Idle03"];
-  const talkAnimations = ["Talk01", "Talk02", "Talk03", "Talk04"];
+  const idleAnimations = ["Idle02"];
+  const talkAnimations = ["Talk04" /* "Talk02", "Talk03", "Talk04" */];
   const [isPlaying, setIsPlaying] = useState(false);
-  const [intervalId, setIntervalId] = useState(null);
 
   function getRandomAnimation(animationList) {
     const randomIndex = Math.floor(Math.random() * animationList.length);
@@ -26,16 +25,7 @@ function App() {
 
   useEffect(() => {
     if (!isPlaying) {
-      if (intervalId) {
-        clearInterval(intervalId);
-      }
-
-      // Start a new interval to continuously change the animation
-      const newIntervalId = setInterval(() => {
-        setAnimationName(getRandomAnimation(idleAnimations));
-      }, 1000); // Change this value to adjust the frequency of animation changes
-
-      setIntervalId(newIntervalId);
+      setAnimationName(getRandomAnimation(idleAnimations));
     }
   }, [isPlaying]);
 
@@ -47,9 +37,7 @@ function App() {
     event.preventDefault();
     setIsLoading(true);
     setShowCards(false);
-    if (intervalId) {
-      clearInterval(intervalId);
-    }
+
     const prompt = question;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -72,11 +60,7 @@ function App() {
 
     setIsLoading(false);
     setAudioResponse(result);
-    const newIntervalId = setInterval(() => {
-      setAnimationName(getRandomAnimation(talkAnimations));
-    }, 1000); // Change this value to adjust the frequency of animation changes
-
-    setIntervalId(newIntervalId);
+    setAnimationName(getRandomAnimation(talkAnimations));
     setIsPlaying(true);
   };
 
@@ -123,7 +107,6 @@ function App() {
             audioResponse && (
               <TextToSpeech
                 text={audioResponse}
-                onAudioStart={() => setIsPlaying(true)}
                 onAudioEnd={() => setIsPlaying(false)}
               />
             )
