@@ -1,68 +1,27 @@
-import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
-import { useState, useEffect } from "react";
-import {
-  MainContainer,
-  ChatContainer,
-  MessageList,
-  Message,
-  MessageInput,
-  Avatar,
-  TypingIndicator,
-  MessageSeparator,
-} from "@chatscope/chat-ui-kit-react";
-import { translateText } from "./TranslationService";
-import joeIco from "./icon.png";
-import TextToSpeech from "./TextToSpeech"; // Import the TextToSpeech component
+import { useState, useEffect, useRef } from "react";
+import SendIcon from "./SendIcon";
+import CloseIcon from "./CloseIcon";
+import { TypeAnimation } from "react-type-animation";
+import TextToSpeech from "./TextToSpeech";
 
 function App() {
   const [question, setQuestion] = useState("");
+  const [quote, setQuote] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [messages, setMessages] = useState([]);
-  const [typingIndicator, setTypingIndicator] = useState(false);
-  const [audioResponse, setAudioResponse] = useState(null); // Add state for audio response
+  const [showCards, setShowCards] = useState(true);
+  const quoteContainerRef = useRef(null);
+  const [audioResponse, setAudioResponse] = useState("");
 
-  // Load initial messages from local storage
-  useEffect(() => {
-    const storedMessages = localStorage.getItem("chatHistory");
-    if (storedMessages) {
-      console.log("Loading chat history" + storedMessages);
-      setMessages(JSON.parse(storedMessages));
-    }
-  }, []);
-
-  // Update local storage whenever messages change
-  useEffect(() => {
-    localStorage.setItem("chatHistory", JSON.stringify(messages));
-  }, [messages]);
+  const handleChange = (event) => {
+    setQuestion(event.target.value);
+  };
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
     setIsLoading(true);
-    // Add user's question to the chat
-    const newMessages = [
-      ...messages,
-      {
-        message: question,
-        sender: "me",
-        direction: "outgoing",
-        sentTime: "just now",
-        position: "single",
-      },
-    ];
-    setMessages(newMessages);
+    setShowCards(false);
 
-    // Translate the question to English before sending it to GPT-3
-    const translatedQuestion = await translateText(question, "en");
-
-    const prompt = `${translatedQuestion}`;
-
-    // Add typing message from bot
-    setTypingIndicator(true);
-
-    // Create conversation history for context
-    const conversationHistory = messages.slice(-6).map((message) => ({
-      role: message.sender === "me" ? "user" : "assistant",
-      content: message.message,
-    }));
+    const prompt = question;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -72,68 +31,106 @@ function App() {
       },
       body: JSON.stringify({
         model: "gpt-3.5-turbo",
-        messages: [...conversationHistory, { role: "user", content: prompt }],
+        messages: [{ role: "user", content: prompt }],
         temperature: 0.7,
       }),
     });
 
     const data = await response.json();
+
     const result = data.choices[0].message.content;
     console.log(result);
-    const answer_from_gpt = await translateText(result, "ml");
 
-    // Replace bot's last message (Typing...) with the actual answer
-    newMessages.push({
-      message: answer_from_gpt,
-      sender: "Bot",
-      direction: "incoming",
-      sentTime: "just now",
-      position: "single",
-    });
-    setMessages(newMessages);
     setIsLoading(false);
-    setTypingIndicator(false);
-    setAudioResponse(answer_from_gpt); // Set the audio response
+    setAudioResponse(result);
   };
 
+  const handleClear = () => {
+    setQuestion("");
+  };
+
+  useEffect(() => {
+    // Disable body scrolling on mobile
+    document.body.style.overflow = "hidden";
+
+    // Re-enable body scrolling when component is unmounted
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
   return (
-    <div style={{ height: "90vh" }}>
-      <MainContainer>
-        <ChatContainer>
-          <MessageList>
-            <MessageSeparator content="Monday, 25 May 2023" as="h1" />
-            {messages.map((message, index) => (
-              <Message key={index} model={message} avatarPosition="tl">
-                {message.sender === "Bot" && (
-                  <Avatar src={joeIco} name={"Bot"} size="sm" />
-                )}
-              </Message>
-            ))}
-            {typingIndicator && (
-              <Message
-                model={{
-                  message: `ഒന്ന് ആലോയിക്കട്ടെ... വെയ്റ്റ് ...`,
-                  sender: "Bot",
-                  direction: "incoming",
-                  position: "single",
-                }}
+    <div className="flex flex-col h-screen bg-black text-white font-sans">
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+      />
+      <main className="flex-1 overflow-auto p-4 mt-2 mb-24">
+        <div className="quote-container flex justify-center items-center">
+          {isLoading ? (
+            <div className="text-center">
+              <TypeAnimation
+                sequence={[
+                  "Connecting to GPT",
+                  1000,
+                  "Finding answers",
+                  1000,
+                  "please wait...",
+                  1000,
+                ]}
+                wrapper="span"
+                cursor={true}
+                repeat={Infinity}
+                style={{ fontSize: "1em", display: "inline-block" }}
+              />
+            </div>
+          ) : (
+            audioResponse && <TextToSpeech text={audioResponse} />
+          )}
+        </div>
+        {showCards && (
+          <div className="flex-cols justify-around items-center mx-4">
+            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
+              Connecting to GPT
+            </div>
+            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
+              Finding answers
+            </div>
+            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
+              Converting to Speech
+            </div>
+          </div>
+        )}
+      </main>
+      <footer className="fixed bottom-0 w-full p-4">
+        <form onSubmit={handleSubmit} className="flex items-center">
+          <div className="relative flex-grow">
+            <input
+              type="text"
+              placeholder="Type your question.."
+              className="w-full p-3 bg-gray-900 border border-gray-700 rounded-xl text-white outline-none shadow-md"
+              value={question}
+              onChange={handleChange}
+              autoFocus
+            />
+            {question && (
+              <button
+                type="button"
+                className="absolute top-1 right-2 text-gray-500"
+                onClick={handleClear}
               >
-                <Avatar src={joeIco} name={"Bot"} size="sm" />
-                <TypingIndicator content="Bot is typing" />
-              </Message>
+                <CloseIcon />
+              </button>
             )}
-          </MessageList>
-          <MessageInput
-            autoFocus
-            placeholder="Type message here"
-            attachButton={false}
-            onChange={setQuestion}
-            onSend={handleSubmit}
-          />
-        </ChatContainer>
-      </MainContainer>
-      {audioResponse && <TextToSpeech text={audioResponse} />}{" "}
-      {/* Add TextToSpeech component */}
+          </div>
+          <button
+            type="submit"
+            className="ml-4 bg-gray-900 text-white p-3 rounded-full shadow-md"
+          >
+            <SendIcon />
+          </button>
+        </form>
+      </footer>
     </div>
   );
 }
