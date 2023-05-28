@@ -1,5 +1,5 @@
-/* // App.jsx
-import React, { useEffect, useState } from "react";
+import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import { useState, useEffect } from "react";
 import {
   MainContainer,
   ChatContainer,
@@ -10,16 +10,18 @@ import {
   TypingIndicator,
   MessageSeparator,
 } from "@chatscope/chat-ui-kit-react";
-import TextToSpeech from "./TextToSpeech";
 import { translateText } from "./TranslationService";
 import joeIco from "./icon.png";
+import TextToSpeech from "./TextToSpeech"; // Import the TextToSpeech component
 
 function App() {
   const [question, setQuestion] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [messages, setMessages] = useState([]);
   const [typingIndicator, setTypingIndicator] = useState(false);
+  const [audioResponse, setAudioResponse] = useState(null); // Add state for audio response
 
+  // Load initial messages from local storage
   useEffect(() => {
     const storedMessages = localStorage.getItem("chatHistory");
     if (storedMessages) {
@@ -28,12 +30,14 @@ function App() {
     }
   }, []);
 
+  // Update local storage whenever messages change
   useEffect(() => {
     localStorage.setItem("chatHistory", JSON.stringify(messages));
   }, [messages]);
 
   const handleSubmit = async (event) => {
     setIsLoading(true);
+    // Add user's question to the chat
     const newMessages = [
       ...messages,
       {
@@ -46,11 +50,15 @@ function App() {
     ];
     setMessages(newMessages);
 
+    // Translate the question to English before sending it to GPT-3
     const translatedQuestion = await translateText(question, "en");
+
     const prompt = `${translatedQuestion}`;
 
+    // Add typing message from bot
     setTypingIndicator(true);
 
+    // Create conversation history for context
     const conversationHistory = messages.slice(-6).map((message) => ({
       role: message.sender === "me" ? "user" : "assistant",
       content: message.message,
@@ -72,10 +80,11 @@ function App() {
     const data = await response.json();
     const result = data.choices[0].message.content;
     console.log(result);
-    const answer_from_gpt = result;
+    const answer_from_gpt = await translateText(result, "ml");
 
+    // Replace bot's last message (Typing...) with the actual answer
     newMessages.push({
-      message: <TextToSpeech text={answer_from_gpt} />,
+      message: answer_from_gpt,
       sender: "Bot",
       direction: "incoming",
       sentTime: "just now",
@@ -84,6 +93,7 @@ function App() {
     setMessages(newMessages);
     setIsLoading(false);
     setTypingIndicator(false);
+    setAudioResponse(answer_from_gpt); // Set the audio response
   };
 
   return (
@@ -105,32 +115,34 @@ function App() {
                   message: `ഒന്ന് ആലോയിക്കട്ടെ... വെയ്റ്റ് ...`,
                   sender: "Bot",
                   direction: "incoming",
-                  sentTime: "just now",
                   position: "single",
                 }}
-                avatarPosition="tl"
               >
                 <Avatar src={joeIco} name={"Bot"} size="sm" />
-                <TypingIndicator size="sm" />
+                <TypingIndicator content="Bot is typing" />
               </Message>
             )}
           </MessageList>
           <MessageInput
-            placeholder="നിങ്ങളുടെ ചോദ്യം ഇവിടെ ചേർക്കുക"
-            onChange={(val) => setQuestion(val)}
-            onSend={() => handleSubmit(question)}
-            loading={isLoading}
+            autoFocus
+            placeholder="Type message here"
+            attachButton={false}
+            onChange={setQuestion}
+            onSend={handleSubmit}
           />
         </ChatContainer>
       </MainContainer>
+      {audioResponse && <TextToSpeech text={audioResponse} />}{" "}
+      {/* Add TextToSpeech component */}
     </div>
   );
 }
 
-export default App; */
+export default App;
+
 // App.jsx
 // App.jsx
-import React, { useState } from "react";
+/* import React, { useState } from "react";
 import TextToSpeech from "./TextToSpeech";
 
 const App = () => {
@@ -159,4 +171,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default App; */
