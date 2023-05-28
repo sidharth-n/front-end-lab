@@ -5,6 +5,23 @@ import { TypeAnimation } from "react-type-animation";
 import TextToSpeech from "././components/TextToSpeech";
 import { BackgroundAnimation } from "././components/3dCanvas";
 import { Canvas } from "react-three-fiber";
+import { Suspense } from "react";
+import { Html, useProgress } from "@react-three/drei";
+
+function Loader() {
+  const { progress } = useProgress();
+  return (
+    <Html center>
+      <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-12 w-12 mb-2"></div>
+      <h2 class="text-center text-white text-l font-semibold">
+        {progress} % loading...
+      </h2>
+      {/*    <p class="w-1/3 mx-auto text-white text-sm text-center">
+        Please wait while we load the assets.
+      </p> */}
+    </Html>
+  );
+}
 
 function App() {
   const [question, setQuestion] = useState("");
@@ -121,7 +138,9 @@ function App() {
           )}
         </div>
         <Canvas>
-          <BackgroundAnimation animationName={animationName} />
+          <Suspense fallback={<Loader />}>
+            <BackgroundAnimation animationName={animationName} />
+          </Suspense>
         </Canvas>
       </main>
       <footer className="fixed bottom-0 w-full p-4">
