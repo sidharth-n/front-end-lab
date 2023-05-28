@@ -16,7 +16,7 @@ function TextToSpeech({ text, onAudioEnd, onAudioStart }) {
 
     const ssml = `
       <speak version='1.0' xml:lang='en-US'>
-        <voice xml:lang='en-US' xml:gender='Male' name='en-US-AnaNeural'>
+        <voice xml:lang='en-US' xml:gender='Male' name='ml-IN-SobhanaNeural'>
           ${text}
         </voice>
       </speak>

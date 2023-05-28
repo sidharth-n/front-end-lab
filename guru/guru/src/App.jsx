@@ -7,6 +7,7 @@ import { BackgroundAnimation } from "././components/3dCanvas";
 import { Canvas } from "react-three-fiber";
 import { Suspense } from "react";
 import { Html, useProgress } from "@react-three/drei";
+import { translateText } from "././components/TranslationService";
 
 function Loader() {
   const { progress } = useProgress();
@@ -61,7 +62,9 @@ function App() {
     setIsLoading(true);
     setShowCards(false);
     setIsThinking(true);
-    const prompt = `Pretend that you are a lazy mice named micky. you are lazy but if someone asks you a question you become happy to answer them. keep this profile and answer the question "${question}"`;
+    const translatedQuestion = await translateText(question, "en");
+
+    const prompt = `Pretend that you are an AI lazy mice named micky. you are lazy but if someone asks you a question you become happy to answer them.YOu need not say about you every time unless asked.also you have been created by a AI expert named sidharth from kerala. keep this profile and answer the questions "${translatedQuestion}"`;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -80,9 +83,9 @@ function App() {
 
     const result = data.choices[0].message.content;
     console.log(result);
-
+    const answer_from_gpt = await translateText(result, "ml");
     setIsLoading(false);
-    setAudioResponse(result);
+    setAudioResponse(answer_from_gpt);
   };
 
   const handleClear = () => {
