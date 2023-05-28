@@ -105,7 +105,7 @@ function App() {
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
       />
-      <main className="flex-1 overflow-auto p-4 mt-2 mb-24">
+      <main className="flex-1 overflow-auto p-0 mt-2 mb-24">
         <div className="quote-container flex justify-center items-center">
           {isLoading ? (
             <div className="text-center">
@@ -137,7 +137,7 @@ function App() {
             )
           )}
         </div>
-        <Canvas>
+        <Canvas className="w-full h-full bg-gray-1000">
           <Suspense fallback={<Loader />}>
             <BackgroundAnimation animationName={animationName} />
           </Suspense>
