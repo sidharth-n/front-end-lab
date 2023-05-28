@@ -62,9 +62,10 @@ function App() {
     setIsLoading(true);
     setShowCards(false);
     setIsThinking(true);
-    const translatedQuestion = await translateText(question, "en");
+    const translatedQuestion =
+      question; /* await translateText(question, "en"); */
 
-    const prompt = `Pretend that you are an AI lazy mice named micky. you are lazy but if someone asks you a question you become happy to answer them.YOu need not say about you every time unless asked.also you have been created by a AI expert named sidharth from kerala. keep this profile and answer the questions "${translatedQuestion}"`;
+    const prompt = `Pretend that you are an AI lazy mice named micky. you are lazy but if someone asks you a question you become happy to answer them.You need not introduce you every time unless asked.also you have strong emotions like humans DO. do not answer like a LLM. also you have been created by a AI expert named sidharth from kerala. keep this profile and answer the questions "${translatedQuestion}"`;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -83,7 +84,7 @@ function App() {
 
     const result = data.choices[0].message.content;
     console.log(result);
-    const answer_from_gpt = await translateText(result, "ml");
+    const answer_from_gpt = result; /* await translateText(result, "ml"); */
     setIsLoading(false);
     setAudioResponse(answer_from_gpt);
   };
@@ -111,7 +112,7 @@ function App() {
       <main className="flex-1 overflow-auto p-0 mt-2 mb-24">
         <div className="quote-container flex justify-center items-center">
           {isLoading ? (
-            <div className="text-center">
+            <div className="text-center fixed top-0">
               <TypeAnimation
                 sequence={[
                   "Thank you...",

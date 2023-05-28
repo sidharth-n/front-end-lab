@@ -16,12 +16,12 @@ function TextToSpeech({ text, onAudioEnd, onAudioStart }) {
 
     const ssml = `
       <speak version='1.0' xml:lang='en-US'>
-        <voice xml:lang='en-US' xml:gender='Male' name='ml-IN-SobhanaNeural'>
+        <voice xml:lang='en-US' xml:gender='Male' name=' en-US-AnaNeural'> 
           ${text}
         </voice>
       </speak>
     `;
-
+    //ml-IN-SobhanaNeural
     const response = await fetch(
       "https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1",
       {
