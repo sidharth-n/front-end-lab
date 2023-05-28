@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function TextToSpeech({ text }) {
+function TextToSpeech({ text, onAudioEnd, onAudioStart }) {
   // Don't forget to destructure the 'text' prop here.
   const [audioSrc, setAudioSrc] = useState(null);
   useEffect(() => {
@@ -67,7 +67,15 @@ function TextToSpeech({ text }) {
 
   return (
     <div className="Audio">
-      {audioSrc && <audio src={audioSrc} controls autoPlay />}
+      {audioSrc && (
+        <audio
+          src={audioSrc}
+          controls
+          autoPlay
+          onEnded={onAudioEnd}
+          onPlay={onAudioStart}
+        />
+      )}
     </div>
   );
 }
