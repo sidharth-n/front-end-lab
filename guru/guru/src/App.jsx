@@ -4,6 +4,7 @@ import CloseIcon from "./CloseIcon";
 import { TypeAnimation } from "react-type-animation";
 import TextToSpeech from "././components/TextToSpeech";
 import { BackgroundAnimation } from "././components/3dCanvas";
+import { Canvas } from "react-three-fiber";
 
 function App() {
   const [question, setQuestion] = useState("");
@@ -12,6 +13,7 @@ function App() {
   const [showCards, setShowCards] = useState(true);
   const quoteContainerRef = useRef(null);
   const [audioResponse, setAudioResponse] = useState("");
+  const [animationName, setAnimationName] = useState("Freeze");
 
   const handleChange = (event) => {
     setQuestion(event.target.value);
@@ -44,6 +46,7 @@ function App() {
 
     setIsLoading(false);
     setAudioResponse(result);
+    setAnimationName("Twerk");
   };
 
   const handleClear = () => {
@@ -89,7 +92,9 @@ function App() {
             audioResponse && <TextToSpeech text={audioResponse} />
           )}
         </div>
-        <BackgroundAnimation />
+        <Canvas>
+          <BackgroundAnimation animationName={animationName} />
+        </Canvas>
       </main>
       <footer className="fixed bottom-0 w-full p-4">
         <form onSubmit={handleSubmit} className="flex items-center">

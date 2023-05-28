@@ -13,14 +13,13 @@ import {
   Clone,
   useAnimations,
 } from "@react-three/drei";
+import { useRef, useEffect } from "react";
 
 function BackgroundAnimation({ animationName }) {
   const model = useGLTF("./dancingGirl2.gltf");
   model.scene.scale.set(0.04, 0.04, 0.04);
-  model.scene.position.set(0, 1, 0);
-
+  model.scene.position.set(0, 1, -5);
   const animations = useAnimations(model.animations, model.scene);
-
   useEffect(() => {
     const action = animations.actions[animationName];
     action.reset().fadeIn(0.5).play();
@@ -32,12 +31,12 @@ function BackgroundAnimation({ animationName }) {
   }, [animationName]);
 
   return (
-    <Canvas>
+    <>
       <ambientLight />
       <pointLight position={[10, 10, 10]} intensity={3} />
       <primitive object={model.scene} receiveShadow />
       <OrbitControls makeDefault />
-    </Canvas>
+    </>
   );
 }
 
