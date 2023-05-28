@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import SendIcon from "./SendIcon";
 import CloseIcon from "./CloseIcon";
 import { TypeAnimation } from "react-type-animation";
-import TextToSpeech from "./TextToSpeech";
+import TextToSpeech from "././components/TextToSpeech";
 
 function App() {
   const [question, setQuestion] = useState("");
@@ -75,7 +75,7 @@ function App() {
                   1000,
                   "Finding answers",
                   1000,
-                  "please wait...",
+                  "please ",
                   1000,
                 ]}
                 wrapper="span"
@@ -88,19 +88,6 @@ function App() {
             audioResponse && <TextToSpeech text={audioResponse} />
           )}
         </div>
-        {showCards && (
-          <div className="flex-cols justify-around items-center mx-4">
-            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
-              Connecting to GPT
-            </div>
-            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
-              Finding answers
-            </div>
-            <div className="card mb-4 bg-gray-800 shadow-lg p-4 rounded">
-              Converting to Speech
-            </div>
-          </div>
-        )}
       </main>
       <footer className="fixed bottom-0 w-full p-4">
         <form onSubmit={handleSubmit} className="flex items-center">
