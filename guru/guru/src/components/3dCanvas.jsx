@@ -16,7 +16,7 @@ import {
 import { useRef, useEffect } from "react";
 
 function BackgroundAnimation({ animationName }) {
-  const model = useGLTF("./mice.gltf");
+  const model = useGLTF("./mice2.gltf");
   model.scene.scale.set(0.06, 0.06, 0.06);
   model.scene.position.set(0, 0, -6);
   model.scene.rotation.set(0, 0, 0);
@@ -24,7 +24,7 @@ function BackgroundAnimation({ animationName }) {
   console.log(animations);
   useEffect(() => {
     const action = animations.actions[animationName];
-    action.reset().fadeIn(2).play();
+    action.reset().fadeIn(0.5).play();
     /* const music = new Audio(bgm);
     music.play(); */
     return () => {
