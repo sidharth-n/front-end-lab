@@ -8,15 +8,6 @@ import { Canvas } from "react-three-fiber";
 import { Suspense } from "react";
 import { Html, useProgress } from "@react-three/drei";
 import { translateText } from "././components/TranslationService";
-import Dexie from "dexie";
-
-// Create a new database
-const db = new Dexie("ConversationDB");
-
-// Define the schema
-db.version(1).stores({
-  messages: "++id, question, answer",
-});
 
 function Loader() {
   const { progress } = useProgress();
@@ -47,6 +38,14 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isThinking, setIsThinking] = useState(false);
 
+  const [messages, setMessages] = useState(
+    JSON.parse(localStorage.getItem("chatHistory")) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem("chatHistory", JSON.stringify(messages));
+  }, [messages]);
+
   function getRandomAnimation(animationList) {
     const randomIndex = Math.floor(Math.random() * animationList.length);
     return animationList[randomIndex];
@@ -71,18 +70,25 @@ function App() {
     setIsLoading(true);
     setShowCards(false);
     setIsThinking(true);
-    const translatedQuestion = question;
+    const translatedQuestion =
+      question; /* await translateText(question, "en"); */
 
-    // Get the last three question-answer pairs from the database
-    const history = await db.messages
-      .orderBy("id")
-      .reverse()
-      .limit(3)
-      .toArray();
+    const newMessages = [
+      ...messages,
+      {
+        message: question,
+        sender: "user",
+        role: "user",
+      },
+    ];
+    setMessages(newMessages);
 
-    const prompt = `Previously:\n${history
-      .map(({ question, answer }) => `Q: ${question}\nA: ${answer}`)
-      .join("\n")}\n\nNow, ${translatedQuestion}`;
+    const prompt = `Pretend that you are an AI lazy mice named micky. you are lazy but if someone asks you a question you become happy to answer them.You need not introduce you every time unless asked.also you have strong emotions like humans DO. do not answer like a LLM. also you have been created by a AI expert named sidharth from kerala. keep this profile and answer the questions "${translatedQuestion}"`;
+
+    const conversationHistory = newMessages.slice(-10).map((message) => ({
+      role: message.role,
+      content: message.message,
+    }));
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -92,19 +98,18 @@ function App() {
       },
       body: JSON.stringify({
         model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: prompt }],
+        messages: conversationHistory,
         temperature: 0.7,
       }),
     });
 
     const data = await response.json();
+
     const result = data.choices[0].message.content;
-
-    // Save the new question and answer to the database
-    await db.messages.put({ question: question, answer: result });
-
+    console.log(result);
+    const answer_from_gpt = result; /* await translateText(result, "ml"); */
     setIsLoading(false);
-    setAudioResponse(result);
+    setAudioResponse(answer_from_gpt);
   };
 
   const handleClear = () => {
