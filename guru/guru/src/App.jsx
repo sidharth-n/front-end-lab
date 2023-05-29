@@ -15,7 +15,7 @@ function Loader() {
     <Html center>
       <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-12 w-12 mb-2"></div>
       <h2 class="text-center text-white text-l font-semibold">
-        {progress} % loading...
+        {progress.toFixed(0)} % loading...
       </h2>
       {/*    <p class="w-1/3 mx-auto text-white text-sm text-center">
         Please wait while we load the assets.
