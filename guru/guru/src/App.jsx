@@ -8,6 +8,15 @@ import { Canvas } from "react-three-fiber";
 import { Suspense } from "react";
 import { Html, useProgress } from "@react-three/drei";
 import { translateText } from "././components/TranslationService";
+import Dexie from "dexie";
+
+// Create a new database
+const db = new Dexie("ConversationDB");
+
+// Define the schema
+db.version(1).stores({
+  messages: "++id, question, answer",
+});
 
 function Loader() {
   const { progress } = useProgress();
@@ -62,10 +71,18 @@ function App() {
     setIsLoading(true);
     setShowCards(false);
     setIsThinking(true);
-    const translatedQuestion =
-      question; /* await translateText(question, "en"); */
+    const translatedQuestion = question;
 
-    const prompt = `Pretend that you are an AI lazy mice named micky. you are lazy but if someone asks you a question you become happy to answer them.You need not introduce you every time unless asked.also you have strong emotions like humans DO. do not answer like a LLM. also you have been created by a AI expert named sidharth from kerala. keep this profile and answer the questions "${translatedQuestion}"`;
+    // Get the last three question-answer pairs from the database
+    const history = await db.messages
+      .orderBy("id")
+      .reverse()
+      .limit(3)
+      .toArray();
+
+    const prompt = `Previously:\n${history
+      .map(({ question, answer }) => `Q: ${question}\nA: ${answer}`)
+      .join("\n")}\n\nNow, ${translatedQuestion}`;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -81,12 +98,13 @@ function App() {
     });
 
     const data = await response.json();
-
     const result = data.choices[0].message.content;
-    console.log(result);
-    const answer_from_gpt = result; /* await translateText(result, "ml"); */
+
+    // Save the new question and answer to the database
+    await db.messages.put({ question: question, answer: result });
+
     setIsLoading(false);
-    setAudioResponse(answer_from_gpt);
+    setAudioResponse(result);
   };
 
   const handleClear = () => {
