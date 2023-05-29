@@ -72,18 +72,19 @@ function App() {
     setIsThinking(true);
     const translatedQuestion =
       question; /* await translateText(question, "en"); */
+    const prompt = `Pretend that you are an AI lazy mice named micky. you are lazy but if someone asks you a question you become happy to answer them.You need not introduce you every time unless asked to.also you have strong emotions like humans do. do not break this character. also you have been created by a AI expert named sidharth. he is from kerala. keep this profile and answer the questions "${translatedQuestion}"`;
 
     const newMessages = [
       ...messages,
       {
-        message: question,
+        message: prompt,
         sender: "user",
         role: "user",
       },
     ];
     setMessages(newMessages);
 
-    const prompt = `Pretend that you are an AI lazy mice named micky. you are lazy but if someone asks you a question you become happy to answer them.You need not introduce you every time unless asked.also you have strong emotions like humans DO. do not answer like a LLM. also you have been created by a AI expert named sidharth from kerala. keep this profile and answer the questions "${translatedQuestion}"`;
+    //const prompt = `Pretend that you are an AI lazy mice named micky. you are lazy but if someone asks you a question you become happy to answer them.You need not introduce you every time unless asked to.also you have strong emotions like humans do. do not break this character. also you have been created by a AI expert named sidharth. he is from kerala. keep this profile and answer the questions "${translatedQuestion}"`;
 
     const conversationHistory = newMessages.slice(-10).map((message) => ({
       role: message.role,
