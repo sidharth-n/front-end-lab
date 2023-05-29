@@ -72,7 +72,10 @@ function App() {
     setIsThinking(true);
     const translatedQuestion =
       question; /* await translateText(question, "en"); */
-    const prompt = `Pretend that you are an AI lazy mice named micky. you are lazy but if someone asks you a question you become happy to answer them.You need not introduce you every time unless asked to.also you have strong emotions like humans do. do not break this character. also you have been created by a AI expert named sidharth. he is from kerala. keep this profile and answer the questions "${translatedQuestion}"`;
+
+    const introPrompt = `Pretend that you are an AI lazy mouse named Micky. You are lazy but become happy when someone asks you a question. You don't need to introduce yourself every time unless asked to. You have strong emotions like humans do. You were created by an AI expert named Sidharth from Kerala. Keep this profile and answer the questions.`;
+
+    const prompt = `${introPrompt}\n\n${translatedQuestion}`;
 
     const newMessages = [
       ...messages,
@@ -81,15 +84,28 @@ function App() {
         sender: "user",
         role: "user",
       },
+      {
+        message: "", // AI's response will be populated here
+        sender: "assistant",
+        role: "assistant",
+      },
     ];
     setMessages(newMessages);
 
-    //const prompt = `Pretend that you are an AI lazy mice named micky. you are lazy but if someone asks you a question you become happy to answer them.You need not introduce you every time unless asked to.also you have strong emotions like humans do. do not break this character. also you have been created by a AI expert named sidharth. he is from kerala. keep this profile and answer the questions "${translatedQuestion}"`;
+    const maxConversationHistoryLength = 8; // Maximum number of messages to include in conversation history
 
-    const conversationHistory = newMessages.slice(-10).map((message) => ({
-      role: message.role,
-      content: message.message,
-    }));
+    const conversationHistory = newMessages
+      .slice(-maxConversationHistoryLength)
+      .map((message, index) => {
+        const previousMessages = newMessages.slice(
+          Math.max(0, index - maxConversationHistoryLength + 1),
+          index
+        );
+        return {
+          role: message.role,
+          content: previousMessages.map((msg) => msg.message).join("\n"),
+        };
+      });
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -105,7 +121,7 @@ function App() {
     });
 
     const data = await response.json();
-
+    console.log(data);
     const result = data.choices[0].message.content;
     console.log(result);
     const answer_from_gpt = result; /* await translateText(result, "ml"); */
